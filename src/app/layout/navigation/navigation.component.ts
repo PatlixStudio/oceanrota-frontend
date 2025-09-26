@@ -20,7 +20,6 @@ import { RouterOutlet } from '@angular/router';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    AsyncPipe,
     RouterOutlet
   ]
 })
