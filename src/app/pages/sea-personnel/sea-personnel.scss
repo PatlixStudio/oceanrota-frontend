@@ -1,0 +1,76 @@
+.sea-personnel-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem;
+
+  .intro {
+    text-align: center;
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--mat-sys-on-surface-variant, rgba(0,0,0,0.7));
+      margin-top: 0.5rem;
+    }
+  }
+
+  .search {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .search-field {
+      flex: 1 1 200px;
+      min-width: 180px;
+    }
+
+    button {
+      height: 56px;
+    }
+  }
+
+  .jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+
+    .job-card {
+      display: flex;
+      flex-direction: column;
+
+      mat-card-content {
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+        color: var(--mat-sys-on-surface-variant, rgba(0,0,0,0.7));
+      }
+
+      mat-card-actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  .cta-employers {
+    background: var(--mat-sys-primary-container, rgba(0,119,182,0.08));
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+
+    h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      color: var(--mat-sys-on-primary-container, #0b3b4d);
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.marketplace-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+
+  .marketplace-search {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .search-field {
+      flex: 1 1 200px;
+      min-width: 180px;
+    }
+  }
+
+  .marketplace-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+
+    .vessel-card {
+      display: flex;
+      flex-direction: column;
+
+      img {
+        height: 160px;
+        object-fit: cover;
+      }
+
+      mat-card-content {
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+        color: var(--mat-sys-on-surface-variant, rgba(0,0,0,0.7));
+      }
+
+      mat-card-actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}

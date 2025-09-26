@@ -2,13 +2,14 @@
   <span>OceanRota</span>
 
   <div class="menu-row">
-    <button matButton><mat-icon>anchor</mat-icon>Home</button>
-    <button matButton><mat-icon>directions_boat</mat-icon>Market Place</button>
-    <button matButton><mat-icon>person_apron</mat-icon>Sea Personel</button>
+    <button matButton [routerLink]="['/']" ><mat-icon>anchor</mat-icon>Home</button>
+    <button matButton [routerLink]="['/marketplace']" ><mat-icon>directions_boat</mat-icon>Market Place</button>
+    <button matButton [routerLink]="['/sea-personnel']"><mat-icon>person_apron</mat-icon>Sea Personel</button>
   </div>
   <span class="spacer"></span>
-  <button matIconButton aria-label="Login / Register">
+  <button matButton="elevated" aria-label="Login / Register">
     <mat-icon>login</mat-icon>
+    Became a Member
   </button>
 </mat-toolbar>
 <!-- Add Content Here -->
