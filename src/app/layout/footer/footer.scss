@@ -1,0 +1,77 @@
+.oceanrota-footer {
+  background-color: var(--mat-sys-surface-container-high, #f3f4f6);
+  color: var(--mat-sys-on-surface, #1a1a1a);
+  padding: 2rem;
+
+  .footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+
+    .brand {
+      flex: 1 1 250px;
+
+      h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+        line-height: 1.4;
+      }
+    }
+
+    .footer-links, .footer-contact {
+      flex: 1 1 200px;
+
+      h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          margin-bottom: 0.3rem;
+
+          a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+
+            &:hover {
+              color: var(--mat-sys-primary, #0077b6);
+            }
+          }
+        }
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+
+        a mat-icon {
+          font-size: 24px;
+          color: var(--mat-sys-on-surface, #1a1a1a);
+
+          &:hover {
+            color: var(--mat-sys-primary, #0077b6);
+          }
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--mat-sys-on-surface-variant, rgba(0,0,0,0.6));
+  }
+}

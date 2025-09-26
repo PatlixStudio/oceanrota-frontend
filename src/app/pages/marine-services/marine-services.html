@@ -1,0 +1,51 @@
+<div class="marine-services-container">
+  <!-- Intro / Hero -->
+  <section class="intro">
+    <h1>🛟 Marine Services</h1>
+    <p>
+      Find trusted maritime services worldwide — maintenance, logistics, training, charter support, and more.
+      Service providers can list their offerings and connect with vessel owners, crew, and maritime businesses.
+    </p>
+  </section>
+
+  <!-- Search / Filter -->
+  <section class="search">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Service Type</mat-label>
+      <input matInput placeholder="Maintenance, Training, Logistics" [(ngModel)]="filters.type">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Location</mat-label>
+      <input matInput placeholder="Port, City, Country" [(ngModel)]="filters.location">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="searchServices()">Search</button>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="services-grid">
+    <mat-card class="service-card" *ngFor="let service of services">
+      <mat-card-header>
+        <mat-card-title>{{ service.name }}</mat-card-title>
+        <mat-card-subtitle>{{ service.type }} • {{ service.location }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ service.description }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button color="accent">View Details</button>
+        <button mat-flat-button color="primary">Request Service</button>
+      </mat-card-actions>
+    </mat-card>
+  </section>
+
+  <!-- CTA for Providers -->
+  <section class="cta-providers">
+    <h2>Offer Your Marine Services</h2>
+    <p>
+      Join OceanRota as a service provider and reach vessel owners, captains, and maritime businesses worldwide.
+    </p>
+    <button mat-flat-button color="primary" routerLink="/list-service">List Your Service</button>
+  </section>
+</div>
