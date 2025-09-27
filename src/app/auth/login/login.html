@@ -1,0 +1,75 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-subtitle>Access your OceanRota account</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+        <!-- Email -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            type="email"
+            name="email"
+            [(ngModel)]="loginData.email"
+            required
+          />
+          <mat-error *ngIf="loginForm.submitted && !loginData.email">
+            Email is required
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Password -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            [type]="hidePassword ? 'password' : 'text'"
+            name="password"
+            [(ngModel)]="loginData.password"
+            required
+          />
+          <button
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="hidePassword = !hidePassword"
+            [attr.aria-label]="'Hide password'"
+          >
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+          <mat-error *ngIf="loginForm.submitted && !loginData.password">
+            Password is required
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Remember Me -->
+        <mat-checkbox [(ngModel)]="loginData.remember" name="remember">
+          Remember me
+        </mat-checkbox>
+
+        <!-- Actions -->
+        <div class="actions">
+          <button
+            mat-flat-button
+            color="primary"
+            type="submit"
+            [disabled]="loginForm.invalid"
+          >
+            Login
+          </button>
+          <button mat-stroked-button color="accent" routerLink="/register">
+            Register
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+
+    <mat-card-footer>
+      <a routerLink="/forgot-password" class="forgot-password">Forgot password?</a>
+    </mat-card-footer>
+  </mat-card>
+</div>
