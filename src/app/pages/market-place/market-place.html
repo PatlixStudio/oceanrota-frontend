@@ -1,34 +1,45 @@
 <div class="marketplace-container">
-  <!-- Search / Filter -->
-  <section class="marketplace-search">
-    <mat-form-field appearance="outline" class="search-field">
-      <mat-label>Search vessels</mat-label>
-      <input matInput placeholder="Yacht, Cargo, Fishing Boat" [(ngModel)]="filters.keyword" name="keyword">
-    </mat-form-field>
 
-    <mat-form-field appearance="outline" class="search-field">
-      <mat-label>Location</mat-label>
-      <input matInput placeholder="Country / Port" [(ngModel)]="filters.location" name="location">
-    </mat-form-field>
+    <!-- Intro / Hero -->
+    <section class="intro">
+        <h1>⚓ Boat Marketplace</h1>
+        <p>
+            Explore a global marketplace for buying and selling vessels of all kinds — from fishing boats to luxury
+            yachts.
+            Connect with trusted sellers and buyers worldwide, and make your next maritime deal with confidence.
+        </p>
+    </section>
 
-    <button mat-raised-button color="primary" (click)="searchVessels()">Search</button>
-  </section>
+    <!-- Search / Filter -->
+    <section class="marketplace-search">
+        <mat-form-field appearance="outline" class="search-field">
+            <mat-label>Search vessels</mat-label>
+            <input matInput placeholder="Yacht, Cargo, Fishing Boat" [(ngModel)]="filters.keyword" name="keyword">
+        </mat-form-field>
 
-  <!-- Marketplace Grid -->
-  <section class="marketplace-grid">
-    <mat-card class="vessel-card" *ngFor="let vessel of vessels">
-      <img mat-card-image [src]="vessel.image" alt="{{ vessel.name }}" />
-      <mat-card-header>
-        <mat-card-title>{{ vessel.name }}</mat-card-title>
-        <mat-card-subtitle>{{ vessel.type }} • {{ vessel.location }}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <p>{{ vessel.description }}</p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-stroked-button color="accent">View</button>
-        <button mat-flat-button color="primary">Buy / Rent</button>
-      </mat-card-actions>
-    </mat-card>
-  </section>
+        <mat-form-field appearance="outline" class="search-field">
+            <mat-label>Location</mat-label>
+            <input matInput placeholder="Country / Port" [(ngModel)]="filters.location" name="location">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="searchVessels()">Search</button>
+    </section>
+
+    <!-- Marketplace Grid -->
+    <section class="marketplace-grid">
+        <mat-card class="vessel-card" *ngFor="let vessel of vessels">
+            <img mat-card-image [src]="vessel.image" alt="{{ vessel.name }}" />
+            <mat-card-header>
+                <mat-card-title>{{ vessel.name }}</mat-card-title>
+                <mat-card-subtitle>{{ vessel.type }} • {{ vessel.location }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{ vessel.description }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-stroked-button color="accent">View</button>
+                <button mat-flat-button color="primary">Buy / Rent</button>
+            </mat-card-actions>
+        </mat-card>
+    </section>
 </div>

@@ -3,6 +3,21 @@
   flex-direction: column;
   gap: 2rem;
   padding: 2rem;
+  
+  .intro {
+    text-align: center;
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--mat-sys-on-surface-variant, rgba(0,0,0,0.7));
+      margin-top: 0.5rem;
+    }
+  }
 
   .marketplace-search {
     display: flex;
