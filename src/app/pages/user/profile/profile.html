@@ -1,0 +1,30 @@
+<div class="profile-container">
+  <mat-card class="profile-card">
+    <mat-card-header>
+      <mat-card-title>{{ user?.fullName || user?.username }}</mat-card-title>
+      <mat-card-subtitle>@{{ user?.username }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="profile-grid">
+        <!-- Avatar -->
+        <div class="avatar-section">
+          <img
+            class="avatar"
+            [src]="user?.avatarUrl || 'assets/marine_icons/sailor.png'"
+            alt="User Avatar"
+          />
+        </div>
+
+        <!-- Public Info -->
+        <div class="info-section">
+          <p *ngIf="user?.bio"><strong>Bio:</strong> {{ user?.bio }}</p>
+          <p *ngIf="user?.email"><strong>Email:</strong> {{ user?.email }}</p>
+          <p *ngIf="user?.birthday"><strong>Birthday:</strong> {{ user?.birthday | date }}</p>
+          <p *ngIf="user?.role"><strong>Role:</strong> {{ user?.role }}</p>
+          <p *ngIf="user?.fullName"><strong>Full Name:</strong> {{ user?.fullName }}</p>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

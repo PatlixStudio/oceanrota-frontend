@@ -7,6 +7,7 @@ import { LearningCenter } from './pages/learning-center/learning-center';
 import { Login } from './auth/login/login';
 import { Register } from './auth/register/register';
 import { ForgotPassword } from './auth/forgot-password/forgot-password';
+import { Profile } from './pages/user/profile/profile';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -19,6 +20,8 @@ export const routes: Routes = [
     { path: 'marine-services', component: MarineServices},
     { path: 'sea-personnel', component: SeaPersonnel },
     { path: 'learning-center', component: LearningCenter },
+
+    { path: 'user/profile/:username', component: Profile },
 
     { path: '**', redirectTo: '' }
 ];

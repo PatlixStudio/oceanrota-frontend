@@ -23,7 +23,16 @@
       mat-card-subtitle {
         font-size: 0.95rem;
         margin-top: 0.2rem;
-        color: var(--mat-sys-on-surface-variant, rgba(0,0,0,0.6));
+        color: var(--mat-sys-on-surface-variant, rgba(0, 0, 0, 0.6));
+      }
+    }
+
+    .name-fields {
+      display: flex;
+      gap: 16px;
+
+      .half-width {
+        flex: 1;
       }
     }
 

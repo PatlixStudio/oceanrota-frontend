@@ -1,10 +1,14 @@
+import { Component, inject } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -12,34 +16,54 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     MatInputModule,
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    RouterModule
+    MatCheckboxModule,
+    RouterModule,
   ],
   templateUrl: './register.html',
-  styleUrl: './register.scss'
+  styleUrl: './register.scss',
 })
 export class Register {
+  private fb = inject(FormBuilder);
+  private authService = inject(AuthService);
+  private router = inject(Router);
+
   hidePassword = true;
   hideConfirmPassword = true;
+  errorMessage = '';
 
-  registerData = {
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    acceptTerms: false,
-  };
+  registerForm: FormGroup = this.fb.group({
+    username: ['', [Validators.required]],
+    firstName: ['', [Validators.required]],
+    lastName: ['', [Validators.required]],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
+    confirmPassword: ['', [Validators.required]],
+    acceptTerms: [false, [Validators.requiredTrue]],
+  });
 
   onRegister() {
-    if (this.registerData.password !== this.registerData.confirmPassword) {
-      console.error('Passwords do not match!');
+    if (this.registerForm.invalid) return;
+
+    const { password, confirmPassword } = this.registerForm.value;
+    if (password !== confirmPassword) {
+      this.errorMessage = 'Passwords do not match!';
       return;
     }
 
-    console.log('Registration data:', this.registerData);
-    // TODO: Call backend API for registration
+    // Call the backend
+    this.authService.register(this.registerForm.value).subscribe({
+      next: (res) => {
+        console.log('Registration successful', res);
+        this.router.navigate(['/login']);
+      },
+      error: (err) => {
+        this.errorMessage = err.error?.message || 'Registration failed';
+      },
+    });
   }
 }

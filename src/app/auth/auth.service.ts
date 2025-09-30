@@ -7,11 +7,28 @@ interface LoginResponse {
   user: { id: number; email: string; username: string; role: string };
 }
 
+export interface RegisterDto {
+  email: string;
+  password: string;
+  name?: string;
+}
+
+export interface RegisterResponse {
+  id: number;
+  email: string;
+  name?: string;
+  role: string;
+}
+
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/auth'; // replace with your backend URL
+  private apiUrl = 'http://localhost:3000/api/v1/auth'; // replace with your backend URL
 
   constructor(private http: HttpClient) {}
+
+  register(dto: RegisterDto): Observable<RegisterResponse> {
+    return this.http.post<RegisterResponse>(`${this.apiUrl}/register`, dto);
+  }
 
   login(email: string, password: string): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${this.apiUrl}/login`, { email, password });

@@ -1,0 +1,39 @@
+.profile-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.profile-card {
+    width: 600px;
+}
+
+.profile-grid {
+    display: flex;
+    gap: 2rem;
+}
+
+.avatar-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .avatar {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #1976d2;
+    }
+}
+
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    p {
+        margin: 0;
+        font-size: 14px;
+    }
+}

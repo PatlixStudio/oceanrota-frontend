@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -29,6 +30,7 @@ import { AuthService } from '../auth.service';
 export class Login {
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
+  private userService = inject(UserService);
   private router = inject(Router);
 
   loginForm: FormGroup = this.fb.group({
@@ -48,11 +50,12 @@ export class Login {
     this.authService.login(email, password).subscribe({
       next: (res) => {
         localStorage.setItem('token', res.accessToken);
+        this.userService.setCurrentUser(res.user);
 
         if (res.user.role === 'admin') {
           this.router.navigate(['/marketplace']);
         } else {
-          this.router.navigate(['/user']);
+          this.router.navigate(['/user/profile', res.user.username]);
         }
       },
       error: (err) => {
