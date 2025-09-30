@@ -8,9 +8,22 @@
     width: 600px;
 }
 
+.profile-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    background-color: var(--mat-sys-primary-container);
+    color: var(--mat-sys-primary);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
 .profile-grid {
     display: flex;
     gap: 2rem;
+    align-items: center;
 }
 
 .avatar-section {
@@ -23,7 +36,9 @@
         height: 150px;
         border-radius: 50%;
         object-fit: cover;
-        border: 2px solid #1976d2;
+        border: 4px solid var(--mat-sys-primary-container);
+        gap: 2rem;
+        padding: 5px;
     }
 }
 

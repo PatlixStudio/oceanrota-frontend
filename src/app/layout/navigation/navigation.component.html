@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <span>OceanRota</span>
+  <span>🌊 OceanRota</span>
 
   <div class="menu-row">
     <button matButton [routerLink]="['/']"><mat-icon>anchor</mat-icon>Home</button>
@@ -9,10 +9,37 @@
     <button matButton [routerLink]="['/learning-center']"><mat-icon>school</mat-icon>Learning Center</button>
   </div>
   <span class="spacer"></span>
-  <button matButton="elevated" [routerLink]="['/login']" aria-label="Login / Register">
+  <!-- If user is logged in -->
+  <ng-container *ngIf="userService.currentUser() as user; else guestLinks">
+    <button matButton [matMenuTriggerFor]="userMenu" class="user-menu-btn">
+      <div class="user-menu-container">
+        <img [src]="user.avatarUrl || 'assets/marine_icons/sailor.png'" alt="avatar" class="avatar-sm" />
+        <span class="username">{{ user.username }}</span>
+      </div>
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item [routerLink]="['/user/profile', user.username]">
+        <mat-icon>person</mat-icon>
+        <span>Profile</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </ng-container> <!-- If no user is logged in -->
+  <ng-template #guestLinks>
+    <button mat-button routerLink="/login">Login</button>
+    <button mat-stroked-button color="accent" routerLink="/register">
+      Register
+    </button>
+  </ng-template>
+  <!-- <button matButton="elevated" [routerLink]="['/login']" aria-label="Login / Register">
     <mat-icon>login</mat-icon>
     Became a Member
-  </button>
+  </button> -->
 </mat-toolbar>
 <!-- Add Content Here -->
 <main>

@@ -1,11 +1,17 @@
 @use '@angular/material' as mat;
 
+:host {
+  @include mat.toolbar-overrides((container-background-color: var(--mat-sys-primary-container),
+      container-text-color: var(--mat-sys-primary),
+    ));
+}
+
 .sidenav-container {
   height: 100%;
 }
 
 .sidenav {
-  top:-200;
+  top: -200;
   width: 200px;
 }
 
@@ -27,9 +33,29 @@
   margin-left: 10px;
 }
 
-:host {
-  @include mat.toolbar-overrides((
-    container-background-color: var(--mat-sys-primary-container),
-    container-text-color: var(--mat-sys-primary),
-  ));
+.user-menu-btn {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 0.5rem;
+  text-transform: none;
+
+  .user-menu-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: none;
+    justify-content: center;
+  }
+}
+
+.avatar-sm {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.username {
+  font-weight: 500;
 }

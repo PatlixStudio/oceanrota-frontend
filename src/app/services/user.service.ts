@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { computed, inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
 
 export interface User {
     id: number;
@@ -20,26 +21,37 @@ export interface User {
     providedIn: 'root',
 })
 export class UserService {
+    private platformId = inject(PLATFORM_ID);
+    // Signal for current user state
+    private _currentUser = signal<User | null>(this.getUserFromStorage());
+    currentUser = computed(() => this._currentUser()); // expose readonly signal
 
-    // Get logged-in user from localStorage
-    getCurrentUser(): User | null {
-        const userJson = localStorage.getItem('user');
-        if (!userJson) return null;
-        try {
-            return JSON.parse(userJson) as User;
-        } catch (err) {
-            console.error('Error parsing user from localStorage', err);
-            return null;
+    private getUserFromStorage(): User | null {
+        if (isPlatformBrowser(this.platformId)) {
+            const userJson = localStorage.getItem('user');
+            return userJson ? (JSON.parse(userJson) as User) : null;
         }
+        return null;
     }
 
     // Update user in localStorage (if needed)
-    setCurrentUser(user: User) {
-        localStorage.setItem('user', JSON.stringify(user));
+    setCurrentUser(user: User): void {
+        if (isPlatformBrowser(this.platformId)) {
+            localStorage.setItem('user', JSON.stringify(user));
+        }
+        this._currentUser.set(user);
+    }
+
+    // Get logged-in user from localStorage
+    getCurrentUser(): User | null {
+        return this._currentUser();
     }
 
     // Clear user on logout
-    clearCurrentUser() {
-        localStorage.removeItem('user');
+    clearCurrentUser(): void {
+        if (isPlatformBrowser(this.platformId)) {
+            localStorage.removeItem('user');
+        }
+        this._currentUser.set(null);
     }
 }
