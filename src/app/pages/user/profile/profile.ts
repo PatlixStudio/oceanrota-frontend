@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { User, UserService } from '../../../services/user.service';
+import { UserService } from '../../../services/user.service';
 import { ActivatedRoute } from '@angular/router';
+import { User } from '../../../core/models/user.model';
 
 @Component({
   selector: 'app-profile',

@@ -27,11 +27,12 @@
 
     <!-- Marketplace Grid -->
     <section class="marketplace-grid">
-        <mat-card class="vessel-card" *ngFor="let vessel of vessels">
-            <img mat-card-image [src]="vessel.image" alt="{{ vessel.name }}" />
+        <mat-card class="vessel-card" *ngFor="let vessel of marketplaceService.listings()">
+            <img mat-card-image [src]="vessel.images[0]" alt="{{ vessel.title }}" />
             <mat-card-header>
-                <mat-card-title>{{ vessel.name }}</mat-card-title>
-                <mat-card-subtitle>{{ vessel.type }} • {{ vessel.location }}</mat-card-subtitle>
+                <mat-card-title>{{ vessel.title }}</mat-card-title>
+                <mat-card-subtitle>{{ vessel.boatClass }} • {{ vessel.port }}</mat-card-subtitle>
+                <mat-card-subtitle>{{ vessel.price }} {{ vessel.currency }}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
                 <p>{{ vessel.description }}</p>

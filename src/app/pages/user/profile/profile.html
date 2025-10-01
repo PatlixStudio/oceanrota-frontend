@@ -18,11 +18,12 @@
 
         <!-- Public Info -->
         <div class="info-section">
+          <p *ngIf="user?.fullName"><strong>Full Name:</strong> {{ user?.fullName }}</p>
           <p *ngIf="user?.bio"><strong>Bio:</strong> {{ user?.bio }}</p>
           <p *ngIf="user?.email"><strong>Email:</strong> {{ user?.email }}</p>
+          <p *ngIf="user?.fullName"><strong>Phone:</strong> {{ user?.phoneNumber }}</p>
           <p *ngIf="user?.birthday"><strong>Birthday:</strong> {{ user?.birthday | date }}</p>
           <p *ngIf="user?.role"><strong>Role:</strong> {{ user?.role }}</p>
-          <p *ngIf="user?.fullName"><strong>Full Name:</strong> {{ user?.fullName }}</p>
         </div>
       </div>
     </mat-card-content>

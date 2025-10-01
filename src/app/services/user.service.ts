@@ -1,21 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import { computed, inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
-
-export interface User {
-    id: number;
-    username: string;
-    firstName?: string;
-    lastName?: string;
-    fullName?: string;
-    email: string;
-    avatarUrl?: string;
-    bio?: string;
-    birthday?: string;
-    role: string;
-    isActive?: boolean;
-    createdAt?: string;
-    updatedAt?: string;
-}
+import { User } from '../core/models/user.model';
 
 @Injectable({
     providedIn: 'root',
