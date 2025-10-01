@@ -1,0 +1,95 @@
+.listing-details-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  mat-card-header {
+    margin-bottom: 20px;
+  }
+}
+
+.listing-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.listing-meta {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+  color: #666;
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    mat-icon {
+      font-size: 1rem;
+    }
+  }
+}
+
+.listing-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+
+  img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+}
+
+.listing-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+.listing-owner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+
+  .owner-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .owner-info {
+    display: flex;
+    flex-direction: column;
+
+    .owner-name {
+      font-weight: 600;
+    }
+
+    .owner-contact {
+      font-size: 0.85rem;
+      color: #666;
+    }
+  }
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+
+  button {
+    min-width: 140px;
+  }
+}

@@ -30,7 +30,9 @@
         <mat-card class="vessel-card" *ngFor="let vessel of marketplaceService.listings()">
             <img mat-card-image [src]="vessel.images[0]" alt="{{ vessel.title }}" />
             <mat-card-header>
-                <mat-card-title>{{ vessel.title }}</mat-card-title>
+                <mat-card-title>
+                    <span [routerLink]="['/boats', vessel.id]" class="title-link">{{ vessel.title }}</span>
+                </mat-card-title>
                 <mat-card-subtitle>{{ vessel.boatClass }} • {{ vessel.port }}</mat-card-subtitle>
                 <mat-card-subtitle>{{ vessel.price }} {{ vessel.currency }}</mat-card-subtitle>
             </mat-card-header>
@@ -38,7 +40,7 @@
                 <p>{{ vessel.description }}</p>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-stroked-button color="accent">View</button>
+                <button mat-stroked-button color="accent" [routerLink]="['/boats', vessel.id]">View</button>
                 <button mat-flat-button color="primary">Buy / Rent</button>
             </mat-card-actions>
         </mat-card>

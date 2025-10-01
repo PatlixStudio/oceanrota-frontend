@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MarketplaceService } from '../../services/marketplace.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-market-place',
@@ -14,7 +15,8 @@ import { MarketplaceService } from '../../services/marketplace.service';
     MatCardModule,
     FormsModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    RouterModule
   ],
   templateUrl: './market-place.html',
   styleUrl: './market-place.scss'
