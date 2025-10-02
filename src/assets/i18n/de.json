@@ -1,0 +1,14 @@
+{
+  "NAVIGATION": {
+    "HOME": "Startseite",
+    "MARKETPLACE": "Marktplatz",
+    "MARINE_SERVICES": "Marine Dienstleistungen",
+    "SEA_PERSONNEL": "See Personal",
+    "LEARNING_CENTER": "Lernzentrum"
+  },
+  "HOME": {
+    "WELCOME_MESSAGE": "🌊 Willkommen bei OceanRota ⚓",
+    "EXPLORE_MARKETPLACE": "Marktplatz Erkunden",
+    "LIST_YOUR_VESSEL": "Ihr Schiff Listen"
+  }
+}

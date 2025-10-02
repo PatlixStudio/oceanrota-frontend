@@ -1,13 +1,13 @@
 <div class="home-container">
   <!-- Hero Section -->
   <section class="hero">
-    <h1>🌊 Welcome to <span class="brand">OceanRota</span>⚓</h1>
+    <h1 i18n>{{ 'HOME.WELCOME_MESSAGE' | translate }}</h1>
     <p class="subtitle">
       A global maritime marketplace for buying, renting, and connecting across the seas.
     </p>
     <div class="hero-actions">
-      <button mat-raised-button color="primary" [routerLink]="['/marketplace']" >Explore Marketplace</button>
-      <button mat-stroked-button color="accent" [routerLink]="['/marketplace/add-listing']">List Your Vessel</button>
+      <button mat-raised-button color="primary" [routerLink]="['/marketplace']" i18n> {{ 'HOME.EXPLORE_MARKETPLACE' | translate }}</button>
+      <button mat-stroked-button color="accent" [routerLink]="['/marketplace/add-listing']" i18n>{{ 'HOME.LIST_YOUR_VESSEL' | translate }}</button>
     </div>
   </section>
 
@@ -15,33 +15,33 @@
   <section class="features">
     <mat-card class="feature-card">
       <mat-icon color="primary">sailing</mat-icon>
-      <h3>Buy & Sell</h3>
-      <p>From fishing boats to cargo ships, discover opportunities worldwide.</p>
+      <h3 i18n>Buy & Sell</h3>
+      <p i18n>From fishing boats to cargo ships, discover opportunities worldwide.</p>
     </mat-card>
 
     <mat-card class="feature-card">
       <mat-icon color="primary">directions_boat</mat-icon>
-      <h3>Rent & Charter</h3>
-      <p>Charter vessels for transport, tourism, or business needs in minutes.</p>
+      <h3 i18n>Rent & Charter</h3>
+      <p i18n>Charter vessels for transport, tourism, or business needs in minutes.</p>
     </mat-card>
 
     <mat-card class="feature-card">
       <mat-icon color="primary">handshake</mat-icon>
-      <h3>Connect Globally</h3>
-      <p>Link sailors, captains, and maritime businesses across oceans.</p>
+      <h3 i18n>Connect Globally</h3>
+      <p i18n>Link sailors, captains, and maritime businesses across oceans.</p>
     </mat-card>
 
     <mat-card class="feature-card">
       <mat-icon color="primary">school</mat-icon>
-      <h3>Learning Center</h3>
-      <p>Access guides and tutorials to master sailing, seamanship, and navigation.</p>
+      <h3 i18n>Learning Center</h3>
+      <p i18n>Access guides and tutorials to master sailing, seamanship, and navigation.</p>
     </mat-card>
   </section>
 
   <!-- Call to Action -->
   <section class="cta">
-    <h2>Ready to set sail?</h2>
-    <p>Join OceanRota today and be part of the global maritime future.</p>
+    <h2 i18n>Ready to set sail?</h2>
+    <p i18n>Join OceanRota today and be part of the global maritime future.</p>
     <button mat-flat-button color="primary">Get Started</button>
   </section>
 </div>

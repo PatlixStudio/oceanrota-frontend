@@ -11,6 +11,8 @@ import { map, shareReplay } from 'rxjs/operators';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { MatMenuModule } from '@angular/material/menu';
+import { LanguageSwitcher } from '../language-switcher/language-switcher';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navigation',
@@ -25,7 +27,9 @@ import { MatMenuModule } from '@angular/material/menu';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    TranslatePipe,
+    LanguageSwitcher
   ]
 })
 export class NavigationComponent {

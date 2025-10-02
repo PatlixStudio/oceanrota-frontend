@@ -1,8 +1,8 @@
 <div class="marine-services-container">
   <!-- Intro / Hero -->
   <section class="intro">
-    <h1>🛟 Marine Services</h1>
-    <p>
+    <h1 i18n>🛟 Marine Services</h1>
+    <p i18n>
       Find trusted maritime services worldwide — maintenance, logistics, training, charter support, and more.
       Service providers can list their offerings and connect with vessel owners, crew, and maritime businesses.
     </p>
@@ -11,12 +11,12 @@
   <!-- Search / Filter -->
   <section class="search">
     <mat-form-field appearance="outline" class="search-field">
-      <mat-label>Service Type</mat-label>
+      <mat-label i18n>Service Type</mat-label>
       <input matInput placeholder="Maintenance, Training, Logistics" [(ngModel)]="filters.type">
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="search-field">
-      <mat-label>Location</mat-label>
+      <mat-label i18n>Location</mat-label>
       <input matInput placeholder="Port, City, Country" [(ngModel)]="filters.location">
     </mat-form-field>
 
@@ -34,16 +34,16 @@
         <p>{{ service.description }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-stroked-button color="accent">View Details</button>
-        <button mat-flat-button color="primary">Request Service</button>
+        <button mat-stroked-button color="accent" i18n>View Details</button>
+        <button mat-flat-button color="primary" i18n>Request Service</button>
       </mat-card-actions>
     </mat-card>
   </section>
 
   <!-- CTA for Providers -->
   <section class="cta-providers">
-    <h2>Offer Your Marine Services</h2>
-    <p>
+    <h2 i18n>Offer Your Marine Services</h2>
+    <p i18n>
       Join OceanRota as a service provider and reach vessel owners, captains, and maritime businesses worldwide.
     </p>
     <button mat-flat-button color="primary" routerLink="/list-service">List Your Service</button>

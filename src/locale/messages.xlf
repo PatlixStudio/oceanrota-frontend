@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="3217850295800055541" datatype="html">
+        <source>Your global maritime hub for vessels, crew, services, and learning.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9212705249340904752" datatype="html">
+        <source>Explore</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2821179408673282599" datatype="html">
+        <source>Home</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7623649064629539622" datatype="html">
+        <source>Marketplace</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2494683118180935017" datatype="html">
+        <source>Sea Personnel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.html</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4155825821380990520" datatype="html">
+        <source>Marine Services</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9195548181262146461" datatype="html">
+        <source>Learning Center</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.html</context>
+          <context context-type="linenumber">36,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7922989125096435449" datatype="html">
+        <source>Contact</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4423579067520140804" datatype="html">
+        <source>Email: support@oceanrota.com</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.html</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1274957769217755666" datatype="html">
+        <source>Phone: +1 234 567 890</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1211016400022742958" datatype="html">
+        <source>© 2025 OceanRota. All rights reserved.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.html</context>
+          <context context-type="linenumber">36,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5895976489036171929" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon&gt;"/>anchor<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/>Home</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navigation/navigation.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8943679495785858509" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon&gt;"/>directions_boat<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/>Market Place</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navigation/navigation.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9118269683997204304" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon&gt;"/>construction<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/>Marine Services</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navigation/navigation.component.html</context>
+          <context context-type="linenumber">7,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="349999048012130638" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon&gt;"/>person_apron<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/>Sea Personnel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navigation/navigation.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="484633456630769187" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon&gt;"/>school<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/>Learning Center</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navigation/navigation.component.html</context>
+          <context context-type="linenumber">9,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4915431133669985304" datatype="html">
+        <source>Profile</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navigation/navigation.component.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3797778920049399855" datatype="html">
+        <source>Logout</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navigation/navigation.component.html</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2454050363478003966" datatype="html">
+        <source>Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navigation/navigation.component.html</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2907733796351584017" datatype="html">
+        <source> Register </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navigation/navigation.component.html</context>
+          <context context-type="linenumber">36,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="84963521855474161" datatype="html">
+        <source>🌊 Welcome to <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;brand&quot;&gt;"/>OceanRota<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>⚓</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6119115968364486599" datatype="html">
+        <source>Explore Marketplace</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2183180522305588038" datatype="html">
+        <source>List Your Vessel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="139951898945610624" datatype="html">
+        <source>Buy &amp; Sell</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5551520265606352177" datatype="html">
+        <source>From fishing boats to cargo ships, discover opportunities worldwide.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.html</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7713793036442613936" datatype="html">
+        <source>Rent &amp; Charter</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.html</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="366381668815531520" datatype="html">
+        <source>Charter vessels for transport, tourism, or business needs in minutes.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4811393231784749886" datatype="html">
+        <source>Connect Globally</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5741289001432313241" datatype="html">
+        <source>Link sailors, captains, and maritime businesses across oceans.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.html</context>
+          <context context-type="linenumber">31,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5828338796782269938" datatype="html">
+        <source>Access guides and tutorials to master sailing, seamanship, and navigation.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.html</context>
+          <context context-type="linenumber">37,38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2758094739902539085" datatype="html">
+        <source>Ready to set sail?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.html</context>
+          <context context-type="linenumber">43,44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8543178022805223838" datatype="html">
+        <source>Join OceanRota today and be part of the global maritime future.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.html</context>
+          <context context-type="linenumber">44,45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8816819658463681115" datatype="html">
+        <source>📚 Learning Center</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/learning-center/learning-center.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3426988368747600969" datatype="html">
+        <source> Become a certified maritime professional with our online courses. Learn at your own pace, earn certifications, and boost your career in the maritime industry. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/learning-center/learning-center.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5348008034086271788" datatype="html">
+        <source>Course Name / Skill</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/learning-center/learning-center.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3733215288982610673" datatype="html">
+        <source>Level</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/learning-center/learning-center.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2814927554392363345" datatype="html">
+        <source>All Levels</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/learning-center/learning-center.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5754117841832798663" datatype="html">
+        <source>Beginner</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/learning-center/learning-center.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1311606986429558406" datatype="html">
+        <source>Intermediate</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/learning-center/learning-center.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6201638315245239510" datatype="html">
+        <source>Advanced</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/learning-center/learning-center.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4580988005648117665" datatype="html">
+        <source>Search</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/learning-center/learning-center.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1468015720862673946" datatype="html">
+        <source>View Details</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/learning-center/learning-center.html</context>
+          <context context-type="linenumber">42,43</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/marine-services/marine-services.html</context>
+          <context context-type="linenumber">37,38</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/sea-personnel/sea-personnel.html</context>
+          <context context-type="linenumber">36,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3429530812921639283" datatype="html">
+        <source>Enroll Now</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/learning-center/learning-center.html</context>
+          <context context-type="linenumber">43,44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5406661853454042678" datatype="html">
+        <source>Become an Instructor</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/learning-center/learning-center.html</context>
+          <context context-type="linenumber">50,51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4492815062321730518" datatype="html">
+        <source> Share your maritime expertise and create online courses to help aspiring professionals around the world. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/learning-center/learning-center.html</context>
+          <context context-type="linenumber">52,53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2339801233768430223" datatype="html">
+        <source>Create a Course</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/learning-center/learning-center.html</context>
+          <context context-type="linenumber">55,56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4984992273672544366" datatype="html">
+        <source>🛟 Marine Services</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/marine-services/marine-services.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4139962441532142512" datatype="html">
+        <source> Find trusted maritime services worldwide — maintenance, logistics, training, charter support, and more. Service providers can list their offerings and connect with vessel owners, crew, and maritime businesses. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/marine-services/marine-services.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="613875387304159316" datatype="html">
+        <source>Service Type</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/marine-services/marine-services.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="471816275243265264" datatype="html">
+        <source>Location</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/marine-services/marine-services.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/market-place.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="44393460924521870" datatype="html">
+        <source>Request Service</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/marine-services/marine-services.html</context>
+          <context context-type="linenumber">38,39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="871528977360125949" datatype="html">
+        <source>Offer Your Marine Services</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/marine-services/marine-services.html</context>
+          <context context-type="linenumber">45,46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4518906767522962565" datatype="html">
+        <source> Join OceanRota as a service provider and reach vessel owners, captains, and maritime businesses worldwide. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/marine-services/marine-services.html</context>
+          <context context-type="linenumber">47,48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1550540705395015350" datatype="html">
+        <source>Add New Boat Listing</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/add-listing/add-listing.html</context>
+          <context context-type="linenumber">3,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5701618810648052610" datatype="html">
+        <source>Title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/add-listing/add-listing.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4902817035128594900" datatype="html">
+        <source>Description</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/add-listing/add-listing.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1806667489382256324" datatype="html">
+        <source>Category</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/add-listing/add-listing.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1367796834627302781" datatype="html">
+        <source>Boat Type</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/add-listing/add-listing.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6841122370642294464" datatype="html">
+        <source>Boat Class</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/add-listing/add-listing.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1511766279515968094" datatype="html">
+        <source>Make</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/add-listing/add-listing.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8894377483833272091" datatype="html">
+        <source>Price</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/add-listing/add-listing.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4327471061205783634" datatype="html">
+        <source>Currency</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/add-listing/add-listing.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1464072562214937907" datatype="html">
+        <source>Year</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/add-listing/add-listing.html</context>
+          <context context-type="linenumber">77</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7350878912140034348" datatype="html">
+        <source>Length (m)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/add-listing/add-listing.html</context>
+          <context context-type="linenumber">83</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2838129566011107043" datatype="html">
+        <source>Condition</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/add-listing/add-listing.html</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5280218112746407598" datatype="html">
+        <source>New</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/add-listing/add-listing.html</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="81585474102700882" datatype="html">
+        <source>Used</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/add-listing/add-listing.html</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="516176798986294299" datatype="html">
+        <source>Country</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/add-listing/add-listing.html</context>
+          <context context-type="linenumber">98</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2314075913167237221" datatype="html">
+        <source>City</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/add-listing/add-listing.html</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6117946241126833991" datatype="html">
+        <source>Port</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/add-listing/add-listing.html</context>
+          <context context-type="linenumber">108</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6059669835870904232" datatype="html">
+        <source>Upload Images</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/add-listing/add-listing.html</context>
+          <context context-type="linenumber">114,115</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7808756054397155068" datatype="html">
+        <source>Reset</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/add-listing/add-listing.html</context>
+          <context context-type="linenumber">121,122</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1890477339292987157" datatype="html">
+        <source>Create Listing</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/add-listing/add-listing.html</context>
+          <context context-type="linenumber">122,123</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7501118874506324997" datatype="html">
+        <source>Category:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/listing-details/listing-details.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1423597007828636666" datatype="html">
+        <source>Class:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/listing-details/listing-details.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7115285952699064699" datatype="html">
+        <source>Length:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/listing-details/listing-details.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1794295219517542419" datatype="html">
+        <source>Condition:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/listing-details/listing-details.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4510013877734913501" datatype="html">
+        <source>Location:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/listing-details/listing-details.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2160195252594102717" datatype="html">
+        <source>Price:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/listing-details/listing-details.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8519274117753222056" datatype="html">
+        <source>Contact Owner</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/listing-details/listing-details.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7794132122831358785" datatype="html">
+        <source>Add to Favorites</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/listing-details/listing-details.html</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3714310888598295516" datatype="html">
+        <source>⚓ Boat Marketplace</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/market-place.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9054775285252803758" datatype="html">
+        <source> Explore a global marketplace for buying and selling vessels of all kinds — from fishing boats to luxury yachts. Connect with trusted sellers and buyers worldwide, and make your next maritime deal with confidence. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/market-place.html</context>
+          <context context-type="linenumber">7,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2444005913602159475" datatype="html">
+        <source>Search vessels</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/market-place.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2509141182388535183" datatype="html">
+        <source>View</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/market-place.html</context>
+          <context context-type="linenumber">43,44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="87643793023125229" datatype="html">
+        <source>Buy / Rent</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/market-place/market-place.html</context>
+          <context context-type="linenumber">44,45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1208138465889164547" datatype="html">
+        <source>👮‍♂️ Sea Personnel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/sea-personnel/sea-personnel.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2359161160806299358" datatype="html">
+        <source> Looking for a career at sea? Captains, engineers, crew, and other maritime professionals can find open positions worldwide. Employers can post vacancies and connect with qualified crew. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/sea-personnel/sea-personnel.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7103935166413259605" datatype="html">
+        <source>Job Title / Role</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/sea-personnel/sea-personnel.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8083607676060483726" datatype="html">
+        <source>Location / Vessel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/sea-personnel/sea-personnel.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2896009139461541940" datatype="html">
+        <source>Apply Now</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/sea-personnel/sea-personnel.html</context>
+          <context context-type="linenumber">37,38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7170139265301535987" datatype="html">
+        <source>Are you hiring?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/sea-personnel/sea-personnel.html</context>
+          <context context-type="linenumber">44,45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6135186498201411429" datatype="html">
+        <source>Post your maritime job openings and reach qualified sea personnel worldwide.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/sea-personnel/sea-personnel.html</context>
+          <context context-type="linenumber">45,46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2957389400565586844" datatype="html">
+        <source>Post a Job</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/sea-personnel/sea-personnel.html</context>
+          <context context-type="linenumber">46,47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4266924498083270503" datatype="html">
+        <source>Full Name:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/user/profile/profile.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5431935146783684338" datatype="html">
+        <source>Bio:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/user/profile/profile.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6631334172623029500" datatype="html">
+        <source>Email:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/user/profile/profile.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4378227938065070603" datatype="html">
+        <source>Phone:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/user/profile/profile.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4581031865324916427" datatype="html">
+        <source>Birthday:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/user/profile/profile.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1350397475416604948" datatype="html">
+        <source>Role:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/user/profile/profile.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

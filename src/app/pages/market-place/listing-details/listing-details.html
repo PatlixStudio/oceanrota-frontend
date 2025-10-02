@@ -15,18 +15,18 @@
             <p class="listing-description">{{ vessel.description }}</p>
 
             <div class="listing-meta">
-                <p><strong>Category:</strong> {{ vessel.category }}</p>
-                <p><strong>Class:</strong> {{ vessel.boatClass }}</p>
-                <p><strong>Length:</strong> {{ vessel.length_m }}m</p>
-                <p><strong>Condition:</strong> {{ vessel.condition }}</p>
-                <p><strong>Location:</strong> {{ vessel.city }}, {{ vessel.country }} ({{ vessel.port }})</p>
-                <p><strong>Price:</strong> {{ vessel.price }} {{ vessel.currency }}</p>
+                <p><strong i18n>Category:</strong> {{ vessel.category }}</p>
+                <p><strong i18n>Class:</strong> {{ vessel.boatClass }}</p>
+                <p><strong i18n>Length:</strong> {{ vessel.length_m }}m</p>
+                <p><strong i18n>Condition:</strong> {{ vessel.condition }}</p>
+                <p><strong i18n>Location:</strong> {{ vessel.city }}, {{ vessel.country }} ({{ vessel.port }})</p>
+                <p><strong i18n>Price:</strong> {{ vessel.price }} {{ vessel.currency }}</p>
             </div>
         </mat-card-content>
 
         <mat-card-actions class="action-buttons">
-            <button mat-flat-button color="primary">Contact Owner</button>
-            <button mat-stroked-button color="accent">Add to Favorites</button>
+            <button mat-flat-button color="primary" i18n>Contact Owner</button>
+            <button mat-stroked-button color="accent" i18n>Add to Favorites</button>
         </mat-card-actions>
     </mat-card>
 </div>

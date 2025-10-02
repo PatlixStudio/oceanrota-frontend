@@ -1,26 +1,26 @@
 <div class="add-listing-container">
   <mat-card class="add-listing-card">
-    <h2>Add New Boat Listing</h2>
+    <h2 i18n>Add New Boat Listing</h2>
 
     <form [formGroup]="addListingForm" (ngSubmit)="createListing()">
       <div class="form-grid">
 
         <!-- Title -->
         <mat-form-field appearance="outline">
-          <mat-label>Title</mat-label>
+          <mat-label i18n>Title</mat-label>
           <input matInput formControlName="title" placeholder="Sea Ray 40 Motor Yacht">
         </mat-form-field>
 
         <!-- Description -->
         <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Description</mat-label>
+          <mat-label i18n>Description</mat-label>
           <textarea matInput rows="4" formControlName="description"
             placeholder="Describe the vessel, features, and condition"></textarea>
         </mat-form-field>
 
         <!-- Category -->
         <mat-form-field appearance="outline">
-          <mat-label>Category</mat-label>
+          <mat-label i18n>Category</mat-label>
           <mat-select formControlName="category">
             <mat-option value="Power">Power</mat-option>
             <mat-option value="Sail">Sail</mat-option>
@@ -30,7 +30,7 @@
 
         <!-- Boat Type -->
         <mat-form-field appearance="outline">
-          <mat-label>Boat Type</mat-label>
+          <mat-label i18n>Boat Type</mat-label>
           <mat-select formControlName="boatType">
             <mat-option value="Sailboat">Sailboat</mat-option>
             <mat-option value="Motorboat">Motorboat</mat-option>
@@ -44,25 +44,25 @@
 
         <!-- Boat Class -->
         <mat-form-field appearance="outline">
-          <mat-label>Boat Class</mat-label>
+          <mat-label i18n>Boat Class</mat-label>
           <input matInput formControlName="boatClass" placeholder="Cruiser, Motor Yacht, etc.">
         </mat-form-field>
 
         <!-- Make -->
         <mat-form-field appearance="outline">
-          <mat-label>Make</mat-label>
+          <mat-label i18n>Make</mat-label>
           <input matInput formControlName="make" placeholder="Sea Ray, Beneteau, etc.">
         </mat-form-field>
 
         <!-- Price -->
         <mat-form-field appearance="outline">
-          <mat-label>Price</mat-label>
+          <mat-label i18n>Price</mat-label>
           <input matInput type="number" formControlName="price" placeholder="100000">
         </mat-form-field>
 
         <!-- Currency -->
         <mat-form-field appearance="outline">
-          <mat-label>Currency</mat-label>
+          <mat-label i18n>Currency</mat-label>
           <mat-select formControlName="currency">
             <mat-option value="USD">USD</mat-option>
             <mat-option value="EUR">EUR</mat-option>
@@ -74,55 +74,52 @@
 
         <!-- Year -->
         <mat-form-field appearance="outline">
-          <mat-label>Year</mat-label>
+          <mat-label i18n>Year</mat-label>
           <input matInput type="number" formControlName="year" placeholder="2020">
         </mat-form-field>
 
         <!-- Length -->
         <mat-form-field appearance="outline">
-          <mat-label>Length (m)</mat-label>
+          <mat-label i18n>Length (m)</mat-label>
           <input matInput type="number" formControlName="length_m" placeholder="12.5">
         </mat-form-field>
 
         <!-- Condition -->
         <mat-form-field appearance="outline">
-          <mat-label>Condition</mat-label>
+          <mat-label i18n>Condition</mat-label>
           <mat-select formControlName="condition">
-            <mat-option value="New">New</mat-option>
-            <mat-option value="Excellent">Excellent</mat-option>
-            <mat-option value="Good">Good</mat-option>
-            <mat-option value="Fair">Fair</mat-option>
-            <mat-option value="Needs Work">Needs Work</mat-option>
+            <mat-option value="New" i18n>New</mat-option>
+            <mat-option value="Used" i18n>Used</mat-option>
           </mat-select>
         </mat-form-field>
 
         <!-- Location Fields -->
         <mat-form-field appearance="outline">
-          <mat-label>Country</mat-label>
+          <mat-label i18n>Country</mat-label>
           <input matInput formControlName="country" placeholder="USA">
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label>City</mat-label>
+          <mat-label i18n>City</mat-label>
           <input matInput formControlName="city" placeholder="Miami">
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label>Port</mat-label>
+          <mat-label i18n>Port</mat-label>
           <input matInput formControlName="port" placeholder="Marina del Rey">
         </mat-form-field>
 
         <!-- Images -->
         <div class="image-upload">
-          <label for="images">Upload Images</label>
+          <label for="images" i18n>Upload Images</label>
           <input type="file" id="images" multiple (change)="onImageSelected($event)">
         </div>
 
       </div>
 
       <div class="actions">
-        <button mat-stroked-button color="warn" type="reset">Reset</button>
-        <button mat-raised-button color="primary" type="submit">Create Listing</button>
+        <button mat-stroked-button color="warn" type="reset" i18n>Reset</button>
+        <button mat-raised-button color="primary" type="submit" i18n>Create Listing</button>
       </div>
     </form>
   </mat-card>

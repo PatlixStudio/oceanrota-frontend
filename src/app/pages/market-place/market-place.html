@@ -2,8 +2,8 @@
 
     <!-- Intro / Hero -->
     <section class="intro">
-        <h1>⚓ Boat Marketplace</h1>
-        <p>
+        <h1 i18n>⚓ Boat Marketplace</h1>
+        <p i18n>
             Explore a global marketplace for buying and selling vessels of all kinds — from fishing boats to luxury
             yachts.
             Connect with trusted sellers and buyers worldwide, and make your next maritime deal with confidence.
@@ -13,12 +13,12 @@
     <!-- Search / Filter -->
     <section class="marketplace-search">
         <mat-form-field appearance="outline" class="search-field">
-            <mat-label>Search vessels</mat-label>
+            <mat-label i18n>Search vessels</mat-label>
             <input matInput placeholder="Yacht, Cargo, Fishing Boat" [(ngModel)]="filters.keyword" name="keyword">
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="search-field">
-            <mat-label>Location</mat-label>
+            <mat-label i18n>Location</mat-label>
             <input matInput placeholder="Country / Port" [(ngModel)]="filters.location" name="location">
         </mat-form-field>
 
@@ -40,8 +40,8 @@
                 <p>{{ vessel.description }}</p>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-stroked-button color="accent" [routerLink]="['/marketplace/boats', vessel.id]">View</button>
-                <button mat-flat-button color="primary">Buy / Rent</button>
+                <button mat-stroked-button color="accent" [routerLink]="['/marketplace/boats', vessel.id]" i18n>View</button>
+                <button mat-flat-button color="primary" i18n>Buy / Rent</button>
             </mat-card-actions>
         </mat-card>
     </section>

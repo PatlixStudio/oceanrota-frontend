@@ -1,0 +1,14 @@
+{
+  "NAVIGATION": {
+    "HOME": "Ana Sayfa",
+    "MARKETPLACE": "Pazar Yeri",
+    "MARINE_SERVICES": "Deniz Hizmetleri",
+    "SEA_PERSONNEL": "Deniz Personeli",
+    "LEARNING_CENTER": "Öğrenim Merkezi"
+  },
+  "HOME": {
+    "WELCOME_MESSAGE": "🌊 OceanRota'ya Hoşgeldiniz ⚓",
+    "EXPLORE_MARKETPLACE": "Pazaryerini Keşfet",
+    "LIST_YOUR_VESSEL": "Teknenizi Listeleyin"
+  }
+}

@@ -1,8 +1,8 @@
 <div class="learning-center-container">
   <!-- Intro / Hero -->
   <section class="intro">
-    <h1>📚 Learning Center</h1>
-    <p>
+    <h1 i18n>📚 Learning Center</h1>
+    <p i18n>
       Become a certified maritime professional with our online courses. Learn at your own pace,
       earn certifications, and boost your career in the maritime industry.
     </p>
@@ -11,21 +11,21 @@
   <!-- Search / Filter Courses -->
   <section class="search">
     <mat-form-field appearance="outline" class="search-field">
-      <mat-label>Course Name / Skill</mat-label>
+      <mat-label i18n>Course Name / Skill</mat-label>
       <input matInput placeholder="Navigation, Safety, Engineering" [(ngModel)]="filters.keyword">
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="search-field">
-      <mat-label>Level</mat-label>
+      <mat-label i18n>Level</mat-label>
       <mat-select [(ngModel)]="filters.level">
-        <mat-option value="">All Levels</mat-option>
-        <mat-option value="beginner">Beginner</mat-option>
-        <mat-option value="intermediate">Intermediate</mat-option>
-        <mat-option value="advanced">Advanced</mat-option>
+        <mat-option value="" i18n>All Levels</mat-option>
+        <mat-option value="beginner" i18n>Beginner</mat-option>
+        <mat-option value="intermediate" i18n>Intermediate</mat-option>
+        <mat-option value="advanced" i18n>Advanced</mat-option>
       </mat-select>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" (click)="searchCourses()">Search</button>
+    <button mat-raised-button color="primary" (click)="searchCourses()" i18n>Search</button>
   </section>
 
   <!-- Courses Grid -->
@@ -39,19 +39,19 @@
         <p>{{ course.description }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-stroked-button color="accent">View Details</button>
-        <button mat-flat-button color="primary">Enroll Now</button>
+        <button mat-stroked-button color="accent" i18n>View Details</button>
+        <button mat-flat-button color="primary" i18n>Enroll Now</button>
       </mat-card-actions>
     </mat-card>
   </section>
 
   <!-- CTA for Instructors -->
   <section class="cta-instructors">
-    <h2>Become an Instructor</h2>
-    <p>
+    <h2 i18n>Become an Instructor</h2>
+    <p i18n>
       Share your maritime expertise and create online courses to help aspiring professionals
       around the world.
     </p>
-    <button mat-flat-button color="primary" routerLink="/create-course">Create a Course</button>
+    <button mat-flat-button color="primary" routerLink="/create-course" i18n>Create a Course</button>
   </section>
 </div>
