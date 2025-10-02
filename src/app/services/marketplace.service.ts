@@ -2,6 +2,7 @@ import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
 import type { Listing } from '../core/models/listing.model';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class MarketplaceService {
@@ -26,5 +27,10 @@ export class MarketplaceService {
   // Optionally fetch a single listing by id
   getListingById(id: number) {
     return this.http.get<Listing>(`${this.apiUrl}/listings/${id}`);
+  }
+
+  // create a new listing
+  createListing(data: Partial<Listing>): Observable<Listing> {
+    return this.http.post<Listing>(this.apiUrl, data);
   }
 }

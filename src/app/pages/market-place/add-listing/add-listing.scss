@@ -1,0 +1,39 @@
+.add-listing-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.add-listing-card {
+  width: 800px;
+  padding: 2rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+.image-upload {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  input[type="file"] {
+    border: 1px dashed #ccc;
+    padding: 0.5rem;
+  }
+}
+
+.actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
