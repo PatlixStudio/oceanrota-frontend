@@ -8,7 +8,36 @@
   },
   "HOME": {
     "WELCOME_MESSAGE": "🌊 Willkommen bei OceanRota ⚓",
+    "WELCOME_SUBTITLE": "Ein globaler maritimer Marktplatz zum Kaufen, Mieten und Vernetzen über die Meere.",
     "EXPLORE_MARKETPLACE": "Marktplatz Erkunden",
-    "LIST_YOUR_VESSEL": "Ihr Schiff Listen"
-  }
+    "LIST_YOUR_VESSEL": "Ihr Schiff Einstellen",
+    "FEATURES": {
+      "BUY_SELL": "Kaufen & Verkaufen",
+      "BUY_SELL_DESC": "Entdecken Sie Möglichkeiten weltweit von Fischerbooten bis zu Frachtschiffen.",
+      "RENT_CHARTER": "Mieten & Chartern",
+      "RENT_CHARTER_DESC": "Chartern Sie Schiffe für Transport, Tourismus oder Geschäftsbedürfnisse in Minuten.",
+      "CONNECT_GLOBALLY": "Global Verbinden",
+      "CONNECT_GLOBALLY_DESC": "Verbinden Sie Seeleute, Kapitäne und maritime Unternehmen weltweit.",
+      "LEARNING_CENTER": "Lernzentrum",
+      "LEARNING_CENTER_DESC": "Zugriff auf Leitfäden und Tutorials, um Segeln, Seemannschaft und Navigation zu meistern."
+    },
+    "CTA": {
+      "READY": "Bereit zum Ablegen?",
+      "READY_DESC": "Treten Sie OceanRota noch heute bei und werden Sie Teil der globalen maritimen Zukunft.",
+      "READY_BTN": "Loslegen"
+    }
+  },
+  "MARKETPLACE": {
+    "PAGE_TITLE": "⚓ Bootsmarkt",
+    "PAGE_DESC": "Entdecken Sie einen globalen Marktplatz für den Kauf und Verkauf von Booten aller Art — von Fischerbooten bis zu Luxusyachten. Verbinden Sie sich mit vertrauenswürdigen Verkäufern und Käufern weltweit und tätigen Sie Ihr nächstes maritimes Geschäft mit Vertrauen.",
+    "SEARCH_INPUT": "Boote Suchen",
+    "SEARCH_BTN": "Suchen",
+    "SEARCH_INPUT_PLACEHOLDER": "Yacht, Frachtschiff, Fischerboot",
+    "SEARCH_LOCATION": "Standort",
+    "SEARCH_LOCATION_PLACEHOLDER": "Land / Hafen",
+    "LISTING_VIEW_BTN": "Ansehen"
+  },
+  "MARINE_SERVICES": {},
+  "SEA_PERSONNEL": {},
+  "LEARNING_CENTER": {}
 }

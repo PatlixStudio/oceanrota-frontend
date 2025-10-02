@@ -7,8 +7,37 @@
     "LEARNING_CENTER": "Öğrenim Merkezi"
   },
   "HOME": {
-    "WELCOME_MESSAGE": "🌊 OceanRota'ya Hoşgeldiniz ⚓",
-    "EXPLORE_MARKETPLACE": "Pazaryerini Keşfet",
-    "LIST_YOUR_VESSEL": "Teknenizi Listeleyin"
-  }
+    "WELCOME_MESSAGE": "🌊 OceanRota'ya Hoş Geldiniz ⚓",
+    "WELCOME_SUBTITLE": "Dünya çapında alım, kiralama ve bağlantı için bir denizcilik pazarı.",
+    "EXPLORE_MARKETPLACE": "Pazar Yerini Keşfet",
+    "LIST_YOUR_VESSEL": "Teknenizi Listeleyin",
+    "FEATURES": {
+      "BUY_SELL": "Al & Sat",
+      "BUY_SELL_DESC": "Balıkçılık teknelerinden yük gemilerine kadar fırsatları keşfedin.",
+      "RENT_CHARTER": "Kirala & Charter",
+      "RENT_CHARTER_DESC": "Taşıma, turizm veya iş ihtiyaçları için tekneleri dakikalar içinde kiralayın.",
+      "CONNECT_GLOBALLY": "Global Bağlantı",
+      "CONNECT_GLOBALLY_DESC": "Denizciler, kaptanlar ve denizcilik işletmelerini dünya çapında bağlayın.",
+      "LEARNING_CENTER": "Öğrenim Merkezi",
+      "LEARNING_CENTER_DESC": "Yelken, denizcilik ve navigasyonu öğrenmek için rehber ve eğitimlere erişin."
+    },
+    "CTA": {
+      "READY": "Yelken açmaya hazır mısınız?",
+      "READY_DESC": "Bugün OceanRota'ya katılın ve global denizcilik geleceğinin bir parçası olun.",
+      "READY_BTN": "Başlayın"
+    }
+  },
+  "MARKETPLACE": {
+    "PAGE_TITLE": "⚓ Tekne Pazarı",
+    "PAGE_DESC": "Her türden teknenin alım ve satımı için global bir pazar yeri keşfedin — balıkçı teknelerinden lüks yatlara kadar. Güvenilir satıcı ve alıcılarla bağlantı kurun ve bir sonraki denizcilik işleminizi güvenle gerçekleştirin.",
+    "SEARCH_INPUT": "Tekneleri Ara",
+    "SEARCH_BTN": "Ara",
+    "SEARCH_INPUT_PLACEHOLDER": "Yat, Yük, Balıkçı Teknesi",
+    "SEARCH_LOCATION": "Konum",
+    "SEARCH_LOCATION_PLACEHOLDER": "Ülke / Liman",
+    "LISTING_VIEW_BTN": "Görüntüle"
+  },
+  "MARINE_SERVICES": {},
+  "SEA_PERSONNEL": {},
+  "LEARNING_CENTER": {}
 }

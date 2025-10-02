@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MarketplaceService } from '../../services/marketplace.service';
 import { RouterModule } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-market-place',
@@ -16,7 +17,8 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     MatButtonModule,
     MatInputModule,
-    RouterModule
+    RouterModule,
+    TranslatePipe
   ],
   templateUrl: './market-place.html',
   styleUrl: './market-place.scss'

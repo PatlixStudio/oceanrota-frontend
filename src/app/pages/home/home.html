@@ -1,13 +1,15 @@
 <div class="home-container">
   <!-- Hero Section -->
   <section class="hero">
-    <h1 i18n>{{ 'HOME.WELCOME_MESSAGE' | translate }}</h1>
+    <h1>{{ 'HOME.WELCOME_MESSAGE' | translate }}</h1>
     <p class="subtitle">
-      A global maritime marketplace for buying, renting, and connecting across the seas.
+      {{ 'HOME.WELCOME_SUBTITLE' | translate }}
     </p>
     <div class="hero-actions">
-      <button mat-raised-button color="primary" [routerLink]="['/marketplace']" i18n> {{ 'HOME.EXPLORE_MARKETPLACE' | translate }}</button>
-      <button mat-stroked-button color="accent" [routerLink]="['/marketplace/add-listing']" i18n>{{ 'HOME.LIST_YOUR_VESSEL' | translate }}</button>
+      <button mat-raised-button color="primary" [routerLink]="['/marketplace']"> {{ 'HOME.EXPLORE_MARKETPLACE' |
+        translate }}</button>
+      <button mat-stroked-button color="accent" [routerLink]="['/marketplace/add-listing']">
+        {{ 'HOME.LIST_YOUR_VESSEL' | translate }}</button>
     </div>
   </section>
 
@@ -15,33 +17,33 @@
   <section class="features">
     <mat-card class="feature-card">
       <mat-icon color="primary">sailing</mat-icon>
-      <h3 i18n>Buy & Sell</h3>
-      <p i18n>From fishing boats to cargo ships, discover opportunities worldwide.</p>
+      <h3>{{ 'HOME.FEATURES.BUY_SELL' | translate }}</h3>
+      <p>{{ 'HOME.FEATURES.BUY_SELL_DESC' | translate }}</p>
     </mat-card>
 
     <mat-card class="feature-card">
       <mat-icon color="primary">directions_boat</mat-icon>
-      <h3 i18n>Rent & Charter</h3>
-      <p i18n>Charter vessels for transport, tourism, or business needs in minutes.</p>
+      <h3>{{ 'HOME.FEATURES.RENT_CHARTER' | translate }}</h3>
+      <p>{{ 'HOME.FEATURES.RENT_CHARTER_DESC' | translate }}</p>
     </mat-card>
 
     <mat-card class="feature-card">
       <mat-icon color="primary">handshake</mat-icon>
-      <h3 i18n>Connect Globally</h3>
-      <p i18n>Link sailors, captains, and maritime businesses across oceans.</p>
+      <h3>{{ 'HOME.FEATURES.CONNECT_GLOBALLY' | translate }}</h3>
+      <p>{{ 'HOME.FEATURES.CONNECT_GLOBALLY_DESC' | translate }}</p>
     </mat-card>
 
     <mat-card class="feature-card">
       <mat-icon color="primary">school</mat-icon>
-      <h3 i18n>Learning Center</h3>
-      <p i18n>Access guides and tutorials to master sailing, seamanship, and navigation.</p>
+      <h3>{{ 'HOME.FEATURES.LEARNING_CENTER' | translate }}</h3>
+      <p>{{ 'HOME.FEATURES.LEARNING_CENTER_DESC' | translate }}</p>
     </mat-card>
   </section>
 
   <!-- Call to Action -->
   <section class="cta">
-    <h2 i18n>Ready to set sail?</h2>
-    <p i18n>Join OceanRota today and be part of the global maritime future.</p>
-    <button mat-flat-button color="primary">Get Started</button>
+    <h2>{{ 'HOME.CTA.READY' | translate }}</h2>
+    <p>{{ 'HOME.CTA.READY_DESC' | translate }}</p>
+    <button mat-flat-button color="primary">{{ 'HOME.CTA.READY_BTN' | translate }}</button>
   </section>
 </div>
