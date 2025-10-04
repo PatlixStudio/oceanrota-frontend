@@ -1,17 +1,33 @@
 <mat-toolbar color="primary">
-  <span>🌊 OceanRota</span>
+  <span i18n="@@appName">🌊 OceanRota</span>
 
   <div class="menu-row">
-    <button matButton [routerLink]="['/']" i18n><mat-icon>anchor</mat-icon> {{ 'NAVIGATION.HOME' | translate }}</button>
-    <button matButton [routerLink]="['/marketplace']" i18n><mat-icon>directions_boat</mat-icon>{{ 'NAVIGATION.MARKETPLACE' | translate }}</button>
-    <button matButton [routerLink]="['/marine-services']" i18n><mat-icon>construction</mat-icon>{{ 'NAVIGATION.MARINE_SERVICES' | translate }}</button>
-    <button matButton [routerLink]="['/sea-personnel']" i18n><mat-icon>person_apron</mat-icon>{{ 'NAVIGATION.SEA_PERSONNEL' | translate }}</button>
-    <button matButton [routerLink]="['/learning-center']" i18n><mat-icon>school</mat-icon>{{ 'NAVIGATION.LEARNING_CENTER' | translate }}</button>
+    <button matButton [routerLink]="['/']">
+      <mat-icon>anchor</mat-icon>
+      <span i18n="@@navHome">Home</span>
+    </button>
+    <button matButton [routerLink]="['/marketplace']">
+      <mat-icon>directions_boat</mat-icon>
+      <span i18n="@@navMarketplace">Marketplace</span>
+    </button>
+    <button matButton [routerLink]="['/marine-services']">
+      <mat-icon>construction</mat-icon>
+      <span i18n="@@navMarineServices">Marine Services</span>
+    </button>
+    <button matButton [routerLink]="['/sea-personnel']">
+      <mat-icon>person_apron</mat-icon>
+      <span i18n="@@navSeaPersonnel">Sea Personnel</span>
+    </button>
+    <button matButton [routerLink]="['/learning-center']">
+      <mat-icon>school</mat-icon>
+      <span i18n="@@navLearningCenter">Learning Center</span>
+    </button>
   </div>
-  
+
   <span class="spacer"></span>
+
   <!-- If user is logged in -->
-  <ng-container *ngIf="userService.currentUser() as user; else guestLinks">
+  <ng-container *ngIf="currentUser as user; else guestLinks">
     <button matButton [matMenuTriggerFor]="userMenu" class="user-menu-btn">
       <div class="user-menu-container">
         <img [src]="user.avatarUrl || 'assets/images/marine_icons/sailor.png'" alt="avatar" class="avatar-sm" />
@@ -19,31 +35,30 @@
       </div>
       <mat-icon>arrow_drop_down</mat-icon>
     </button>
-    
+
     <app-language-switcher></app-language-switcher>
 
     <mat-menu #userMenu="matMenu">
       <button mat-menu-item [routerLink]="['/user/profile', user.username]">
         <mat-icon>person</mat-icon>
-        <span i18n>Profile</span>
+        <span i18n="@@menuProfile">Profile</span>
       </button>
       <button mat-menu-item (click)="logout()">
         <mat-icon>logout</mat-icon>
-        <span i18n>Logout</span>
+        <span i18n="@@menuLogout">Logout</span>
       </button>
     </mat-menu>
-  </ng-container> <!-- If no user is logged in -->
+  </ng-container>
+
+  <!-- If no user is logged in -->
   <ng-template #guestLinks>
-    <button mat-button routerLink="/login" i18n>Login</button>
-    <button mat-stroked-button color="accent" routerLink="/register" i18n>
+    <button mat-button routerLink="/login" i18n="@@loginBtn">Login</button>
+    <button mat-stroked-button color="accent" routerLink="/register" i18n="@@registerBtn">
       Register
     </button>
   </ng-template>
-  <!-- <button matButton="elevated" [routerLink]="['/login']" aria-label="Login / Register">
-    <mat-icon>login</mat-icon>
-    Became a Member
-  </button> -->
 </mat-toolbar>
+
 <!-- Add Content Here -->
 <main>
   <router-outlet />

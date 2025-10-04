@@ -6,13 +6,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { MatMenuModule } from '@angular/material/menu';
 import { LanguageSwitcher } from '../language-switcher/language-switcher';
-import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navigation',
@@ -28,24 +26,17 @@ import { TranslatePipe } from '@ngx-translate/core';
     MatListModule,
     MatIconModule,
     MatMenuModule,
-    TranslatePipe,
     LanguageSwitcher
   ]
 })
 export class NavigationComponent {
-  private breakpointObserver = inject(BreakpointObserver);
-  userService = inject(UserService);
+  private userService = inject(UserService);
   private router = inject(Router);
+  currentUser = this.userService.getCurrentUser();
 
   logout() {
     this.userService.clearCurrentUser();
     localStorage.removeItem('token'); // clear token too
     this.router.navigate(['/login']);
   }
-
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
 }

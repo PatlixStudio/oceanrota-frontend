@@ -1,13 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MarketplaceService } from '../../services/marketplace.service';
 import { RouterModule } from '@angular/router';
-import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-market-place',
@@ -17,8 +15,7 @@ import { TranslatePipe } from '@ngx-translate/core';
     FormsModule,
     MatButtonModule,
     MatInputModule,
-    RouterModule,
-    TranslatePipe
+    RouterModule
   ],
   templateUrl: './market-place.html',
   styleUrl: './market-place.scss'

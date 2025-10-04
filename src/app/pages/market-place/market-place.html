@@ -1,47 +1,62 @@
 <div class="marketplace-container">
 
-    <!-- Intro / Hero -->
-    <section class="intro">
-        <h1>{{ 'MARKETPLACE.PAGE_TITLE' | translate }}</h1>
-        <p>{{ 'MARKETPLACE.PAGE_DESC' | translate }}</p>
-    </section>
+  <!-- Intro / Hero -->
+  <section class="intro">
+    <h1 i18n="@@marketplaceTitle">⚓ Boat Marketplace</h1>
+    <p i18n="@@marketplaceDesc">
+      Explore a global marketplace for buying and selling vessels of all kinds — from fishing boats to luxury yachts.
+      Connect with trusted sellers and buyers worldwide, and make your next maritime deal with confidence.
+    </p>
+  </section>
 
-    <!-- Search / Filter -->
-    <section class="marketplace-search">
-        <mat-form-field appearance="outline" class="search-field">
-            <mat-label>{{ 'MARKETPLACE.SEARCH_INPUT' | translate }}</mat-label>
-            <input matInput placeholder="{{ 'MARKETPLACE.SEARCH_INPUT_PLACEHOLDER' | translate }}"
-                [(ngModel)]="filters.keyword" name="keyword">
-        </mat-form-field>
+  <!-- Search / Filter -->
+  <section class="marketplace-search">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label i18n="@@marketplaceSearchLabelKeyword">Search Vessels</mat-label>
+      <input
+        matInput
+        placeholder="Yacht, Cargo, Fishing Boat"
+        i18n-placeholder="@@marketplaceSearchPlaceholderKeyword"
+        [(ngModel)]="filters.keyword"
+        name="keyword"
+      >
+    </mat-form-field>
 
-        <mat-form-field appearance="outline" class="search-field">
-            <mat-label>{{ 'MARKETPLACE.SEARCH_LOCATION' | translate }}</mat-label>
-            <input matInput placeholder="{{ 'MARKETPLACE.SEARCH_LOCATION_PLACEHOLDER' | translate }}"
-                [(ngModel)]="filters.location" name="location">
-        </mat-form-field>
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label i18n="@@marketplaceSearchLabelLocation">Location</mat-label>
+      <input
+        matInput
+        placeholder="Country / Port"
+        i18n-placeholder="@@marketplaceSearchPlaceholderLocation"
+        [(ngModel)]="filters.location"
+        name="location"
+      >
+    </mat-form-field>
 
-        <button mat-raised-button color="primary" (click)="searchVessels()">{{ 'MARKETPLACE.SEARCH_BTN' | translate
-            }}</button>
-    </section>
+    <button mat-raised-button color="primary" (click)="searchVessels()" i18n="@@marketplaceSearchBtn">
+      Search
+    </button>
+  </section>
 
-    <!-- Marketplace Grid -->
-    <section class="marketplace-grid">
-        <mat-card class="vessel-card" *ngFor="let vessel of marketplaceService.listings()">
-            <img mat-card-image [src]="vessel.images[0]" alt="{{ vessel.title }}" />
-            <mat-card-header>
-                <mat-card-title>
-                    <span [routerLink]="['/marketplace/boats', vessel.id]" class="title-link">{{ vessel.title }}</span>
-                </mat-card-title>
-                <mat-card-subtitle>{{ vessel.boatClass }} • {{ vessel.port }}</mat-card-subtitle>
-                <mat-card-subtitle>{{ vessel.price }} {{ vessel.currency }}</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p>{{ vessel.description }}</p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-stroked-button color="accent" [routerLink]="['/marketplace/boats', vessel.id]">{{
-                    'MARKETPLACE.LISTING_VIEW_BTN' | translate }}</button>
-            </mat-card-actions>
-        </mat-card>
-    </section>
+  <!-- Marketplace Grid -->
+  <section class="marketplace-grid">
+    <mat-card class="vessel-card" *ngFor="let vessel of marketplaceService.listings()">
+      <img mat-card-image [src]="vessel.images[0]" alt="{{ vessel.title }}" />
+      <mat-card-header>
+        <mat-card-title>
+          <span [routerLink]="['/marketplace/boats', vessel.id]" class="title-link">{{ vessel.title }}</span>
+        </mat-card-title>
+        <mat-card-subtitle>{{ vessel.boatClass }} • {{ vessel.port }}</mat-card-subtitle>
+        <mat-card-subtitle>{{ vessel.price }} {{ vessel.currency }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ vessel.description }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button color="accent" [routerLink]="['/marketplace/boats', vessel.id]" i18n="@@marketplaceViewBtn">
+          View
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </section>
 </div>

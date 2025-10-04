@@ -1,7 +1,7 @@
 <div class="sea-personnel-container">
   <section class="intro">
-    <h1 i18n>👮‍♂️ Sea Personnel</h1>
-    <p i18n>
+    <h1 i18n="@@seaPersonnelTitle">👮‍♂️ Sea Personnel</h1>
+    <p i18n="@@seaPersonnelDesc">
       Looking for a career at sea? Captains, engineers, crew, and other maritime professionals
       can find open positions worldwide. Employers can post vacancies and connect with qualified crew.
     </p>
@@ -10,16 +10,28 @@
   <!-- Search / Filter -->
   <section class="search">
     <mat-form-field appearance="outline" class="search-field">
-      <mat-label i18n>Job Title / Role</mat-label>
-      <input matInput placeholder="Captain, Deckhand, Engineer" [(ngModel)]="filters.role">
+      <mat-label i18n="@@seaPersonnelSearchLabelRole">Job Title / Role</mat-label>
+      <input
+        matInput
+        placeholder="Captain, Deckhand, Engineer"
+        i18n-placeholder="@@seaPersonnelSearchPlaceholderRole"
+        [(ngModel)]="filters.role"
+      >
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="search-field">
-      <mat-label i18n>Location / Vessel</mat-label>
-      <input matInput placeholder="Port, Ship, Country" [(ngModel)]="filters.location">
+      <mat-label i18n="@@seaPersonnelSearchLabelLocation">Location / Vessel</mat-label>
+      <input
+        matInput
+        placeholder="Port, Ship, Country"
+        i18n-placeholder="@@seaPersonnelSearchPlaceholderLocation"
+        [(ngModel)]="filters.location"
+      >
     </mat-form-field>
 
-    <button mat-raised-button color="primary" (click)="searchJobs()">Search</button>
+    <button mat-raised-button color="primary" (click)="searchJobs()" i18n="@@seaPersonnelSearchBtn">
+      Search
+    </button>
   </section>
 
   <!-- Jobs / Listings Grid -->
@@ -33,16 +45,20 @@
         <p>{{ job.description }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-stroked-button color="accent" i18n>View Details</button>
-        <button mat-flat-button color="primary" i18n>Apply Now</button>
+        <button mat-stroked-button color="accent" i18n="@@seaPersonnelViewBtn">View Details</button>
+        <button mat-flat-button color="primary" i18n="@@seaPersonnelApplyBtn">Apply Now</button>
       </mat-card-actions>
     </mat-card>
   </section>
 
   <!-- CTA for Employers -->
   <section class="cta-employers">
-    <h2 i18n>Are you hiring?</h2>
-    <p i18n>Post your maritime job openings and reach qualified sea personnel worldwide.</p>
-    <button mat-flat-button color="primary" routerLink="/post-job" i18n>Post a Job</button>
+    <h2 i18n="@@seaPersonnelCtaTitle">Are you hiring?</h2>
+    <p i18n="@@seaPersonnelCtaDesc">
+      Post your maritime job openings and reach qualified sea personnel worldwide.
+    </p>
+    <button mat-flat-button color="primary" routerLink="/post-job" i18n="@@seaPersonnelPostJobBtn">
+      Post a Job
+    </button>
   </section>
 </div>

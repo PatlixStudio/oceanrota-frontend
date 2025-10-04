@@ -4,10 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --localize",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:oceanrota-frontend": "node dist/oceanrota-frontend/server/server.mjs"
+    "localize": "ng extract-i18n --output-path src/assets/i18n --format=json",
+    "serve:ssr:oceanrota": "node dist/oceanrota-frontend/server/server.mjs"
   },
   "prettier": {
     "printWidth": 100,
@@ -33,8 +34,6 @@
     "@angular/platform-server": "^20.3.0",
     "@angular/router": "^20.3.0",
     "@angular/ssr": "^20.3.2",
-    "@ngx-translate/core": "^17.0.0",
-    "@ngx-translate/http-loader": "^17.0.0",
     "express": "^5.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

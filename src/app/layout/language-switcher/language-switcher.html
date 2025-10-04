@@ -1,8 +1,10 @@
-<button matIconButton [matMenuTriggerFor]="languageMenu" aria-label="language switcher menu">
+<button mat-icon-button [matMenuTriggerFor]="languageMenu" aria-label="language switcher menu">
     <mat-icon>language</mat-icon>
 </button>
+
 <mat-menu #languageMenu="matMenu">
     <button mat-menu-item *ngFor="let lang of languages" (click)="changeLang(lang)">
         {{ lang.toUpperCase() }}
-    </button> 
+        <mat-icon *ngIf="currentLang === lang">check</mat-icon>
+    </button>
 </mat-menu>

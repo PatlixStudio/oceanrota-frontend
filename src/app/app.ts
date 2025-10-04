@@ -1,5 +1,4 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { NavigationComponent } from "./layout/navigation/navigation.component";
 import { Footer } from './layout/footer/footer';
 
@@ -10,5 +9,5 @@ import { Footer } from './layout/footer/footer';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('OceanRota');
+  protected readonly title = signal($localize `OceanRota`);
 }
