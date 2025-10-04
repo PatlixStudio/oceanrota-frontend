@@ -13,8 +13,8 @@
       "i18n": {
         "sourceLocale": "en",
         "locales": {
-          "tr": "src/assets/i18n/messages.tr.json",
-          "de": "src/assets/i18n/messages.de.json"
+          "tr": "src/i18n/messages.tr.json",
+          "de": "src/i18n/messages.de.json"
         }
       },
       "root": "",

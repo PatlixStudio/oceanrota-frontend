@@ -7,7 +7,7 @@
     "build": "ng build --localize",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "localize": "ng extract-i18n --output-path src/assets/i18n --format=json",
+    "localize": "ng extract-i18n --output-path src/i18n --format=json",
     "serve:ssr:oceanrota": "node dist/oceanrota-frontend/server/server.mjs"
   },
   "prettier": {
