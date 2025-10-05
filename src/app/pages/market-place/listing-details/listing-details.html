@@ -8,8 +8,8 @@
         </mat-card-header>
 
         <mat-card-content>
-            <div class="listing-gallery">
-                <img *ngFor="let img of vessel.images" [src]="img" alt="{{ vessel.title }}" />
+            <div class="listing-gallery" *ngIf="vessel.images">
+                <img *ngFor="let img of vessel.images" [src]="img ? img : ''" alt="{{ vessel.title }}" />
             </div>
 
             <p class="listing-description">{{ vessel.description }}</p>

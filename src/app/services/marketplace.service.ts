@@ -30,7 +30,7 @@ export class MarketplaceService {
   }
 
   // create a new listing
-  createListing(data: Partial<Listing>): Observable<Listing> {
-    return this.http.post<Listing>(this.apiUrl, data);
+  createListing(data: FormData): Observable<Listing> {
+    return this.http.post<Listing>(`${this.apiUrl}/listings`, data);
   }
 }

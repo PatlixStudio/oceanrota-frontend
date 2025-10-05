@@ -19,15 +19,31 @@
   grid-column: span 2;
 }
 
-.image-upload {
+.engine-section {
   grid-column: span 2;
+}
+
+.image-upload {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 
   input[type="file"] {
-    border: 1px dashed #ccc;
-    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .image-preview-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    .preview-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
   }
 }
 

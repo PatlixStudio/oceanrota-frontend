@@ -1,28 +1,77 @@
-import { User } from "./user.model";
+export interface Engine {
+  id?: number;
+  make?: string;
+  powerHp?: number;
+  capacity?: string;
+  fuelType?: string;
+  driveType?: string;
+}
 
 export interface Listing {
-  id: number;
+  id?: number;
+
+  /** Basic Info */
   title: string;
   description: string;
-  price: number;
-  currency: string;
-  category: string; // e.g., Power, Sail, Other
-  boatType: string; // e.g., Sailboat, Yacht, etc.
-  boatClass: string; // e.g., Motor Yacht, Cruiser
-  make: string; // Manufacturer
-  year: number;
-  length_m: number;
-  condition: 'New' | 'Used';
-  country: string;
-  city: string;
-  port: string;
-  images: string[]; // gallery of images
-  isActive: boolean;
-  ownerId: number;
+  category: string; // Power / Sail / Other
+  boatType?: string; // e.g., Catamaran, Yacht
+  boatClass?: string; // Cruiser, Motor Yacht
+  make?: string;
+  model?: string;
 
-  // relation
-  owner?: User; 
-  
-  createdAt: string;
-  updatedAt: string;
+  /** Pricing */
+  price?: number;
+  currency?: string; // USD, EUR, etc.
+
+  /** Location */
+  country?: string;
+  city?: string;
+  port?: string;
+
+  /** Specifications */
+  length_m?: number;
+  beam_m?: number;
+  draft_m?: number;
+  weight_kg?: number;
+  year?: number;
+  condition?: string; // New / Excellent / Used
+  hullMaterial?: string;
+  capacity?: string;
+
+  /** Accommodations */
+  guestCabins?: number;
+  guestHeads?: number;
+
+  /** Tanks */
+  fuelTank_liter?: number;
+  waterTank_liter?: number;
+  holdingTank_liter?: number;
+
+  /** Engines */
+  engines?: Engine[];
+
+  /** Features (JSON) */
+  features?: Record<string, any>;
+
+  /** Media */
+  images?: string[];
+
+  /** Status */
+  status?: 'draft' | 'published' | 'sold';
+
+  /** Owner Info */
+  ownerId?: number;
+  owner?: {
+    id: number;
+    username: string;
+    avatarUrl?: string;
+  };
+
+  /** Flags */
+  isActive?: boolean;
+  isSeeded?: boolean;
+
+  /** Timestamps */
+  createdAt?: string;
+  updatedAt?: string;
 }

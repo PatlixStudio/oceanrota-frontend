@@ -41,7 +41,7 @@
   <!-- Marketplace Grid -->
   <section class="marketplace-grid">
     <mat-card class="vessel-card" *ngFor="let vessel of marketplaceService.listings()">
-      <img mat-card-image [src]="vessel.images[0]" alt="{{ vessel.title }}" />
+      <img mat-card-image [src]="vessel.images?.[0] || './assets/images/marine_icons/boat.png'" [alt]="vessel.title || 'Boat image'" />
       <mat-card-header>
         <mat-card-title>
           <span [routerLink]="['/marketplace/boats', vessel.id]" class="title-link">{{ vessel.title }}</span>
