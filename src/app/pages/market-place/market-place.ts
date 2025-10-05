@@ -27,7 +27,8 @@ export class MarketPlace {
   filters = { keyword: '', location: '' };
 
   ngOnInit() {
-    this.marketplaceService.fetchListings(); // always fetch fresh listings
+    this.marketplaceService.fetchListings();
+    console.log(this.marketplaceService.listings()); // always fetch fresh listings
   }
 
   searchVessels() {

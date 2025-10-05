@@ -5,6 +5,8 @@
 <mat-menu #languageMenu="matMenu">
     <button mat-menu-item *ngFor="let lang of languages" (click)="changeLang(lang)">
         {{ lang.toUpperCase() }}
+        <img alt="United States" src="http://purecatamphetamine.github.io/country-flag-icons/3x2/{{ lang.toUpperCase() }}.svg" width="25"/>
+
         <mat-icon *ngIf="currentLang === lang">check</mat-icon>
     </button>
 </mat-menu>
