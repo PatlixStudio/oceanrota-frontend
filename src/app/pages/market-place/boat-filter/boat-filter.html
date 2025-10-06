@@ -2,6 +2,19 @@
     <mat-accordion class="filter-accordion" multi>
         <h2 class="filter-title" i18n="@@boatFilter.title">Filter Boats</h2>
         <form [formGroup]="filterForm" (ngSubmit)="applyFilter()">
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title> Listing Type </mat-panel-title>
+                </mat-expansion-panel-header>
+                
+                <mat-button-toggle-group formControlName="listingType" name="listing_type" aria-label="Listing Type">
+                    <mat-button-toggle value="All">ALL</mat-button-toggle>
+                    <mat-button-toggle value="sale">For Sale</mat-button-toggle>
+                    <mat-button-toggle value="rent">For Rent</mat-button-toggle>
+                </mat-button-toggle-group>
+            </mat-expansion-panel>
+
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
                     <mat-panel-title> Boat Type </mat-panel-title>
@@ -11,21 +24,22 @@
                     <mat-expansion-panel-header>
                         <mat-panel-title>Power</mat-panel-title>
                     </mat-expansion-panel-header>
-                    <mat-selection-list #shoes>
-                        @for (shoe of typesOfShoes; track shoe) {
-                        <mat-list-option>{{shoe}}</mat-list-option>
+                    <mat-selection-list #powerBoat>
+                        @for (powerBoat of powerBoatTypes; track powerBoat.name)
+                        {
+                        <mat-list-option>{{ powerBoat.name }}</mat-list-option>
                         }
                     </mat-selection-list>
-
                 </mat-expansion-panel>
 
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
                         <mat-panel-title>Sail</mat-panel-title>
                     </mat-expansion-panel-header>
-                    <mat-selection-list #shoes>
-                        @for (shoe of typesOfShoes; track shoe) {
-                        <mat-list-option>{{shoe}}</mat-list-option>
+                    <mat-selection-list #sailBoat>
+                        @for (sailBoat of sailBoatTypes; track sailBoat.name)
+                        {
+                        <mat-list-option>{{sailBoat.name}}</mat-list-option>
                         }
                     </mat-selection-list>
                 </mat-expansion-panel>
@@ -33,11 +47,11 @@
 
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
-                    <mat-panel-title> Make </mat-panel-title>
+                    <mat-panel-title> Maker of the Vessel </mat-panel-title>
                 </mat-expansion-panel-header>
 
                 <mat-form-field appearance="fill">
-                    <mat-label i18n="@@boatFilter.condition">Condition</mat-label>
+                    <mat-label i18n="@@boatFilter.condition">Maker</mat-label>
                     <mat-select formControlName="condition">
                         <mat-option *ngFor="let c of conditions" [value]="c">
                             {{ c }}
@@ -137,7 +151,11 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label i18n="@@boatFilter.year">Hull Material</mat-label>
-                    <input matInput type="number" formControlName="year" />
+                    <mat-select formControlName="hull_material">
+                        <mat-option *ngFor="let hull of hullTypes" [value]="hull.slug">
+                            {{ hull.name }}
+                        </mat-option>
+                    </mat-select>
                 </mat-form-field>
             </mat-expansion-panel>
 

@@ -11,6 +11,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
+import { SailBoatTypes } from '../../../core/constants/sail-boat.types';
+import { PowerBoatTypes } from '../../../core/constants/power-boat.types';
+import { HullTypes } from '../../../core/constants/hull-material.types';
 
 @Component({
   selector: 'app-boat-filter',
@@ -46,12 +49,19 @@ export class BoatFilter {
     minLength: [''],
     maxLength: [''],
     year: [''],
+    hull_material: [''],
+    listingType: ['']
   });
 
 
   categories = ['Power', 'Sail', 'Other'];
-  conditions = ['New', 'Used', 'Excellent', 'Good'];
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
+  conditions = ['New', 'Used'];
+  listing_type = ['Sale', 'Rent'];
+
+  
+  sailBoatTypes = SailBoatTypes;
+  powerBoatTypes = PowerBoatTypes;
+  hullTypes = HullTypes;
 
   applyFilter() {
     const filters = this.filterForm.value;
