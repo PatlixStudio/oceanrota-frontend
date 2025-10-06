@@ -1,0 +1,32 @@
+@use '@angular/material' as mat;
+
+// Customize the entire app. Change :root to your selector if you want to scope the styles.
+:host {
+  @include mat.expansion-overrides((
+    actions-divider-color: orange,
+    container-shape: 'square',
+    container-background-color: white
+  ));
+
+  /* Remove gap between expansion panels */
+  ::ng-deep .mat-accordion .mat-expansion-panel {
+    margin: 0 !important;
+    border-radius: 0; /* optional */
+  }
+
+  /* Optional: remove panel content padding */
+  ::ng-deep .mat-expansion-panel-body {
+    padding: 10 !important;
+  }
+}
+
+.filter-title {
+    text-align: center;
+}
+
+.filter-actions {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    margin: 20px;
+}

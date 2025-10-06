@@ -1,0 +1,166 @@
+<div>
+    <mat-accordion class="filter-accordion" multi>
+        <h2 class="filter-title" i18n="@@boatFilter.title">Filter Boats</h2>
+        <form [formGroup]="filterForm" (ngSubmit)="applyFilter()">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title> Boat Type </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Power</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-selection-list #shoes>
+                        @for (shoe of typesOfShoes; track shoe) {
+                        <mat-list-option>{{shoe}}</mat-list-option>
+                        }
+                    </mat-selection-list>
+
+                </mat-expansion-panel>
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Sail</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-selection-list #shoes>
+                        @for (shoe of typesOfShoes; track shoe) {
+                        <mat-list-option>{{shoe}}</mat-list-option>
+                        }
+                    </mat-selection-list>
+                </mat-expansion-panel>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title> Make </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <mat-form-field appearance="fill">
+                    <mat-label i18n="@@boatFilter.condition">Condition</mat-label>
+                    <mat-select formControlName="condition">
+                        <mat-option *ngFor="let c of conditions" [value]="c">
+                            {{ c }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title> Condition </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-button-toggle-group name="condition" aria-label="Boat Condition">
+                    <mat-button-toggle value="All">ALL</mat-button-toggle>
+                    <mat-button-toggle value="New">New</mat-button-toggle>
+                    <mat-button-toggle value="Used">Used</mat-button-toggle>
+                </mat-button-toggle-group>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title> Location </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-form-field appearance="fill">
+                    <mat-label i18n="@@boatFilter.country">Country</mat-label>
+                    <input matInput formControlName="country" placeholder="e.g. Italy" />
+                </mat-form-field>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title> Price </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-form-field appearance="fill">
+                    <mat-label i18n="@@boatFilter.minPrice">Min Price</mat-label>
+                    <input matInput type="number" formControlName="minPrice" />
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label i18n="@@boatFilter.maxPrice">Max Price</mat-label>
+                    <input matInput type="number" formControlName="maxPrice" />
+                </mat-form-field>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title> Length </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-form-field appearance="fill">
+                    <mat-label i18n="@@boatFilter.minLength">Min Length (m)</mat-label>
+                    <input matInput type="number" formControlName="minLength" />
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label i18n="@@boatFilter.maxLength">Max Length (m)</mat-label>
+                    <input matInput type="number" formControlName="maxLength" />
+                </mat-form-field>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>Year</mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <mat-form-field appearance="fill">
+                    <mat-label i18n="@@boatFilter.year">Year</mat-label>
+                    <input matInput type="number" formControlName="year" />
+                </mat-form-field>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>Engine Details</mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <mat-form-field appearance="fill">
+                    <mat-label i18n="@@boatFilter.year">Engine</mat-label>
+                    <input matInput type="number" formControlName="year" />
+                </mat-form-field>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>Fuel</mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <mat-form-field appearance="fill">
+                    <mat-label i18n="@@boatFilter.year">Fuel</mat-label>
+                    <input matInput type="number" formControlName="year" />
+                </mat-form-field>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>Hull Material</mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <mat-form-field appearance="fill">
+                    <mat-label i18n="@@boatFilter.year">Hull Material</mat-label>
+                    <input matInput type="number" formControlName="year" />
+                </mat-form-field>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>Country</mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <mat-form-field appearance="fill">
+                    <mat-label i18n="@@boatFilter.year">Country</mat-label>
+                    <input matInput type="number" formControlName="year" />
+                </mat-form-field>
+            </mat-expansion-panel>
+
+            <div class="filter-actions">
+                <button matButton="filled" color="primary" type="submit" i18n="@@boatFilter.apply">
+                    Apply
+                </button>
+                <button matButton="elevated" color="warn" type="button" (click)="resetFilter()"
+                    i18n="@@boatFilter.reset">
+                    Reset
+                </button>
+            </div>
+        </form>
+    </mat-accordion>
+</div>
