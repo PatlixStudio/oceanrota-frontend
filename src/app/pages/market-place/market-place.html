@@ -46,10 +46,10 @@
         </div>
 
         <div class="sort-controls">
-          <button matIconButton>
+          <button matIconButton (click)="setViewMode('list')">
             <mat-icon>list_view</mat-icon>
           </button>
-          <button matIconButton>
+          <button matIconButton (click)="setViewMode('grid')">
             <mat-icon>grid_view</mat-icon>
           </button>
           <mat-form-field appearance="outline" class="sort-field">
@@ -74,7 +74,7 @@
       </section>
 
 
-      <section class="cards-grid">
+      <section class="cards-grid" [ngClass]="viewMode">
         <mat-card class="vessel-card" *ngFor="let vessel of filteredListings">
           <img mat-card-image [src]="vessel.images?.[0] || './assets/images/marine_icons/boat.png'"
             [alt]="vessel.title || 'Boat image'" />

@@ -87,7 +87,6 @@
         }
       }
 
-      /* Cards grid below sort bar */
       .cards-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -99,6 +98,35 @@
 
         @media (max-width: 900px) {
           grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+
+        &.grid {
+          // default grid behavior (already handled by parent)
+        }
+
+        &.list {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+
+          .vessel-card {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+
+            img {
+              width: 200px;
+              height: auto;
+              object-fit: cover;
+              margin-right: 16px;
+            }
+
+            mat-card-content,
+            mat-card-header,
+            mat-card-actions {
+              flex: 1; // fill remaining space
+            }
+          }
         }
 
         .vessel-card {
@@ -148,7 +176,6 @@
                 height: 25px;
               }
             }
-
           }
         }
       }

@@ -55,6 +55,8 @@ export class MarketPlace {
 
   pageEvent!: PageEvent;
 
+  viewMode: 'grid' | 'list' = 'grid';
+
 
   ngOnInit() {
     this.marketplaceService.fetchListings();
@@ -110,5 +112,9 @@ export class MarketPlace {
     if (setPageSizeOptionsInput) {
       this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
     }
+  }
+
+  setViewMode(mode: 'grid' | 'list') {
+    this.viewMode = mode;
   }
 }
