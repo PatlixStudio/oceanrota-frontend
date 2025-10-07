@@ -1,0 +1,18 @@
+export const MARINE_SERVICE_CATEGORIES = [
+    { slug: 'maintenance', name: 'Maintenance', description: 'Regular inspections, cleaning, and upkeep' },
+    { slug: 'repair', name: 'Repair', description: 'Structural, hull, or component repairs' },
+    { slug: 'mechanical', name: 'Mechanical', description: 'Engine, propulsion, and powertrain work' },
+    { slug: 'electrical', name: 'Electrical', description: 'Electrical systems, lighting, batteries, wiring' },
+    { slug: 'electronics', name: 'Electronics', description: 'Navigation, communication, radar, GPS systems' },
+    { slug: 'fabrication', name: 'Fabrication', description: 'Custom metalwork, welding, and component design' },
+    { slug: 'painting', name: 'Painting', description: 'Hull painting, antifouling, and detailing' },
+    { slug: 'cleaning', name: 'Cleaning', description: 'Hull washing, interior cleaning, detailing' },
+    { slug: 'upholstery', name: 'Upholstery', description: 'Interior, covers, seating, and canvas services' },
+    { slug: 'fiberglass', name: 'Fiberglass', description: 'Fiberglass repair, molding, and lamination' },
+    { slug: 'survey', name: 'Survey', description: 'Pre-purchase and insurance surveys' },
+    { slug: 'storage', name: 'Storage', description: 'Winterization, boat storage, and haul-out' },
+    { slug: 'transport', name: 'Transport', description: 'Boat transport, delivery, or towing' },
+    { slug: 'training', name: 'Training', description: 'Skipper training, navigation courses' },
+    { slug: 'charter_support', name: 'Charter Support', description: 'Maintenance or crew for chartered boats' },
+    { slug: 'customization', name: 'Customization', description: 'Interior refit, upgrades, or performance tuning' },
+];
