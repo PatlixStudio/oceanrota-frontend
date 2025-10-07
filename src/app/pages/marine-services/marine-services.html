@@ -10,24 +10,25 @@
 
   <!-- Search / Filter -->
   <section class="search">
+    <mat-form-field appearance="outline">
+      <mat-label i18n="@@marineSearchLabelType">Service Category</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let c of serviceCategories" [value]="c.slug">
+          {{ c.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
     <mat-form-field appearance="outline" class="search-field">
       <mat-label i18n="@@marineSearchLabelType">Service Type</mat-label>
-      <input
-        matInput
-        placeholder="Maintenance, Training, Logistics"
-        i18n-placeholder="@@marineSearchPlaceholderType"
-        [(ngModel)]="filters.type"
-      >
+      <input matInput placeholder="Maintenance, Training, Logistics" i18n-placeholder="@@marineSearchPlaceholderType"
+        [(ngModel)]="filters.type">
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="search-field">
       <mat-label i18n="@@marineSearchLabelLocation">Location</mat-label>
-      <input
-        matInput
-        placeholder="Port, City, Country"
-        i18n-placeholder="@@marineSearchPlaceholderLocation"
-        [(ngModel)]="filters.location"
-      >
+      <input matInput placeholder="Port, City, Country" i18n-placeholder="@@marineSearchPlaceholderLocation"
+        [(ngModel)]="filters.location">
     </mat-form-field>
 
     <button mat-raised-button color="primary" (click)="searchServices()" i18n="@@marineSearchBtn">
@@ -39,7 +40,7 @@
   <section class="services-grid">
     <mat-card class="service-card" *ngFor="let service of services">
       <mat-card-header>
-        <mat-card-title>{{ service.name }}</mat-card-title>
+        <mat-card-title>{{ service.title }}</mat-card-title>
         <mat-card-subtitle>{{ service.type }} • {{ service.location }}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
