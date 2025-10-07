@@ -10,7 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { MatMenuModule } from '@angular/material/menu';
-import { LanguageSwitcher } from '../language-switcher/language-switcher';
+import { LanguageSwitcher } from '../../components/language-switcher/language-switcher';
+import { CurrencySwitcher } from "../../components/currency-switcher/currency-switcher";
 
 @Component({
   selector: 'app-navigation',
@@ -26,8 +27,9 @@ import { LanguageSwitcher } from '../language-switcher/language-switcher';
     MatListModule,
     MatIconModule,
     MatMenuModule,
-    LanguageSwitcher
-  ]
+    LanguageSwitcher,
+    CurrencySwitcher
+]
 })
 export class NavigationComponent {
   private userService = inject(UserService);
