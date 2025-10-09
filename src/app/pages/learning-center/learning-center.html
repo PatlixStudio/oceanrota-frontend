@@ -45,7 +45,7 @@
         <p>{{ course.description }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-stroked-button color="accent" i18n="@@learningCourseDetailsBtn">View Details</button>
+        <button mat-stroked-button color="accent" i18n="@@learningCourseDetailsBtn" [routerLink]="['/learning-center/course-details', course.id]" >View Details</button>
         <button mat-flat-button color="primary" i18n="@@learningCourseEnrollBtn">Enroll Now</button>
       </mat-card-actions>
     </mat-card>

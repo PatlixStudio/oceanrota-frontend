@@ -1,0 +1,76 @@
+<div class="course-details-container">
+  <mat-card class="course-main-card">
+    <div class="header-row">
+      <div class="title-block">
+        <h1 i18n="@@courseDetailsTitle">{{ course.title }}</h1>
+        <p class="subtitle" *ngIf="course.subtitle">{{ course.subtitle }}</p>
+
+        <div class="meta-row">
+          <mat-chip-listbox aria-label="course-meta">
+            <mat-chip i18n="@@courseDetailsLevel">{{ course.level }}</mat-chip>
+            <mat-chip *ngIf="course.durationHours">{{ course.durationHours }} hrs</mat-chip>
+            <mat-chip *ngIf="course.price">{{ course.price | currency:course.currency }}</mat-chip>
+          </mat-chip-listbox>
+        </div>
+      </div>
+
+      <div class="actions-block">
+        <button mat-raised-button color="primary" (click)="onEnroll()" i18n="@@courseDetailsEnroll">
+          <mat-icon>school</mat-icon> Enroll Now
+        </button>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content class="content-row">
+      <section class="description">
+        <h3 i18n="@@courseDetailsDescriptionHeading">Course Description</h3>
+        <p>{{ course.description }}</p>
+      </section>
+
+      <aside class="instructor-card">
+        <mat-card class="instructor-info">
+          <img class="instructor-avatar" [src]="course.instructor.avatarUrl || './assets/images/marine_icons/captain.png'" alt="Instructor avatar">
+          <div class="instructor-meta">
+            <strong>@{{ course.instructor.name }}</strong>
+            <p class="instructor-bio">{{ course.instructor.bio }}</p>
+          </div>
+        </mat-card>
+      </aside>
+    </mat-card-content>
+
+    <mat-divider></mat-divider>
+
+    <div class="curriculum-section">
+      <h3 i18n="@@courseDetailsCurriculum">Curriculum</h3>
+      <div class="modules-list">
+        <mat-card *ngFor="let m of course.modules" class="module-card">
+          <mat-card-title>{{ m.title }}</mat-card-title>
+          <mat-list>
+            <mat-list-item *ngFor="let lesson of m.lessons">
+              <div class="lesson-title">{{ lesson.title }}</div>
+              <div class="lesson-duration">{{ lesson.durationMinutes }} min</div>
+            </mat-list-item>
+          </mat-list>
+        </mat-card>
+      </div>
+    </div>
+  </mat-card>
+
+  <!-- Related courses -->
+  <section class="related-courses">
+    <h3 i18n="@@courseDetailsRelatedCourses">Related Courses</h3>
+    <div class="related-grid">
+      <mat-card *ngFor="let rc of relatedCourses" class="related-card">
+        <mat-card-title>{{ rc.title }}</mat-card-title>
+        <mat-card-subtitle>{{ rc.level }} • {{ rc.price | currency:rc.currency }}</mat-card-subtitle>
+        <mat-card-actions>
+          <button mat-stroked-button color="accent" [routerLink]="['/learning/courses', rc.id]" i18n="@@courseDetailsView">
+            View Course
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </section>
+</div>

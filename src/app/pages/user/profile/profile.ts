@@ -11,7 +11,7 @@ import { User } from '../../../core/models/user.model';
   templateUrl: './profile.html',
   styleUrl: './profile.scss'
 })
-export class Profile implements OnInit {
+export class UserProfile implements OnInit {
   private userService = inject(UserService);
   private route = inject(ActivatedRoute);
 

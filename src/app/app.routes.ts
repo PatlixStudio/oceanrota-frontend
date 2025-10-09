@@ -7,7 +7,7 @@ import { LearningCenter } from './pages/learning-center/learning-center';
 import { Login } from './auth/login/login';
 import { Register } from './auth/register/register';
 import { ForgotPassword } from './auth/forgot-password/forgot-password';
-import { Profile } from './pages/user/profile/profile';
+import { UserProfile } from './pages/user/profile/profile';
 import { ListingDetails } from './pages/market-place/listing-details/listing-details';
 import { AddListing } from './pages/market-place/add-listing/add-listing';
 import { CreateMarineService } from './pages/marine-services/create-marine-service/create-marine-service';
@@ -15,6 +15,7 @@ import { RequestMarineService } from './pages/marine-services/request-marine-ser
 import { MarineServiceDetails } from './pages/marine-services/marine-service-details/marine-service-details';
 import { JobDetails } from './pages/sea-personnel/job-details/job-details';
 import { CreateSeaJob } from './pages/sea-personnel/create-sea-job/create-sea-job';
+import { CourseDetails } from './pages/learning-center/course-details/course-details';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -43,13 +44,16 @@ export const routes: Routes = [
         path: 'sea-personnel', children: [
             { path: '', component: SeaPersonnel },
             { path: 'sea-job-details/:id', component: JobDetails },
-            { path: 'create-sea-job', component: CreateSeaJob },
-            { path: 'request-marine-service', component: RequestMarineService }
         ]
     },
-    { path: 'learning-center', component: LearningCenter },
+    {
+        path: 'learning-center', children: [
+            { path: '', component: LearningCenter },
+            { path: 'course-details/:id', component: CourseDetails },
+        ]
+    },
 
-    { path: 'user/profile/:username', component: Profile },
+    { path: 'user/profile/:username', component: UserProfile },
 
     { path: '**', redirectTo: '' }
 ];
