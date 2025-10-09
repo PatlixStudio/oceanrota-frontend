@@ -9,10 +9,21 @@ import { MarineServicesService } from '../../services/marine-services.service';
 import { MARINE_SERVICE_CATEGORIES } from '../../core/constants/marine-service.categories';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-marine-services',
-  imports: [CommonModule, MatInputModule, FormsModule, MatCardModule, MatIconModule, MatButtonModule,MatSelectModule, MatOptionModule],
+  imports: [
+    CommonModule,
+    MatInputModule,
+    FormsModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatOptionModule,
+    RouterModule
+  ],
   templateUrl: './marine-services.html',
   styleUrl: './marine-services.scss'
 })
@@ -25,7 +36,7 @@ export class MarineServices {
   serviceCategories = MARINE_SERVICE_CATEGORIES;
 
   ngOnInit() {
-    
+
     console.log(this.marineService.fetchServices()); // always fetch fresh listings
   }
 

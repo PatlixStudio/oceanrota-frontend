@@ -2,33 +2,19 @@
 
   <!-- Intro / Hero -->
   <section class="intro">
-    <h1 i18n="@@marketplaceTitle">⚓ Boat Marketplace</h1>
-    <p i18n="@@marketplaceDesc">
-      Explore a global marketplace for buying and selling vessels of all kinds — from fishing boats to luxury yachts.
-      Connect with trusted sellers and buyers worldwide, and make your next maritime deal with confidence.
-    </p>
+    <mat-card>
+      <mat-card-header class="intro-title">
+        <mat-card-title i18n="@@marketplaceTitle">⚓ Boat Marketplace</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p i18n="@@marketplaceDesc">
+          Explore a global marketplace for buying and selling vessels of all kinds — from fishing boats to luxury
+          yachts.
+          Connect with trusted sellers and buyers worldwide, and make your next maritime deal with confidence.
+        </p>
+      </mat-card-content>
+    </mat-card>
   </section>
-
-  <!-- Search / Filter -->
-  <!-- <section class="marketplace-search">
-    <mat-form-field appearance="outline" class="search-field">
-      <mat-label i18n="@@marketplaceSearchLabelKeyword">Search Vessels</mat-label>
-      <input matInput placeholder="Yacht, Cargo, Fishing Boat" i18n-placeholder="@@marketplaceSearchPlaceholderKeyword"
-        [(ngModel)]="filters.keyword" name="keyword">
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" class="search-field">
-      <mat-label i18n="@@marketplaceSearchLabelLocation">Location</mat-label>
-      <input matInput placeholder="Country / Port" i18n-placeholder="@@marketplaceSearchPlaceholderLocation"
-        [(ngModel)]="filters.location" name="location">
-    </mat-form-field>
-
-    <button mat-raised-button color="primary" (click)="searchVessels()" i18n="@@marketplaceSearchBtn">
-      Search
-    </button>
-  </section>
- -->
-
 
   <!-- Marketplace Grid -->
   <section class="marketplace-grid">
@@ -38,7 +24,6 @@
     </section>
 
     <section class="boat-listings">
-
       <!-- Sort & Summary Bar -->
       <section class="sort-listing">
         <div class="listing-count">
@@ -52,7 +37,7 @@
           <button matIconButton (click)="setViewMode('grid')">
             <mat-icon>grid_view</mat-icon>
           </button>
-          <mat-form-field appearance="outline" class="sort-field">
+          <mat-form-field appearance="outline" class="sort-field" subscriptSizing="dynamic">
             <mat-label>Sort by</mat-label>
             <mat-select [(ngModel)]="sortOption" (selectionChange)="sortListings()">
               <mat-option value="Recommended">Recommended</mat-option>
@@ -78,30 +63,28 @@
         <mat-card class="vessel-card" *ngFor="let vessel of filteredListings">
           <img mat-card-image [src]="vessel.images?.[0] || './assets/images/marine_icons/boat.png'"
             [alt]="vessel.title || 'Boat image'" />
-          <mat-card-header>
-            <mat-card-title>
-              <span [routerLink]="['/marketplace/boats', vessel.id]" class="title-link">{{ vessel.title }}</span>
-            </mat-card-title>
-            <mat-card-subtitle>{{ vessel.boatClass }} • {{ vessel.port }}</mat-card-subtitle>
-            <mat-card-subtitle>{{ vessel.price }} {{ vessel.currency }}</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <p>{{ vessel.description }}</p>
 
-            <div class="owner">
-              <div class="owner-details">
-                <img class="owner-avatar" [src]="vessel.owner?.avatarUrl || './assets/images/marine_icons/sailor.png'">
-                <strong>@{{ vessel.owner?.username }}</strong>
+          <div class="details-column">
+            <mat-card-header>
+              <mat-card-title>
+                <span [routerLink]="['/marketplace/boats', vessel.id]" class="title-link">{{ vessel.title }}</span>
+              </mat-card-title>
+              <mat-card-subtitle class="vessel-price">{{ vessel.price | currency}} {{ vessel.currency }}</mat-card-subtitle>
+              <mat-card-subtitle>{{ vessel.boatClass }} • {{ vessel.port }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{ vessel.description }}</p>
+
+              <div class="owner">
+                <div class="owner-details">
+                  <img class="owner-avatar"
+                    [src]="vessel.owner?.avatarUrl || './assets/images/marine_icons/sailor.png'">
+                  <strong>@{{ vessel.owner?.username }}</strong>
+                </div>
+                <button matButton="">Follow</button>
               </div>
-              <button matButton="">Follow</button>
-            </div>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-stroked-button color="accent" [routerLink]="['/marketplace/boats', vessel.id]"
-              i18n="@@marketplaceViewBtn">
-              <mat-icon>directions_boat</mat-icon>View Boat Details
-            </button>
-          </mat-card-actions>
+            </mat-card-content>
+          </div>
         </mat-card>
       </section>
 

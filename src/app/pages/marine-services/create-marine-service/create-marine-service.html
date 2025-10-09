@@ -1,0 +1,61 @@
+<div class="create-service-container">
+    <mat-card class="create-service-card">
+        <h2 i18n="@@marineServiceTitle">Create Marine Service</h2>
+
+        <mat-card-content>
+            <form [formGroup]="marineServiceForm" (ngSubmit)="onSubmit()">
+                <!-- Service Name -->
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label i18n="@@marineServiceName">Service Name</mat-label>
+                    <input matInput placeholder="Enter service name" formControlName="serviceName"
+                        i18n-placeholder="@@marineServiceNamePlaceholder">
+                    <mat-error *ngIf="submitted && marineServiceForm.get('serviceName')?.invalid"
+                        i18n="@@marineServiceNameError">
+                        Service Name is required (min 3 characters)
+                    </mat-error>
+                </mat-form-field>
+
+                <!-- Description -->
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label i18n="@@marineServiceDescription">Description</mat-label>
+                    <textarea matInput placeholder="Enter description" formControlName="description" rows="4"
+                        i18n-placeholder="@@marineServiceDescriptionPlaceholder"></textarea>
+                    <mat-error *ngIf="submitted && marineServiceForm.get('description')?.invalid"
+                        i18n="@@marineServiceDescriptionError">
+                        Description is required
+                    </mat-error>
+                </mat-form-field>
+
+                <!-- Price -->
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label i18n="@@marineServicePrice">Price</mat-label>
+                    <input matInput type="number" placeholder="Enter price" formControlName="price"
+                        i18n-placeholder="@@marineServicePricePlaceholder">
+                    <mat-error *ngIf="submitted && marineServiceForm.get('price')?.invalid"
+                        i18n="@@marineServicePriceError">
+                        Price must be greater than 0
+                    </mat-error>
+                </mat-form-field>
+
+                <!-- Duration -->
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label i18n="@@marineServiceDuration">Duration (hours)</mat-label>
+                    <input matInput type="number" placeholder="Duration in hours" formControlName="durationHours"
+                        i18n-placeholder="@@marineServiceDurationPlaceholder">
+                    <mat-error *ngIf="submitted && marineServiceForm.get('durationHours')?.errors"
+                        i18n="@@marineServiceDurationError">
+                        Duration must be at least 1 hour
+                    </mat-error>
+                </mat-form-field>
+
+                <!-- Submit Button -->
+                <div class="actions">
+                    <button mat-raised-button color="primary" type="submit" i18n="@@marineServiceSubmit">
+                        Create Service
+                    </button>
+                </div>
+
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

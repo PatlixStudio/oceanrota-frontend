@@ -10,6 +10,7 @@ import { ForgotPassword } from './auth/forgot-password/forgot-password';
 import { Profile } from './pages/user/profile/profile';
 import { ListingDetails } from './pages/market-place/listing-details/listing-details';
 import { AddListing } from './pages/market-place/add-listing/add-listing';
+import { CreateMarineService } from './pages/marine-services/create-marine-service/create-marine-service';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -21,13 +22,17 @@ export const routes: Routes = [
     {
         path: 'marketplace',
         children: [
-            { path: '', component: MarketPlace },  
-            { path: 'boats/:id', component: ListingDetails }, 
+            { path: '', component: MarketPlace },
+            { path: 'boats/:id', component: ListingDetails },
             { path: 'add-listing', component: AddListing }
         ]
     },
-
-    { path: 'marine-services', component: MarineServices },
+    {
+        path: 'marine-services', children: [
+            { path: '', component: MarineServices },
+            { path: 'create-marine-service', component: CreateMarineService }
+        ]
+    },
     { path: 'sea-personnel', component: SeaPersonnel },
     { path: 'learning-center', component: LearningCenter },
 
