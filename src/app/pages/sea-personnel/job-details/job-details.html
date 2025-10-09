@@ -1,0 +1,64 @@
+<div class="job-details-container">
+    <mat-card class="job-details-card">
+
+        <!-- Job Title -->
+        <mat-card-title i18n="@@seaJobTitle">{{ job.jobTitle }}</mat-card-title>
+
+        <!-- Location and Duration -->
+        <mat-card-subtitle class="job-meta">
+            <span i18n="@@seaJobLocation">Location:</span> {{ job.location }} •
+            <span i18n="@@seaJobDuration">Duration:</span> {{ job.durationMonths }} months
+        </mat-card-subtitle>
+
+        <!-- Salary -->
+        <mat-card-subtitle class="job-salary">
+            {{ job.salary | currency: job.currency }}
+        </mat-card-subtitle>
+
+        <!-- Job Description -->
+        <mat-card-content>
+            <p>{{ job.description }}</p>
+
+            <h3 i18n="@@seaJobRequirements">Requirements:</h3>
+            <ul>
+                <li *ngFor="let req of job.requirements">{{ req }}</li>
+            </ul>
+        </mat-card-content>
+
+        <!-- Recruiter Info & Contact -->
+        <mat-card-actions class="recruiter-section">
+            <div class="recruiter-details">
+                <img class="recruiter-avatar"
+                    [src]="job.recruiter.avatarUrl || './assets/images/marine_icons/sailor.png'">
+                <strong>@{{ job.recruiter.name }}</strong>
+            </div>
+            <button mat-raised-button color="primary" (click)="onContactRecruiter()" i18n="@@seaJobContactRecruiter">
+                <mat-icon>message</mat-icon> Contact Recruiter
+            </button>
+        </mat-card-actions>
+    </mat-card>
+
+    <!-- Related Jobs / Other Jobs by Recruiter -->
+    <div class="related-jobs-section">
+        <h3 i18n="@@seaJobRelatedJobs">Other Jobs by {{ job.recruiter.name }}</h3>
+
+        <div class="related-jobs-grid">
+            <mat-card *ngFor="let rJob of relatedJobs" class="related-job-card">
+                <mat-card-title>{{ rJob.jobTitle }}</mat-card-title>
+                <mat-card-subtitle>
+                    {{ rJob.location }} • {{ rJob.durationMonths }} months
+                </mat-card-subtitle>
+                <mat-card-subtitle>
+                    {{ rJob.salary | currency:rJob.currency }}
+                </mat-card-subtitle>
+                <mat-card-actions>
+                    <button mat-stroked-button color="accent" [routerLink]="['/sea-personnel/job-details', rJob.id]"
+                        i18n="@@seaJobViewDetails">
+                        View Details
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,78 @@
+<div class="create-sea-job-container">
+  <mat-card class="create-sea-job-card">
+    <h2 i18n="@@createSeaJobTitle">Create Sea Job</h2>
+
+    <mat-card-content>
+      <form [formGroup]="createJobForm" (ngSubmit)="onSubmit()">
+
+        <!-- Job Title -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label i18n="@@createSeaJobJobTitle">Job Title</mat-label>
+          <input matInput placeholder="Enter job title" formControlName="jobTitle" i18n-placeholder="@@createSeaJobJobTitlePlaceholder">
+          <mat-error *ngIf="submitted && createJobForm.get('jobTitle')?.invalid" i18n="@@createSeaJobJobTitleError">
+            Job Title is required (min 3 characters)
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Description -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label i18n="@@createSeaJobDescription">Description</mat-label>
+          <textarea matInput placeholder="Enter job description" formControlName="description" rows="4" i18n-placeholder="@@createSeaJobDescriptionPlaceholder"></textarea>
+          <mat-error *ngIf="submitted && createJobForm.get('description')?.invalid" i18n="@@createSeaJobDescriptionError">
+            Description is required (min 20 characters)
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Requirements -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label i18n="@@createSeaJobRequirements">Requirements</mat-label>
+          <textarea matInput placeholder="Enter requirements" formControlName="requirements" rows="3" i18n-placeholder="@@createSeaJobRequirementsPlaceholder"></textarea>
+          <mat-error *ngIf="submitted && createJobForm.get('requirements')?.invalid" i18n="@@createSeaJobRequirementsError">
+            Requirements are required
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Location -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label i18n="@@createSeaJobLocation">Location</mat-label>
+          <input matInput placeholder="Enter location" formControlName="location" i18n-placeholder="@@createSeaJobLocationPlaceholder">
+          <mat-error *ngIf="submitted && createJobForm.get('location')?.invalid" i18n="@@createSeaJobLocationError">
+            Location is required
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Salary -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label i18n="@@createSeaJobSalary">Salary</mat-label>
+          <input matInput type="number" placeholder="Enter salary" formControlName="salary" i18n-placeholder="@@createSeaJobSalaryPlaceholder">
+          <mat-error *ngIf="submitted && createJobForm.get('salary')?.invalid" i18n="@@createSeaJobSalaryError">
+            Salary must be greater than 0
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Currency -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label i18n="@@createSeaJobCurrency">Currency</mat-label>
+          <mat-select formControlName="currency" i18n-placeholder="@@createSeaJobCurrencyPlaceholder">
+            <mat-option *ngFor="let cur of currencyOptions" [value]="cur">{{ cur }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Duration -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label i18n="@@createSeaJobDuration">Duration (months)</mat-label>
+          <input matInput type="number" placeholder="Duration in months" formControlName="durationMonths" i18n-placeholder="@@createSeaJobDurationPlaceholder">
+          <mat-error *ngIf="submitted && createJobForm.get('durationMonths')?.invalid" i18n="@@createSeaJobDurationError">
+            Duration must be at least 1 month
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Submit Button -->
+        <div class="actions">
+          <button mat-raised-button color="primary" type="submit" i18n="@@createSeaJobSubmit">Create Job</button>
+        </div>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

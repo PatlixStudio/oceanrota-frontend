@@ -45,7 +45,7 @@
         <p>{{ job.description }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-stroked-button color="accent" i18n="@@seaPersonnelViewBtn">View Details</button>
+        <button mat-stroked-button color="accent" [routerLink]="['/sea-personnel/sea-job-details', job.id]" i18n="@@seaPersonnelViewBtn" >View Details</button>
         <button mat-flat-button color="primary" i18n="@@seaPersonnelApplyBtn">Apply Now</button>
       </mat-card-actions>
     </mat-card>
@@ -57,7 +57,7 @@
     <p i18n="@@seaPersonnelCtaDesc">
       Post your maritime job openings and reach qualified sea personnel worldwide.
     </p>
-    <button mat-flat-button color="primary" routerLink="/post-job" i18n="@@seaPersonnelPostJobBtn">
+    <button mat-flat-button color="primary" [routerLink]="['/sea-personnel/create-sea-job']" i18n="@@seaPersonnelPostJobBtn">
       Post a Job
     </button>
   </section>

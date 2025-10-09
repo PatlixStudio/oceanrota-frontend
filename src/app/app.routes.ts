@@ -13,6 +13,8 @@ import { AddListing } from './pages/market-place/add-listing/add-listing';
 import { CreateMarineService } from './pages/marine-services/create-marine-service/create-marine-service';
 import { RequestMarineService } from './pages/marine-services/request-marine-service/request-marine-service';
 import { MarineServiceDetails } from './pages/marine-services/marine-service-details/marine-service-details';
+import { JobDetails } from './pages/sea-personnel/job-details/job-details';
+import { CreateSeaJob } from './pages/sea-personnel/create-sea-job/create-sea-job';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -37,7 +39,14 @@ export const routes: Routes = [
             { path: 'request-marine-service', component: RequestMarineService }
         ]
     },
-    { path: 'sea-personnel', component: SeaPersonnel },
+    {
+        path: 'sea-personnel', children: [
+            { path: '', component: SeaPersonnel },
+            { path: 'sea-job-details/:id', component: JobDetails },
+            { path: 'create-sea-job', component: CreateSeaJob },
+            { path: 'request-marine-service', component: RequestMarineService }
+        ]
+    },
     { path: 'learning-center', component: LearningCenter },
 
     { path: 'user/profile/:username', component: Profile },
