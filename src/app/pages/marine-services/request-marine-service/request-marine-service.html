@@ -1,0 +1,86 @@
+<div class="request-service-container">
+  <mat-card class="request-service-card">
+    <h2 i18n="@@marineRequestTitle">Request Marine Service</h2>
+
+    <mat-card-content>
+      <form [formGroup]="requestServiceForm" (ngSubmit)="onSubmit()">
+
+        <!-- Requested Service -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label i18n="@@marineRequestService">Requested Service</mat-label>
+          <mat-select formControlName="requestedService" i18n-placeholder="@@marineRequestServicePlaceholder">
+            <mat-option *ngFor="let service of requestedServiceOptions" [value]="service.value">
+              {{ service.label }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="submitted && requestServiceForm.get('requestedService')?.invalid"
+                     i18n="@@marineRequestServiceError">
+            Please select a service
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Preferred Date -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label i18n="@@marineRequestDate">Preferred Date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="preferredDate"
+                 placeholder="Select a date" i18n-placeholder="@@marineRequestDatePlaceholder">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="submitted && requestServiceForm.get('preferredDate')?.invalid"
+                     i18n="@@marineRequestDateError">
+            Please select a date
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Location -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label i18n="@@marineRequestLocation">Location</mat-label>
+          <input matInput formControlName="location" placeholder="Enter location"
+                 i18n-placeholder="@@marineRequestLocationPlaceholder">
+          <mat-error *ngIf="submitted && requestServiceForm.get('location')?.invalid"
+                     i18n="@@marineRequestLocationError">
+            Location is required
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Description -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label i18n="@@marineRequestDescription">Description</mat-label>
+          <textarea matInput rows="4" formControlName="description"
+                    placeholder="Additional details..." i18n-placeholder="@@marineRequestDescriptionPlaceholder">
+          </textarea>
+        </mat-form-field>
+
+        <!-- Budget -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label i18n="@@marineRequestBudget">Budget (USD)</mat-label>
+          <input matInput type="number" formControlName="budget" placeholder="Enter your budget"
+                 i18n-placeholder="@@marineRequestBudgetPlaceholder">
+          <mat-error *ngIf="submitted && requestServiceForm.get('budget')?.invalid"
+                     i18n="@@marineRequestBudgetError">
+            Please enter a valid budget
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Contact Email -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label i18n="@@marineRequestEmail">Contact Email</mat-label>
+          <input matInput type="email" formControlName="contactEmail" placeholder="Enter your email"
+                 i18n-placeholder="@@marineRequestEmailPlaceholder">
+          <mat-error *ngIf="submitted && requestServiceForm.get('contactEmail')?.invalid"
+                     i18n="@@marineRequestEmailError">
+            Valid email is required
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Submit Button -->
+        <div class="actions">
+          <button mat-raised-button color="primary" type="submit" i18n="@@marineRequestSubmit">
+            Submit Request
+          </button>
+        </div>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

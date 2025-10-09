@@ -11,6 +11,8 @@ import { Profile } from './pages/user/profile/profile';
 import { ListingDetails } from './pages/market-place/listing-details/listing-details';
 import { AddListing } from './pages/market-place/add-listing/add-listing';
 import { CreateMarineService } from './pages/marine-services/create-marine-service/create-marine-service';
+import { RequestMarineService } from './pages/marine-services/request-marine-service/request-marine-service';
+import { MarineServiceDetails } from './pages/marine-services/marine-service-details/marine-service-details';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -30,7 +32,9 @@ export const routes: Routes = [
     {
         path: 'marine-services', children: [
             { path: '', component: MarineServices },
-            { path: 'create-marine-service', component: CreateMarineService }
+            { path: 'marine-service-details/:id', component: MarineServiceDetails },
+            { path: 'create-marine-service', component: CreateMarineService },
+            { path: 'request-marine-service', component: RequestMarineService }
         ]
     },
     { path: 'sea-personnel', component: SeaPersonnel },

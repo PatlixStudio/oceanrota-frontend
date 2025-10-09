@@ -6,7 +6,9 @@
       Find trusted maritime services worldwide — maintenance, logistics, training, charter support, and more.
       Service providers can list their offerings and connect with vessel owners, crew, and maritime businesses.
     </p>
-    <button matButton [routerLink]="['/marine-services/create-marine-service']">Create Service</button>
+    <button mat-flat-button color="primary" [routerLink]="['/marine-services/create-marine-service']" i18n="@@marineProviderBtn">
+      List Your Service
+    </button>
   </section>
 
   <!-- Search / Filter -->
@@ -48,8 +50,8 @@
         <p>{{ service.description }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-stroked-button color="accent" i18n="@@marineServiceDetailsBtn">View Details</button>
-        <button mat-flat-button color="primary" i18n="@@marineServiceRequestBtn">Request Service</button>
+        <button mat-stroked-button color="accent" i18n="@@marineServiceDetailsBtn" [routerLink]="['/marine-services/marine-service-details', service.id]">View Details</button>
+        <button mat-flat-button color="primary" i18n="@@marineServiceRequestBtn" [routerLink]="['/marine-services/request-marine-service']">Request Service</button>
       </mat-card-actions>
     </mat-card>
   </section>
@@ -60,7 +62,7 @@
     <p i18n="@@marineProviderDesc">
       Join OceanRota as a service provider and reach vessel owners, captains, and maritime businesses worldwide.
     </p>
-    <button mat-flat-button color="primary" routerLink="/list-service" i18n="@@marineProviderBtn">
+    <button mat-flat-button color="primary" [routerLink]="['/marine-services/create-marine-service']" i18n="@@marineProviderBtn">
       List Your Service
     </button>
   </section>

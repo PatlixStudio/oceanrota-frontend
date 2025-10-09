@@ -5,24 +5,28 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-create-marine-service',
+  standalone: true,
   imports: [
     CommonModule,
     ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
+    MatInputModule,
     MatButtonModule,
-    MatInputModule
+    MatSelectModule
   ],
   templateUrl: './create-marine-service.html',
-  styleUrl: './create-marine-service.scss'
+  styleUrls: ['./create-marine-service.scss']
 })
 export class CreateMarineService {
-  private fb = inject(FormBuilder);
 
-  marineServiceForm: FormGroup = this.fb.group({
+  private formBuilder = inject(FormBuilder);
+
+  marineServiceForm: FormGroup = this.formBuilder.group({
     serviceName: ['', [Validators.required, Validators.minLength(5)]],
     description: ['', [Validators.required, Validators.minLength(20)]],
     category: ['', Validators.required],
@@ -33,13 +37,24 @@ export class CreateMarineService {
 
   submitted = false;
 
+  // Dropdown options
+  categoryOptions = [
+    { value: 'maintenance', label: 'Maintenance' },
+    { value: 'repair', label: 'Repair' },
+    { value: 'inspection', label: 'Inspection' },
+    { value: 'cleaning', label: 'Cleaning' }
+  ];
+
+  currencyOptions = ['USD', 'EUR', 'GBP'];
+
   onSubmit(): void {
     this.submitted = true;
+
     if (this.marineServiceForm.invalid) {
       return;
     }
 
     console.log('Marine Service Submitted:', this.marineServiceForm.value);
-    // TODO: Call backend API to save the service
+    // TODO: integrate with backend API
   }
 }

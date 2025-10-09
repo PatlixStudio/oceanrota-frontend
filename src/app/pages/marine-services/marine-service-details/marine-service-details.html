@@ -1,0 +1,36 @@
+<div class="marine-service-details-container">
+    <mat-card class="marine-service-card">
+        <!-- Service Title -->
+        <mat-card-title i18n="@@marineServiceDetailsTitle">{{ marineService.serviceName }}</mat-card-title>
+
+        <!-- Service Category and Duration -->
+        <mat-card-subtitle class="service-meta">
+            <span i18n="@@marineServiceDetailsCategory">Category:</span> {{ marineService.category }} •
+            <span i18n="@@marineServiceDetailsDuration">Duration:</span> {{ marineService.durationHours }} hours
+        </mat-card-subtitle>
+
+        <!-- Price -->
+        <mat-card-subtitle class="service-price">
+            {{ marineService.price | currency: marineService.currency }}
+        </mat-card-subtitle>
+
+        <!-- Description -->
+        <mat-card-content>
+            <p>{{ marineService.description }}</p>
+        </mat-card-content>
+
+        <!-- Owner Info -->
+        <mat-card-actions class="owner-section">
+            <div class="owner-details">
+                <img class="owner-avatar"
+                    [src]="marineService.owner.avatarUrl || './assets/images/marine_icons/sailor.png'">
+                <strong>@{{ marineService.owner.username }}</strong>
+            </div>
+            <button mat-raised-button color="primary" (click)="onContactOwner()"
+                i18n="@@marineServiceDetailsContactOwner">
+                <mat-icon>message</mat-icon> Contact Owner
+            </button>
+            <!-- <button mat-flat-button color="primary" i18n="@@marineServiceRequestBtn">Request Service</button> -->
+        </mat-card-actions>
+    </mat-card>
+</div>
