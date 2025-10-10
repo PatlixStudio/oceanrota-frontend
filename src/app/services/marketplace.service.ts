@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
-import type { Listing } from '../core/models/listing.model';
+import { Boat } from '../core/models/boat.model';
 import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
@@ -10,7 +10,7 @@ export class MarketplaceService {
   private apiUrl = 'http://localhost:3000/api/v1/marketplace';
 
   // Signal to hold all listings
-  listings = signal<Listing[]>([]);
+  listings = signal<Boat[]>([]);
 
   constructor() {
     this.fetchListings();
@@ -18,7 +18,7 @@ export class MarketplaceService {
 
   // Fetch all active listings from backend
   fetchListings() {
-    this.http.get<Listing[]>(`${this.apiUrl}/listings`).subscribe({
+    this.http.get<Boat[]>(`${this.apiUrl}/listings`).subscribe({
       next: (data) => this.listings.set(data),
       error: (err) => console.error('Failed to fetch listings:', err)
     });
@@ -26,11 +26,11 @@ export class MarketplaceService {
 
   // Optionally fetch a single listing by id
   getListingById(id: number) {
-    return this.http.get<Listing>(`${this.apiUrl}/listings/${id}`);
+    return this.http.get<Boat>(`${this.apiUrl}/listings/${id}`);
   }
 
   // create a new listing
-  createListing(data: FormData): Observable<Listing> {
-    return this.http.post<Listing>(`${this.apiUrl}/listings`, data);
+  createListing(data: FormData): Observable<Boat> {
+    return this.http.post<Boat>(`${this.apiUrl}/listings`, data);
   }
 }

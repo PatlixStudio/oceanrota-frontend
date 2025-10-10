@@ -7,7 +7,7 @@ export interface Engine {
   driveType?: string;
 }
 
-export interface Listing {
+export interface Boat {
   id?: number;
 
   /** Basic Info */

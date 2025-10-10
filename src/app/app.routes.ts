@@ -8,7 +8,7 @@ import { Login } from './auth/login/login';
 import { Register } from './auth/register/register';
 import { ForgotPassword } from './auth/forgot-password/forgot-password';
 import { UserProfile } from './pages/user/profile/profile';
-import { ListingDetails } from './pages/market-place/listing-details/listing-details';
+import { BoatDetails } from './pages/market-place/boat-details/boat-details';
 import { AddListing } from './pages/market-place/add-listing/add-listing';
 import { CreateMarineService } from './pages/marine-services/create-marine-service/create-marine-service';
 import { RequestMarineService } from './pages/marine-services/request-marine-service/request-marine-service';
@@ -28,7 +28,7 @@ export const routes: Routes = [
         path: 'marketplace',
         children: [
             { path: '', component: MarketPlace },
-            { path: 'boats/:id', component: ListingDetails },
+            { path: 'boats/:id', component: BoatDetails },
             { path: 'add-listing', component: AddListing }
         ]
     },
