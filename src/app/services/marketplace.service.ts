@@ -25,7 +25,7 @@ export class MarketplaceService {
   }
 
   // Optionally fetch a single listing by id
-  getListingById(id: number) {
+  getBoatById(id: number) {
     return this.http.get<Boat>(`${this.apiUrl}/listings/${id}`);
   }
 

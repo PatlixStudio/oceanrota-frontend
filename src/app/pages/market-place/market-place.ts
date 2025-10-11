@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MarketplaceService } from '../../services/marketplace.service';
 import { RouterModule } from '@angular/router';
 import { BoatFilter } from "./boat-filter/boat-filter";
-import { Listing } from '../../core/models/listing.model';
+import { Boat } from '../../core/models/boat.model';
 import { MatOptionModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -39,7 +39,7 @@ export class MarketPlace {
   marketplaceService = inject(MarketplaceService);
 
   filters = { keyword: '', location: '' };
-  listings: Listing[] = [];
+  BoatListings: Boat[] = [];
 
   sortOption: string = 'newest';
   filteredListings = this.marketplaceService.listings();

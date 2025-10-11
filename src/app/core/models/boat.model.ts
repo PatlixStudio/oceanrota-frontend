@@ -1,11 +1,4 @@
-export interface Engine {
-  id?: number;
-  make?: string;
-  powerHp?: number;
-  capacity?: string;
-  fuelType?: string;
-  driveType?: string;
-}
+import { Engine } from "./engine.model";
 
 export interface Boat {
   id?: number;

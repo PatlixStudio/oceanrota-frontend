@@ -1,4 +1,4 @@
-.listing-details-container {
+.boat-details-container {
   max-width: 900px;
   margin: 2rem auto;
   padding: 1rem;
@@ -12,13 +12,13 @@
   }
 }
 
-.listing-title {
+.boat-title {
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
-.listing-meta {
+.boat-meta {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -37,7 +37,7 @@
   }
 }
 
-.listing-gallery {
+.boat-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
@@ -50,13 +50,13 @@
   }
 }
 
-.listing-description {
+.boat-description {
   font-size: 1rem;
   line-height: 1.5;
   color: #333;
 }
 
-.listing-owner {
+.boat-owner {
   display: flex;
   align-items: center;
   gap: 1rem;

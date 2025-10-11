@@ -1,8 +1,8 @@
 import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
-import type { Listing } from '../core/models/listing.model';
 import { Observable } from 'rxjs';
+import { MarineService } from '../core/models/marine-service';
 
 @Injectable({ providedIn: 'root' })
 export class MarineServicesService {
@@ -26,11 +26,11 @@ export class MarineServicesService {
 
   // Optionally fetch a single service by id
   getListingById(id: number) {
-    return this.http.get<Listing>(`${this.apiUrl}/services/${id}`);
+    return this.http.get<MarineService>(`${this.apiUrl}/services/${id}`);
   }
 
   // create a new marine service
-  createServices(data: FormData): Observable<Listing> {
-    return this.http.post<Listing>(`${this.apiUrl}/services`, data);
+  createServices(data: FormData): Observable<MarineService> {
+    return this.http.post<MarineService>(`${this.apiUrl}/services`, data);
   }
 }

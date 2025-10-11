@@ -4,20 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-
-interface MarineService {
-  id: string;
-  serviceName: string;
-  description: string;
-  category: string;
-  price: number;
-  currency: string;
-  durationHours: number;
-  owner: {
-    username: string;
-    avatarUrl?: string;
-  };
-}
+import { MarineService } from '../../../core/models/marine-service';
 
 @Component({
   selector: 'app-marine-service-details',
