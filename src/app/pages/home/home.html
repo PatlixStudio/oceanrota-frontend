@@ -50,8 +50,79 @@
     </mat-card>
   </section>
 
+  <!-- Tokenization Section -->
+
+  <section class="tokenization-section">
+    <div class="tokenization-header">
+       <mat-icon color="primary">currency_exchange</mat-icon>
+      <h2 i18n="@@tokenizationTitle">⚓ Why Tokenize Your Vessel?</h2>
+      <p i18n="@@tokenizationSubtitle">
+        Unlock new opportunities with blockchain-backed digital ownership.
+      </p>
+    </div>
+
+    <div class="tokenization-grid">
+      <!-- Benefit 1 -->
+      <mat-card class="token-card">
+        <mat-icon color="primary">verified_user</mat-icon>
+        <h3 i18n="@@tokenSecureTitle">Secure & Transparent Ownership</h3>
+        <p i18n="@@tokenSecureDesc">
+          Every tokenized vessel is recorded on a public ledger — ensuring trust, authenticity, and
+          verifiable proof of ownership without middlemen.
+        </p>
+      </mat-card>
+
+      <!-- Benefit 2 -->
+      <mat-card class="token-card">
+        <mat-icon color="primary">trending_up</mat-icon>
+        <h3 i18n="@@tokenInvestmentTitle">Attract Global Investors</h3>
+        <p i18n="@@tokenInvestmentDesc">
+          Fractionalize your vessel into digital tokens, allowing investors worldwide to participate
+          in maritime assets without complex legal barriers.
+        </p>
+      </mat-card>
+
+      <!-- Benefit 3 -->
+      <mat-card class="token-card">
+        <mat-icon color="primary">swap_horiz</mat-icon>
+        <h3 i18n="@@tokenLiquidityTitle">Instant Liquidity</h3>
+        <p i18n="@@tokenLiquidityDesc">
+          Sell or transfer vessel shares anytime via secure blockchain transactions — improving access
+          to capital and reducing downtime.
+        </p>
+      </mat-card>
+
+      <!-- Benefit 4 -->
+      <mat-card class="token-card">
+        <mat-icon color="primary">eco</mat-icon>
+        <h3 i18n="@@tokenEfficiencyTitle">Efficiency & Cost Reduction</h3>
+        <p i18n="@@tokenEfficiencyDesc">
+          Automate documentation, payments, and ownership transfers using smart contracts — lowering
+          administrative and legal costs.
+        </p>
+      </mat-card>
+    </div>
+
+    <!-- CTA -->
+    <div class="tokenization-cta">
+      <h3 i18n="@@tokenCTAHeading">Start Your Vessel Tokenization Journey</h3>
+      <p i18n="@@tokenCTADesc">
+        OceanRota helps vessel owners securely digitize and list their assets for global investors.
+      </p>
+      <div class="cta-actions">
+        <button mat-raised-button color="primary" [routerLink]="['/tokenize']">
+          <span i18n="@@tokenLearnMoreBtn">Learn More</span>
+        </button>
+        <button mat-stroked-button color="accent" [routerLink]="['/tokenize/create']">
+          <span i18n="@@tokenStartBtn">Tokenize My Vessel</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+
   <!-- Call to Action -->
-  <section class="cta">
+  <section class="cta-home">
     <h2 i18n="@@ctaTitle">Ready to set sail?</h2>
     <p i18n="@@ctaDesc">Join OceanRota today and be part of the global maritime future.</p>
     <button mat-flat-button color="primary">

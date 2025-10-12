@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 3rem;
   padding: 2rem;
+  background-color: white;
 
   .intro {
     text-align: center;
@@ -14,7 +15,7 @@
 
     p {
       font-size: 1.1rem;
-      color: var(--mat-sys-on-surface-variant, rgba(0,0,0,0.7));
+      color: var(--mat-sys-on-surface-variant, rgba(0, 0, 0, 0.7));
       margin-top: 0.5rem;
     }
   }
@@ -47,7 +48,7 @@
       mat-card-content {
         margin-top: 0.5rem;
         font-size: 0.95rem;
-        color: var(--mat-sys-on-surface-variant, rgba(0,0,0,0.7));
+        color: var(--mat-sys-on-surface-variant, rgba(0, 0, 0, 0.7));
       }
 
       mat-card-actions {
@@ -59,7 +60,7 @@
   }
 
   .cta-instructors {
-    background: var(--mat-sys-primary-container, rgba(0,119,182,0.08));
+    background: var(--mat-sys-primary-container, rgba(0, 119, 182, 0.08));
     padding: 2rem;
     border-radius: 12px;
     text-align: center;

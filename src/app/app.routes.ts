@@ -16,6 +16,7 @@ import { MarineServiceDetails } from './pages/marine-services/marine-service-det
 import { JobDetails } from './pages/sea-personnel/job-details/job-details';
 import { CreateSeaJob } from './pages/sea-personnel/create-sea-job/create-sea-job';
 import { CourseDetails } from './pages/learning-center/course-details/course-details';
+import { TokenizeVessel } from './pages/tokenize-vessel/tokenize-vessel';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -50,6 +51,12 @@ export const routes: Routes = [
         path: 'learning-center', children: [
             { path: '', component: LearningCenter },
             { path: 'course-details/:id', component: CourseDetails },
+        ]
+    },
+
+    {
+        path: 'tokenize', children: [
+            { path: '', component: TokenizeVessel }
         ]
     },
 

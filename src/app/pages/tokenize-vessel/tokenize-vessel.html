@@ -1,0 +1,88 @@
+<div class="tokenize-vessel-container">
+  <!-- Header -->
+  <section class="intro-section">
+    <h1 i18n="@@tokenizeVesselTitle">⚓ Learn About Vessel Tokenization</h1>
+    <p i18n="@@tokenizeVesselSubtitle">
+      Transform your vessel into digital investment opportunities through blockchain tokenization.
+    </p>
+  </section>
+
+  <!-- Visual Explainer -->
+  <section class="visual-explainer">
+    <h2 i18n="@@tokenizeVisualTitle">How Vessel Tokenization Works</h2>
+    <div class="visual-steps">
+      <!-- Step 1 -->
+      <div class="visual-step">
+        <div class="icon-circle">
+          <mat-icon>directions_boat</mat-icon>
+        </div>
+        <h3 i18n="@@tokenizeVisualStep1Title">1. Digital Vessel Registration</h3>
+        <p i18n="@@tokenizeVisualStep1Desc">
+          Your physical vessel is first verified and registered on our secure platform.
+          Key data such as ownership, inspection reports, and valuation are converted into
+          a certified digital profile, ensuring trust and authenticity.
+        </p>
+      </div>
+
+      <div class="arrow"><mat-icon>arrow_forward</mat-icon></div>
+
+      <!-- Step 2 -->
+      <div class="visual-step">
+        <div class="icon-circle blockchain">
+          <mat-icon>token</mat-icon>
+        </div>
+        <h3 i18n="@@tokenizeVisualStep2Title">2. Token Creation on Blockchain</h3>
+        <p i18n="@@tokenizeVisualStep2Desc">
+          The vessel’s value is divided into digital tokens — each representing a fractional
+          share of ownership. These tokens are securely stored on the blockchain,
+          guaranteeing transparency, immutability, and real-time traceability.
+        </p>
+      </div>
+
+      <div class="arrow"><mat-icon>arrow_forward</mat-icon></div>
+
+      <!-- Step 3 -->
+      <div class="visual-step">
+        <div class="icon-circle investors">
+          <mat-icon>groups</mat-icon>
+        </div>
+        <h3 i18n="@@tokenizeVisualStep3Title">3. Global Investment Access</h3>
+        <p i18n="@@tokenizeVisualStep3Desc">
+          Once tokenized, investors worldwide can buy, sell, or trade shares of your vessel.
+          You gain liquidity, shared ownership benefits, and access to a broader investor base
+          — all while maintaining transparent operations and automated revenue distribution.
+        </p>
+      </div>
+    </div>
+
+    <div class="animated-line"></div>
+  </section>
+
+  <!-- Why Tokenize Section -->
+  <section class="benefits-section">
+    <h2 i18n="@@tokenizeBenefitsTitle">Why Tokenize Your Vessel?</h2>
+    <ul class="benefits-list">
+      <li i18n="@@tokenizeBenefit1">✔ Unlock global investment opportunities</li>
+      <li i18n="@@tokenizeBenefit2">✔ Enable fractional ownership and liquidity</li>
+      <li i18n="@@tokenizeBenefit3">✔ Reduce operational and legal complexity</li>
+      <li i18n="@@tokenizeBenefit4">✔ Enhance transparency with blockchain verification</li>
+      <li i18n="@@tokenizeBenefit5">✔ Automate revenue sharing and smart contracts</li>
+    </ul>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta-section">
+    <h3 i18n="@@tokenizeCTAHeading">Ready to Tokenize Your Vessel?</h3>
+    <p i18n="@@tokenizeCTADesc">
+      Start your tokenization journey with OceanRota and bring your maritime assets into the digital economy.
+    </p>
+    <div class="cta-actions">
+      <button mat-raised-button color="primary" [routerLink]="['/tokenize/create']">
+        <span i18n="@@tokenizeStartBtn">Start Tokenization</span>
+      </button>
+      <button mat-stroked-button color="accent" [routerLink]="['/tokenize/examples']">
+        <span i18n="@@tokenizeExamplesBtn">View Example Tokenized Vessels</span>
+      </button>
+    </div>
+  </section>
+</div>
