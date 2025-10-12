@@ -2,16 +2,15 @@
 
 // Customize the entire app. Change :root to your selector if you want to scope the styles.
 :host {
-  @include mat.expansion-overrides((
-    actions-divider-color: orange,
-    container-shape: 'square',
-    container-background-color: white
-  ));
+  @include mat.expansion-overrides((actions-divider-color: orange,
+      container-shape: 'square',
+      container-background-color: white));
 
   /* Remove gap between expansion panels */
   ::ng-deep .mat-accordion .mat-expansion-panel {
     margin: 0 !important;
-    border-radius: 0; /* optional */
+    border-radius: 0;
+    /* optional */
   }
 
   /* Optional: remove panel content padding */
@@ -20,13 +19,17 @@
   }
 }
 
+.filter-accordion {
+  text-align: center;
+}
+
 .filter-title {
-    text-align: center;
+  text-align: center;
 }
 
 .filter-actions {
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
-    margin: 20px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  margin: 20px;
 }

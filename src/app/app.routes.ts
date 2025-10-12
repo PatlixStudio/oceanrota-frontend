@@ -44,6 +44,7 @@ export const routes: Routes = [
     {
         path: 'sea-personnel', children: [
             { path: '', component: SeaPersonnel },
+            { path: 'create-sea-job', component: CreateSeaJob },
             { path: 'sea-job-details/:id', component: JobDetails },
         ]
     },

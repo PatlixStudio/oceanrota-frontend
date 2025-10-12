@@ -1,33 +1,35 @@
 .marketplace-container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding: 2rem 3rem;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  padding: 3rem 0rem;
   box-sizing: border-box;
   background-color: white;
 
   /* Intro Section */
   .intro {
-    display: flex;
-    align-self: center;
-    justify-content: center;
-    max-width: 600px;
     text-align: center;
-
-    p {
-      color: #555;
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 1rem;
-      line-height: 1.6;
+    h1 {
+      font-size: clamp(2.0rem, 3vw, 1.5rem);
+      font-weight: 700;
+      color: var(--mat-sys-primary, #003f7c);
     }
 
-    .intro-title {
+    .subtitle {
+      align-self: center;
+      margin: 1rem 0 2rem;
+      font-size: 1.2rem;
+      max-width: 700px;
+      color: var(--mat-sys-on-surface-variant, rgba(0, 0, 0, 0.7));
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
       justify-content: center;
-      font-size: 2.2rem;
-      color: #0d47a1;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
     }
   }
 
@@ -141,7 +143,8 @@
               display: flex;
               flex-direction: column;
               flex: 1;
-              padding-bottom: 0;;
+              padding-bottom: 0;
+              ;
             }
 
             .owner {
