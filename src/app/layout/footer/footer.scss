@@ -45,7 +45,7 @@
             transition: color 0.3s;
 
             &:hover {
-              color: var(--mat-sys-primary, #0077b6);
+              color: #8bd6ff;
             }
           }
         }
@@ -61,7 +61,7 @@
           color: var(--mat-sys-on-surface, #1a1a1a);
 
           &:hover {
-            color: var(--mat-sys-primary, #0077b6);
+            color: var(--mat-sys-primary, #27b600);
           }
         }
       }
