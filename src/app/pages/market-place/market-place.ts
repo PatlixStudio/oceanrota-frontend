@@ -41,11 +41,18 @@ export class MarketPlace {
   filters = { keyword: '', location: '' };
   BoatListings: Boat[] = [];
 
-  sortOption: string = 'newest';
-  filteredListings = this.marketplaceService.listings();
-  length = 50;
-  pageSize = 10;
-  pageIndex = 0;
+  listings = this.marketplaceService.listings;
+  totalPages = this.marketplaceService.totalPages;
+  currentPage = this.marketplaceService.currentPage;
+  loading = this.marketplaceService.loading;
+  totalListings = this.marketplaceService.totalListings;
+  pageLimit = this.marketplaceService.pageLimit;
+
+
+  // Material paginator setup
+  length = this.totalListings();
+  pageSize = this.pageLimit();
+  pageIndex = this.currentPage() - 1; // mat-paginator is 0-based
   pageSizeOptions = [5, 10, 25];
 
   hidePageSize = false;
@@ -57,43 +64,29 @@ export class MarketPlace {
 
   viewMode: 'grid' | 'list' = 'grid';
 
+  // sorting
+  sortOption = this.marketplaceService.sortOption();
+  currentFilters: Record<string, any> = {};
 
   ngOnInit() {
-    this.marketplaceService.fetchListings();
+    this.marketplaceService.fetchListings(1, this.pageSize);
     console.log(this.marketplaceService.listings()); // always fetch fresh listings
   }
 
   sortListings() {
-    const listings = [...this.marketplaceService.listings()];
-    switch (this.sortOption) {
-      case 'priceLow':
-        this.filteredListings = listings.sort((a, b) => (a.price || 0) - (b.price || 0));
-        break;
-      case 'priceHigh':
-        this.filteredListings = listings.sort((a, b) => (b.price || 0) - (a.price || 0));
-        break;
-      case 'yearNew':
-        this.filteredListings = listings.sort((a, b) => (b.year || 0) - (a.year || 0));
-        break;
-      case 'yearOld':
-        this.filteredListings = listings.sort((a, b) => (a.year || 0) - (b.year || 0));
-        break;
-      default:
-        this.filteredListings = listings.sort((a, b) => {
-          const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
-          const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
-          return dateB - dateA;
-        });
-    }
+    this.marketplaceService.updateSort(this.sortOption);
+    this.marketplaceService.fetchListings(1, this.pageSize, this.sortOption, this.currentFilters);
   }
+
   // loadListings(filters: any = {}) {
   //   this.marketplaceService.getListings(filters).subscribe((data) => {
   //     this.listings = data;
   //   });
   // }
 
-  onFilterChanged(filters: any) {
-    // this.loadListings(filters);
+  onFilterChanged(filters: Record<string, any>) {
+    this.currentFilters = filters;
+    this.marketplaceService.fetchListings(1, this.pageSize, this.sortOption, filters);
   }
 
   searchVessels() {
@@ -101,11 +94,13 @@ export class MarketPlace {
     // TODO: call backend API
   }
 
-  handlePageEvent(e: PageEvent) {
-    this.pageEvent = e;
-    this.length = e.length;
-    this.pageSize = e.pageSize;
-    this.pageIndex = e.pageIndex;
+  handlePageEvent(event: PageEvent) {
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
+
+    // mat-paginator index starts from 0, so add 1
+    const newPage = event.pageIndex + 1;
+    this.marketplaceService.fetchListings(newPage, event.pageSize, this.sortOption, this.currentFilters);
   }
 
   setPageSizeOptions(setPageSizeOptionsInput: string) {

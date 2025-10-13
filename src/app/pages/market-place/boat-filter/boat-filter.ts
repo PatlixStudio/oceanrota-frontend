@@ -42,7 +42,7 @@ export class BoatFilter {
 
   filterForm: FormGroup = this.fb.group({
     category: [''],
-    condition: [''],
+    condition: ['All'],
     country: [''],
     minPrice: [''],
     maxPrice: [''],
@@ -50,7 +50,7 @@ export class BoatFilter {
     maxLength: [''],
     year: [''],
     hull_material: [''],
-    listingType: ['']
+    listingType: ['All']
   });
 
 
@@ -58,7 +58,7 @@ export class BoatFilter {
   conditions = ['New', 'Used'];
   listing_type = ['Sale', 'Rent'];
 
-  
+
   sailBoatTypes = SailBoatTypes;
   powerBoatTypes = PowerBoatTypes;
   hullTypes = HullTypes;
@@ -69,7 +69,10 @@ export class BoatFilter {
   }
 
   resetFilter() {
-    this.filterForm.reset();
-    this.filterChanged.emit({});
+    this.filterForm.reset({
+      listingType: 'All',
+      condition: 'All',
+    });
+    this.applyFilter();
   }
 }

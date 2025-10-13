@@ -1,8 +1,8 @@
-import { Injectable, signal } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { computed, Injectable, signal } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { Boat } from '../core/models/boat.model';
-import { Observable } from 'rxjs';
+import { catchError, Observable, tap } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class MarketplaceService {
@@ -11,17 +11,61 @@ export class MarketplaceService {
 
   // Signal to hold all listings
   listings = signal<Boat[]>([]);
+  totalListings = signal<number>(0);
+  currentPage = signal<number>(1);
+  pageLimit = signal<number>(10);
+  loading = signal<boolean>(false);
+  error = signal<string | null>(null);
+
+  // 🔹 Derived signal (computed)
+  totalPages = computed(() =>
+    Math.ceil(this.totalListings() / this.pageLimit())
+  );
+
+  sortOption = signal<string>('Recommended');
 
   constructor() {
     this.fetchListings();
   }
 
-  // Fetch all active listings from backend
-  fetchListings() {
-    this.http.get<Boat[]>(`${this.apiUrl}/listings`).subscribe({
-      next: (data) => this.listings.set(data),
-      error: (err) => console.error('Failed to fetch listings:', err)
+  fetchListings(page = 1, limit = 10, sort = 'newest', filters: any = {}) {
+    this.loading.set(true);
+
+    let params = new HttpParams()
+      .set('page', page)
+      .set('limit', limit)
+      .set('sort', sort);
+
+    // Dynamically add filters
+    Object.keys(filters).forEach(key => {
+      const value = filters[key];
+      if (value !== null && value !== undefined && value !== '' && value !== 'All') {
+        params = params.set(key, value);
+      }
     });
+
+    this.http.get<{ data: Boat[]; total: number; page: number; limit: number }>(
+      `${this.apiUrl}/listings`,
+      { params }
+    )
+      .pipe(
+        tap((res) => {
+          this.listings.set(res.data);
+          this.totalListings.set(res.total);
+          this.error.set(null);
+        }),
+        catchError((err) => {
+          console.error('Failed to fetch listings:', err);
+          this.error.set('Failed to load listings');
+          throw err;
+        }),
+        tap(() => this.loading.set(false))
+      )
+      .subscribe();
+  }
+
+  updateSort(sort: string) {
+    this.sortOption.set(sort);
   }
 
   // Optionally fetch a single listing by id
