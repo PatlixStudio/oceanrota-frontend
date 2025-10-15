@@ -1,26 +1,28 @@
-<div *ngIf="boat() as vessel; else loading" class="boat-details-container">
+<div *ngIf="boat() as listing; else loading" class="boat-details-container">
     <mat-card class="detail-card">
         <mat-card-header>
-            <mat-card-title class="boat-title">{{ vessel.title }}</mat-card-title>
+            <mat-card-title class="boat-title">{{ listing.title }}</mat-card-title>
             <mat-card-subtitle>
-                {{ vessel.make }} • {{ vessel.boatType }} • {{ vessel.year }}
+                {{ listing.vessel?.make }} • {{ listing.vessel?.boatType }} • {{ listing.vessel?.year }}
             </mat-card-subtitle>
         </mat-card-header>
 
         <mat-card-content>
-            <div class="boat-gallery" *ngIf="vessel.images">
-                <img *ngFor="let img of vessel.images" [src]="img ? img : ''" alt="{{ vessel.title }}" />
+            <div class="boat-gallery" *ngIf="listing.vessel?.images">
+                <img *ngFor="let img of listing.vessel?.images" [src]="img ? img : ''"
+                    alt="{{ listing.vessel?.vesselName }}" />
             </div>
 
-            <p class="boat-description">{{ vessel.description }}</p>
+            <p class="boat-description">{{ listing.description }}</p>
 
             <div class="boat-meta">
-                <p><strong i18n>Category:</strong> {{ vessel.category }}</p>
-                <p><strong i18n>Class:</strong> {{ vessel.boatClass }}</p>
-                <p><strong i18n>Length:</strong> {{ vessel.length_m }}m</p>
-                <p><strong i18n>Condition:</strong> {{ vessel.condition }}</p>
-                <p><strong i18n>Location:</strong> {{ vessel.city }}, {{ vessel.country }} ({{ vessel.port }})</p>
-                <p><strong i18n>Price:</strong> {{ vessel.price }} {{ vessel.currency }}</p>
+                <p><strong i18n>Category:</strong> {{ listing.vessel?.category }}</p>
+                <p><strong i18n>Class:</strong> {{ listing.vessel?.boatClass }}</p>
+                <p><strong i18n>Length:</strong> {{ listing.vessel?.length_m }}m</p>
+                <p><strong i18n>Condition:</strong> {{ listing.vessel?.condition }}</p>
+                <p><strong i18n>Location:</strong> {{ listing.vessel?.city }}, {{ listing.vessel?.country }} ({{
+                    listing.vessel?.port }})</p>
+                <p><strong i18n>Price:</strong> {{ listing.price }} {{ listing.currency }}</p>
             </div>
         </mat-card-content>
 
@@ -35,7 +37,7 @@
             <mat-card-title>Owner</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            @{{vessel.owner?.username}}
+            @{{listing.owner?.username}}
         </mat-card-content>
     </mat-card>
 </div>

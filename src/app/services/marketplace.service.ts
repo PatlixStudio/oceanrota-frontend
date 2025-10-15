@@ -1,7 +1,7 @@
 import { computed, Injectable, signal } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { Boat } from '../core/models/boat.model';
+import { Listing } from '../core/models/listing.model';
 import { catchError, Observable, tap } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
@@ -10,7 +10,7 @@ export class MarketplaceService {
   private apiUrl = 'http://localhost:3000/api/v1/marketplace';
 
   // Signal to hold all listings
-  listings = signal<Boat[]>([]);
+  listings = signal<Listing[]>([]);
   totalListings = signal<number>(0);
   currentPage = signal<number>(1);
   pageLimit = signal<number>(10);
@@ -44,7 +44,7 @@ export class MarketplaceService {
       }
     });
 
-    this.http.get<{ data: Boat[]; total: number; page: number; limit: number }>(
+    this.http.get<{ data: Listing[]; total: number; page: number; limit: number }>(
       `${this.apiUrl}/listings`,
       { params }
     )
@@ -70,11 +70,11 @@ export class MarketplaceService {
 
   // Optionally fetch a single listing by id
   getBoatById(id: number) {
-    return this.http.get<Boat>(`${this.apiUrl}/listings/${id}`);
+    return this.http.get<Listing>(`${this.apiUrl}/listings/${id}`);
   }
 
   // create a new listing
-  createListing(data: FormData): Observable<Boat> {
-    return this.http.post<Boat>(`${this.apiUrl}/listings`, data);
+  createListing(data: FormData): Observable<Listing> {
+    return this.http.post<Listing>(`${this.apiUrl}/listings`, data);
   }
 }

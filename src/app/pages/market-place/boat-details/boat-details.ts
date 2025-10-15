@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MarketplaceService } from '../../../services/marketplace.service';
-import { Boat } from '../../../core/models/boat.model';
+import { Listing } from '../../../core/models/listing.model';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,7 +16,7 @@ export class BoatDetails {
   private route = inject(ActivatedRoute);
   private marketplaceService = inject(MarketplaceService);
 
-  boat = signal<Boat | null>(null);
+  boat = signal<Listing | null>(null);
 
   constructor() {
     const id = Number(this.route.snapshot.paramMap.get('id'));

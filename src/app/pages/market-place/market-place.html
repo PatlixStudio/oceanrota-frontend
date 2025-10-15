@@ -57,27 +57,27 @@
 
 
       <section class="cards-grid" [ngClass]="viewMode">
-        <mat-card class="vessel-card" *ngFor="let vessel of listings()">
-          <img mat-card-image [src]="vessel.images?.[0] || './assets/images/marine_icons/boat.png'"
-            [alt]="vessel.title || 'Boat image'" />
+        <mat-card class="vessel-card" *ngFor="let listing of listings()">
+          <img mat-card-image [src]="listing.vessel?.images?.[0] || './assets/images/marine_icons/boat.png'"
+            [alt]="listing.title || 'Boat image'" />
 
           <div class="details-column">
             <mat-card-header>
               <mat-card-title>
-                <span [routerLink]="['/marketplace/boats', vessel.id]" class="title-link">{{ vessel.title }}</span>
+                <span [routerLink]="['/marketplace/boats', listing.id]" class="title-link">{{ listing.title }}</span>
               </mat-card-title>
-              <mat-card-subtitle class="vessel-price">{{ vessel.price | currency}} {{ vessel.currency
+              <mat-card-subtitle class="vessel-price">{{ listing.price | currency}} {{ listing.currency
                 }}</mat-card-subtitle>
-              <mat-card-subtitle>{{ vessel.boatClass }} • {{ vessel.port }}</mat-card-subtitle>
+              <mat-card-subtitle>{{ listing.vessel?.boatClass }} • {{ listing.vessel?.port }}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
-              <p>{{ vessel.description }}</p>
+              <p>{{ listing.description }}</p>
 
               <div class="owner">
                 <div class="owner-details">
                   <img class="owner-avatar"
-                    [src]="vessel.owner?.avatarUrl || './assets/images/marine_icons/sailor.png'">
-                  <strong>@{{ vessel.owner?.username }}</strong>
+                    [src]="listing.owner?.avatarUrl || './assets/images/marine_icons/sailor.png'">
+                  <strong>@{{ listing.owner?.username }}</strong>
                 </div>
                 <button mat-raised-button>Follow</button>
               </div>
