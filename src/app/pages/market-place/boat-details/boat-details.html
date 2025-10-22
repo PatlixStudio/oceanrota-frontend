@@ -1,47 +1,90 @@
-<div *ngIf="boat() as listing; else loading" class="boat-details-container">
-    <mat-card class="detail-card">
-        <mat-card-header>
-            <mat-card-title class="boat-title">{{ listing.title }}</mat-card-title>
-            <mat-card-subtitle>
-                {{ listing.vessel?.make }} • {{ listing.vessel?.boatType }} • {{ listing.vessel?.year }}
-            </mat-card-subtitle>
-        </mat-card-header>
+@if ( boat(); as listing) {
+  <div class="boat-details-grid">
 
-        <mat-card-content>
-            <div class="boat-gallery" *ngIf="listing.vessel?.images">
-                <img *ngFor="let img of listing.vessel?.images" [src]="img ? img : ''"
-                    alt="{{ listing.vessel?.vesselName }}" />
+    <!-- LEFT SIDE -->
+    <div class="boat-left">
+      <gallery [items]="galleryItems" thumbPosition="bottom" lightbox></gallery>
+
+      <div class="boat-header">
+        <h1 class="boat-title">{{ listing.title }}</h1>
+        <h3 class="boat-subtitle">
+          {{ listing.vessel?.make }} • {{ listing.vessel?.boatType }} • {{ listing.vessel?.year }}
+        </h3>
+        <p class="boat-description">{{ listing.description }}</p>
+      </div>
+
+      <mat-accordion multi="true" class="details-accordion">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Vessel Information</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="info-grid">
+            <p><strong>Category:</strong> {{ listing.vessel?.category }}</p>
+            <p><strong>Class:</strong> {{ listing.vessel?.boatClass }}</p>
+            <p><strong>Length:</strong> {{ listing.vessel?.length_m }} m</p>
+            <p><strong>Condition:</strong> {{ listing.vessel?.condition }}</p>
+            <p><strong>Hull Material:</strong> {{ listing.vessel?.hullMaterial }}</p>
+            <p><strong>Capacity:</strong> {{ listing.vessel?.capacity }}</p>
+            <p><strong>Year:</strong> {{ listing.vessel?.year }}</p>
+          </div>
+        </mat-expansion-panel>
+
+        @if (listing.vessel?.features) {
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>Features</mat-panel-title>
+            </mat-expansion-panel-header>
+            <ul>
+              <li *ngFor="let feat of listing.vessel?.features | keyvalue">
+                <strong>{{ feat.key }}:</strong> {{ feat.value }}
+              </li>
+            </ul>
+          </mat-expansion-panel>
+        }
+
+        @if (listing.vessel?.engines?.length) {
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>Engine Details</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngFor="let engine of listing.vessel?.engines" class="engine-item">
+              <p><strong>Make:</strong> {{ engine.make }}</p>
+              <p><strong>Power:</strong> {{ engine.powerHp }} HP</p>
+              <p><strong>Fuel:</strong> {{ engine.fuelType }}</p>
             </div>
+          </mat-expansion-panel>
+        }
+      </mat-accordion>
+    </div>
 
-            <p class="boat-description">{{ listing.description }}</p>
-
-            <div class="boat-meta">
-                <p><strong i18n>Category:</strong> {{ listing.vessel?.category }}</p>
-                <p><strong i18n>Class:</strong> {{ listing.vessel?.boatClass }}</p>
-                <p><strong i18n>Length:</strong> {{ listing.vessel?.length_m }}m</p>
-                <p><strong i18n>Condition:</strong> {{ listing.vessel?.condition }}</p>
-                <p><strong i18n>Location:</strong> {{ listing.vessel?.city }}, {{ listing.vessel?.country }} ({{
-                    listing.vessel?.port }})</p>
-                <p><strong i18n>Price:</strong> {{ listing.price }} {{ listing.currency }}</p>
-            </div>
+    <!-- RIGHT SIDE -->
+    <div class="boat-right">
+      <mat-card class="summary-card">
+        <mat-card-content>
+          <h2 class="price">{{ listing.price | number:'1.0-0' }} {{ listing.currency }}</h2>
+          <p><mat-icon>place</mat-icon> {{ listing.vessel?.city }}, {{ listing.vessel?.country }}</p>
+          <p><strong>Port:</strong> {{ listing.vessel?.port }}</p>
+          <button mat-flat-button color="primary">Contact Owner</button>
+          <button mat-stroked-button color="accent">Add to Favorites</button>
         </mat-card-content>
+      </mat-card>
 
-        <mat-card-actions class="action-buttons">
-            <button mat-flat-button color="primary" i18n>Contact Owner</button>
-            <button mat-stroked-button color="accent" i18n>Add to Favorites</button>
-        </mat-card-actions>
-    </mat-card>
-
-    <mat-card class="owner-card">
+      <mat-card class="owner-card">
         <mat-card-header>
-            <mat-card-title>Owner</mat-card-title>
+          <img *ngIf="listing.owner?.avatarUrl" mat-card-avatar [src]="listing.owner?.avatarUrl" alt="Owner Avatar">
+          <mat-card-title>{{ listing.owner?.username }}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            @{{listing.owner?.username}}
+          <p *ngIf="listing.owner?.fullName">{{ listing.owner?.fullName }}</p>
+          <p><strong>Member since:</strong> {{ listing.owner?.createdAt | date }}</p>
         </mat-card-content>
-    </mat-card>
-</div>
+      </mat-card>
+    </div>
 
-<ng-template #loading>
+  </div>
+} @else {
+  <div class="loading">
+    <mat-spinner></mat-spinner>
     <p>Loading vessel details...</p>
-</ng-template>
+  </div>
+}
