@@ -6,13 +6,26 @@
 
 .add-listing-card {
   width: 800px;
-  padding: 2rem;
+  background: white;
+}
+
+.add-listing-card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  background-color: var(--mat-sys-primary-container);
+  color: var(--mat-sys-primary);
+  padding: 10px;
+  margin-bottom: 20px;
 }
 
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
+  padding: 2rem;
 }
 
 .full-width {
@@ -20,7 +33,23 @@
 }
 
 .engine-section {
-  grid-column: span 2;
+  grid-column: span 3; 
+
+  .engine-item {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.vessel-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
 }
 
 .image-upload {
@@ -52,4 +81,9 @@
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
+}
+
+.listingTypeBtnGrp {
+  width: 175px;
+  grid-column: span 2;
 }

@@ -46,15 +46,23 @@
     <mat-menu #userMenu="matMenu">
       <button mat-menu-item [routerLink]="['/user/profile', user.username]">
         <mat-icon>person</mat-icon>
-        <span i18n="@@menuProfile">Profile</span>
+        <span i18n="@@menuProfile">My Profile</span>
       </button>
       <button mat-menu-item>
         <mat-icon>message</mat-icon>
-        <span i18n="@@menuLogout">Messages</span>
+        <span i18n="@@menuLogout">My Messages</span>
       </button>
       <button mat-menu-item>
         <mat-icon>favorite</mat-icon>
-        <span i18n="@@menuLogout">Favorites</span>
+        <span i18n="@@menuLogout">My Favorites</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>school</mat-icon>
+        <span i18n="@@menuLogout">My Courses</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>message</mat-icon>
+        <span i18n="@@menuLogout">My Listings</span>
       </button>
       <button mat-menu-item (click)="logout()">
         <mat-icon>logout</mat-icon>

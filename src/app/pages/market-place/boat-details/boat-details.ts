@@ -8,7 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { GalleryModule, GalleryItem, ImageItem } from 'ng-gallery';
+import { GalleryModule, GalleryItem, ImageItem  } from 'ng-gallery';
 
 @Component({
   selector: 'app-boat-details',

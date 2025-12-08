@@ -8,6 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-add-listing',
@@ -20,6 +22,8 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    MatCheckboxModule,
+    MatButtonToggleModule
   ],
   templateUrl: './add-listing.html',
   styleUrl: './add-listing.scss',
@@ -34,75 +38,82 @@ export class AddListing {
   selectedFiles!: FileList;
   previewImages: string[] = [];
 
+  /** NEW MODEL-CORRECT FORM */
   addListingForm: FormGroup = this.fb.group({
     title: ['', [Validators.required, Validators.minLength(5)]],
     description: ['', [Validators.required, Validators.minLength(20)]],
-    category: ['', Validators.required],
-    boatType: ['', Validators.required],
-    boatClass: ['', Validators.required],
-    make: ['', Validators.required],
-    model: [''],
-    hullMaterial: [''],
-    capacity: [''],
-
-    price: ['', [Validators.required, Validators.min(1)]],
+    listingType: ['', Validators.required],
+    salePrice: ['', [Validators.required, Validators.min(1)]],
+    rentPrice: [''],
     currency: ['USD', Validators.required],
-    year: ['', [Validators.required, Validators.min(1900), Validators.max(new Date().getFullYear())]],
-    length_m: ['', [Validators.required, Validators.min(1)]],
-    condition: ['', Validators.required],
 
-    country: ['', Validators.required],
+    category: ['', Validators.required],
     city: ['', Validators.required],
+    country: ['', Validators.required],
     port: ['', Validators.required],
 
-    engines: this.fb.array([]), // ✅ dynamic engine list
-    images: this.fb.control([], Validators.required),
+    featured: [false],
+
+    vessel: this.fb.group({
+      vesselName: ['', Validators.required],
+      make: ['', Validators.required],
+      model: [''],
+      year: ['', [Validators.required, Validators.min(1900), Validators.max(new Date().getFullYear())]],
+      boatType: ['', Validators.required],
+      boatClass: ['', Validators.required],
+      hullMaterial: [''],
+
+      length_m: ['', [Validators.required, Validators.min(1)]],
+      beam_m: [''],
+      draft_m: [''],
+
+      condition: ['', Validators.required],
+      capacity: [0, [Validators.required, Validators.min(1)]],
+
+      images: [[]], // filled via FormData only
+      engines: this.fb.array([]),
+    }),
   });
 
-
+  /** Dropdown data */
   categories = ['Power', 'Sail', 'Other'];
   boatTypes = ['Sailboat', 'Motorboat', 'Yacht', 'Catamaran', 'Fishing Boat', 'Trawler', 'Speedboat'];
+  listingTypes = ['All', 'Sale', 'Rent'];
   conditions = ['New', 'Used'];
   currencies = ['USD', 'EUR', 'GBP', 'AUD', 'SGD'];
 
-
+  /** Engines form array */
   get engines() {
-    return this.addListingForm.get('engines') as FormArray;
+    return (this.addListingForm.get('vessel') as FormGroup).get('engines') as FormArray;
+  }
+
+  get vesselForm(): FormGroup {
+    return this.addListingForm.get('vessel') as FormGroup;
   }
 
   addEngine() {
-    const engineGroup = this.fb.group({
-      make: [''],
-      power_hp: [''],
-      hours: [''],
-    });
-    this.engines.push(engineGroup);
+    this.engines.push(
+      this.fb.group({
+        make: ['', Validators.required],
+        power_hp: ['', Validators.required],
+        hours: [''],
+        qty: ['', Validators.required]
+      })
+    );
   }
 
   removeEngine(index: number) {
     this.engines.removeAt(index);
   }
 
-  /** Convert feet to meters on blur */
-  convertFeetToMeters(field: string) {
-    const val = this.addListingForm.get(field)?.value;
-    if (!val || val <= 0) return;
-    if (val > 30) {
-      // assume input was in feet (since >30m would be massive)
-      const converted = (val * 0.3048).toFixed(2);
-      this.addListingForm.get(field)?.setValue(converted);
-    }
-  }
-
   /** Image Upload */
   onImageSelected(event: any) {
     const files: FileList = event.target.files;
-    console.log("Files", files);
     if (!files || files.length === 0) return;
 
     this.selectedFiles = files;
 
-    // for preview only
+    // Image previews
     const imageUrls: string[] = [];
     Array.from(files).forEach(file => {
       const reader = new FileReader();
@@ -116,29 +127,48 @@ export class AddListing {
 
   /** Submit form */
   createListing() {
-    console.log("Create Listing Clicked", this.addListingForm.invalid);
     if (this.addListingForm.invalid) {
       this.addListingForm.markAllAsTouched();
       return;
     }
 
     this.loading = true;
-    const listingData = this.addListingForm.value;
+    const formValue = this.addListingForm.value;
+
     const formData = new FormData();
 
-    console.log("listingData", listingData);
-    // append text fields
-    Object.keys(listingData).forEach(key => {
-      if (key !== 'images' && listingData[key] !== null && listingData[key] !== undefined) {
-        formData.append(key, listingData[key]);
+    /** Append listing root fields */
+    formData.append('title', formValue.title);
+    formData.append('description', formValue.description);
+    formData.append('salePrice', formValue.salePrice);
+    formData.append('rentPrice', formValue.rentPrice);
+    formData.append('currency', formValue.currency);
+
+    formData.append('category', formValue.category);
+    formData.append('city', formValue.city);
+    formData.append('country', formValue.country);
+    formData.append('port', formValue.port);
+
+    /** Append vessel fields */
+    const vessel = formValue.vessel;
+
+    Object.keys(vessel).forEach(key => {
+      if (key !== 'engines' && key !== 'images') {
+        formData.append(`vessel.${key}`, vessel[key]);
       }
     });
 
-    // append images as files
-    const files: FileList = this.selectedFiles; // store selected files in onImageSelected
-    if (files && files.length) {
-      Array.from(files).forEach(file => {
-        formData.append('images', file);
+    /** Append engines */
+    vessel.engines.forEach((engine: any, index: number) => {
+      Object.keys(engine).forEach(key => {
+        formData.append(`vessel.engines[${index}].${key}`, engine[key]);
+      });
+    });
+
+    /** Append uploaded images */
+    if (this.selectedFiles) {
+      Array.from(this.selectedFiles).forEach(file => {
+        formData.append('vessel.images', file);
       });
     }
 
