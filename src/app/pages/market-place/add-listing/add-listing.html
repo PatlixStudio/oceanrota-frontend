@@ -24,10 +24,44 @@
               placeholder="Describe the vessel, features, and condition"></textarea>
           </mat-form-field>
 
+          <!-- Images -->
+          <div class="image-upload full-width">
+
+            <label for="images" i18n="@@addListing.field.images.label">Upload Images</label>
+
+            <button mat-raised-button color="primary" type="button" (click)="fileInput.click()">
+              Select Images
+            </button>
+
+            <input #fileInput type="file" hidden multiple accept="image/*" (change)="onImageSelected($event)" />
+
+            <!-- Placeholder when no images selected -->
+            <div class="placeholder" *ngIf="!previewImages.length">
+              <img src="assets/images/marine_icons/anchor.png" alt="Placeholder" class="placeholder-img">
+              <p>Select images to preview here</p>
+            </div>
+
+            <!-- Preview Grid -->
+            <div class="image-preview-grid" *ngIf="previewImages.length">
+              <div class="preview-item" *ngFor="let img of previewImages; let i = index"
+                [class.featured]="featuredImage === img">
+
+                <img [src]="img" alt="Preview">
+
+                <!-- Featured Button -->
+                <button mat-stroked-button color="accent" type="button" class="featured-btn" (click)="setFeatured(img)">
+                  {{ featuredImage === img ? 'Featured' : 'Set as Featured' }}
+                </button>
+              </div>
+            </div>
+
+          </div>
+
           <mat-label i18n="@@addListing.field.listingType.label">Listing Type</mat-label>
-          <mat-button-toggle-group formControlName="listingType" name="listing_type" aria-label="Listing Type" class="listingTypeBtnGrp">
+          <mat-button-toggle-group formControlName="listingType" name="listing_type" aria-label="Listing Type"
+            class="listingTypeBtnGrp">
             @for (item of listingTypes; track $index) {
-              <mat-button-toggle [value]="item">{{item}}</mat-button-toggle>
+            <mat-button-toggle [value]="item">{{item}}</mat-button-toggle>
             }
           </mat-button-toggle-group>
 
@@ -183,18 +217,6 @@
 
               <button mat-stroked-button color="primary" type="button" (click)="addEngine()"
                 i18n="@@addListing.field.engine.add">Add Engine</button>
-            </div>
-
-            <!-- Images -->
-            <div class="image-upload full-width">
-              <label for="images" i18n="@@addListing.field.images.label">Upload Images</label>
-              <input type="file" id="images" multiple accept="image/*" (change)="onImageSelected($event)">
-
-              <div class="image-preview-grid" *ngIf="previewImages.length">
-                <div class="preview-item" *ngFor="let img of previewImages">
-                  <img [src]="img" alt="Preview">
-                </div>
-              </div>
             </div>
           </div>
 

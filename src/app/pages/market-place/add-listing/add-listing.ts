@@ -82,6 +82,8 @@ export class AddListing {
   conditions = ['New', 'Used'];
   currencies = ['USD', 'EUR', 'GBP', 'AUD', 'SGD'];
 
+  featuredImage: string | null = null;
+
   /** Engines form array */
   get engines() {
     return (this.addListingForm.get('vessel') as FormGroup).get('engines') as FormArray;
@@ -89,6 +91,10 @@ export class AddListing {
 
   get vesselForm(): FormGroup {
     return this.addListingForm.get('vessel') as FormGroup;
+  }
+
+  setFeatured(img: string) {
+    this.featuredImage = img;
   }
 
   addEngine() {
@@ -136,6 +142,10 @@ export class AddListing {
     const formValue = this.addListingForm.value;
 
     const formData = new FormData();
+
+    if (this.featuredImage) {
+      formData.append("featuredImage", this.featuredImage);
+    }
 
     /** Append listing root fields */
     formData.append('title', formValue.title);
