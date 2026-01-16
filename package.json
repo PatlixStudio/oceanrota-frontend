@@ -35,6 +35,7 @@
     "@angular/platform-server": "^20.3.0",
     "@angular/router": "^20.3.0",
     "@angular/ssr": "^20.3.2",
+    "@fortawesome/fontawesome-free": "^7.1.0",
     "express": "^5.1.0",
     "ng-gallery": "^12.0.0",
     "rxjs": "~7.8.0",

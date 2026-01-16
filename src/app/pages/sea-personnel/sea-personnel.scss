@@ -3,18 +3,20 @@
   flex-direction: column;
   gap: 3rem;
   background-color: white;
+  padding: 3rem 1rem;
 
   .intro {
     text-align: center;
 
     h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
+      font-size: clamp(2.0rem, 3vw, 1.5rem);
       font-weight: 700;
+      color: var(--mat-sys-primary, #003f7c);
     }
 
     p {
       font-size: 1.1rem;
-      color: var(--mat-sys-on-surface-variant, rgba(0,0,0,0.7));
+      color: var(--mat-sys-on-surface-variant, rgba(0, 0, 0, 0.7));
       margin-top: 0.5rem;
     }
   }
@@ -43,10 +45,11 @@
     .job-card {
       display: flex;
       flex-direction: column;
+
       mat-card-content {
         margin-top: 0.5rem;
         font-size: 0.95rem;
-        color: var(--mat-sys-on-surface-variant, rgba(0,0,0,0.7));
+        color: var(--mat-sys-on-surface-variant, rgba(0, 0, 0, 0.7));
       }
 
       mat-card-actions {

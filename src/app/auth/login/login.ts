@@ -7,6 +7,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { UserService } from '../../services/user.service';
@@ -32,6 +34,7 @@ export class Login {
   private authService = inject(AuthService);
   private userService = inject(UserService);
   private router = inject(Router);
+  private _snackBar = inject(MatSnackBar);
 
   loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -51,6 +54,10 @@ export class Login {
       next: (res) => {
         localStorage.setItem('token', res.accessToken);
         this.userService.setCurrentUser(res.user);
+        this._snackBar.open('Login Successfull', 'Dismiss', {
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
 
         if (res.user.role === 'admin') {
           this.router.navigate(['/marketplace']);
@@ -60,6 +67,10 @@ export class Login {
       },
       error: (err) => {
         this.errorMessage = err.error?.message || 'Login failed';
+        this._snackBar.open('Login Error', 'Dismiss', {
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
       },
     });
   }
