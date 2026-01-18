@@ -12,6 +12,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { LanguageSwitcher } from '../../components/language-switcher/language-switcher';
 import { CurrencySwitcher } from "../../components/currency-switcher/currency-switcher";
 
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
@@ -34,6 +36,16 @@ export class NavigationComponent {
   private userService = inject(UserService);
   private router = inject(Router);
   currentUser = this.userService.getCurrentUser();
+
+  isMobile = false;
+
+  constructor(private breakpointObserver: BreakpointObserver) {
+    this.breakpointObserver
+      .observe([Breakpoints.Handset])
+      .subscribe(result => {
+        this.isMobile = result.matches;
+      });
+  }
 
   logout() {
     this.userService.clearCurrentUser();

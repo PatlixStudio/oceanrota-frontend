@@ -47,3 +47,62 @@
 .username {
   font-weight: 500;
 }
+
+
+.sidenav-container {
+  height: 100vh;
+}
+
+.mobile-sidenav {
+  width: 260px;
+}
+
+.sidenav-header {
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Responsive helpers */
+.mobile-only {
+  display: none;
+}
+
+.desktop-only {
+  display: flex;
+}
+
+/* Breakpoint */
+@media (max-width: 768px) {
+  .mobile-only {
+    display: inline-flex;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .app-title {
+    margin-left: 8px;
+  }
+}
+
+.avatar-sm {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+:host {
+  @include mat.icon-overrides((
+    color: var(--mat-sys-primary),
+  ));
+}
+
+.active-link {
+  background-color: white;
+}
