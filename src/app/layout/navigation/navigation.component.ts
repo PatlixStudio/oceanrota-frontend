@@ -13,6 +13,7 @@ import { LanguageSwitcher } from '../../components/language-switcher/language-sw
 import { CurrencySwitcher } from "../../components/currency-switcher/currency-switcher";
 
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Footer } from '../footer/footer';
 
 @Component({
   selector: 'app-navigation',
@@ -29,7 +30,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
     MatIconModule,
     MatMenuModule,
     LanguageSwitcher,
-    CurrencySwitcher
+    CurrencySwitcher,
+    Footer
 ]
 })
 export class NavigationComponent {

@@ -1,10 +1,9 @@
 import { Component, signal } from '@angular/core';
 import { NavigationComponent } from "./layout/navigation/navigation.component";
-import { Footer } from './layout/footer/footer';
 
 @Component({
   selector: 'app-root',
-  imports: [NavigationComponent, Footer],
+  imports: [NavigationComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

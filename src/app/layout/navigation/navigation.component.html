@@ -9,7 +9,7 @@
     class="mobile-sidenav"
   >
     <div class="sidenav-header">
-      <span class="app-name">🌊 OceanRota</span>
+      <span class="app-name"><img src="assets/images/logo/OceanRota-logo-transparent.png"></span>
     </div>
 
     <mat-nav-list>
@@ -79,7 +79,7 @@
         <mat-icon>menu</mat-icon>
       </button>
       
-  <span i18n="@@appName">🌊 OceanRota</span>
+  <span i18n="@@appName"><img src="assets/images/logo/OceanRota_logo_transparent.png" width="200" style="margin-top: 8px;"></span>
 
   <div class="menu-row desktop-only">
     <button matButton [routerLink]="['/']" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
@@ -167,5 +167,7 @@
   <router-outlet />
 </main>
 
+  <app-footer></app-footer>
+  
   </mat-sidenav-content>
 </mat-sidenav-container>
