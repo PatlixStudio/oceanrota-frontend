@@ -1,0 +1,68 @@
+<div class="marine-shop-container">
+  <!-- Intro / Hero -->
+  <section class="intro">
+    <h1 i18n="@@marineShopTitle">🏪 Marine Shop</h1>
+    <p i18n="@@marineShopIntroDesc">
+      Become a certified maritime professional with our online courses. Learn at your own pace,
+      earn certifications, and boost your career in the maritime industry.
+    </p>
+  </section>
+
+  <!-- Search / Filter Courses -->
+  <section class="search">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label i18n="@@learningSearchLabelKeyword">Product Name</mat-label>
+      <input
+        matInput
+        placeholder="Search a product"
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label i18n="@@learningSearchLabelLevel">Category</mat-label>
+      <mat-select>
+        <mat-option value="" i18n="@@learningSearchAllLevels">All Levels</mat-option>
+        <mat-option value="beginner" i18n="@@learningSearchBeginner">Engines & Propulsion</mat-option>
+        <mat-option value="intermediate" i18n="@@learningSearchIntermediate">Navigation & Electronics</mat-option>
+        <mat-option value="advanced" i18n="@@learningSearchAdvanced">Safety</mat-option>
+        <mat-option value="beginner" i18n="@@learningSearchBeginner">Water Sports</mat-option>
+        <mat-option value="intermediate" i18n="@@learningSearchIntermediate">Maintenance</mat-option>
+        <mat-option value="advanced" i18n="@@learningSearchAdvanced">Lifestyle</mat-option>
+        <mat-option value="advanced" i18n="@@learningSearchAdvanced">Used Equipment</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="searchProducts()" i18n="@@learningSearchBtn">
+      Search
+    </button>
+  </section>
+
+  <!-- Courses Grid -->
+  <section class="products-grid">
+    <mat-card class="produdcts-card" *ngFor="let product of products">
+      <mat-card-header>
+        <mat-card-title>{{ product.title }}</mat-card-title>
+        <mat-card-subtitle>{{ product.category }} • {{ product.duration }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ product.description }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button color="accent" i18n="@@learningCourseDetailsBtn" [routerLink]="['/learning-center/course-details', product.id]" >View Details</button>
+        <button mat-flat-button color="primary" i18n="@@learningCourseEnrollBtn">Add to Basket</button>
+      </mat-card-actions>
+    </mat-card>
+  </section>
+
+  <!-- CTA for Instructors -->
+  <section class="cta-instructors">
+    <h2 i18n="@@learningInstructorTitle">Start Selling in Ocean Marine Store</h2>
+    <p i18n="@@learningInstructorDesc">
+      Share your maritime expertise and sell your products to aspiring professionals
+      around the world.
+    </p>
+    <button mat-flat-button color="primary" routerLink="/create-course" i18n="@@learningInstructorBtn">
+      Start Selling Now
+    </button>
+  </section>
+</div>

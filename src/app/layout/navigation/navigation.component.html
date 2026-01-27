@@ -37,6 +37,11 @@
         <mat-icon>school</mat-icon>
         <span>Learning Center</span>
       </a>
+
+      <a mat-list-item routerLink="/marine-shop" (click)="sidenav.close()">
+        <mat-icon>school</mat-icon>
+        <span>Learning Center</span>
+      </a>
     </mat-nav-list>
 
     <mat-divider></mat-divider>
@@ -94,13 +99,20 @@
       <mat-icon>construction</mat-icon>
       <span i18n="@@navMarineServices">Marine Services</span>
     </button>
+
     <button matButton [routerLink]="['/sea-personnel']" routerLinkActive="active-link">
       <mat-icon>person_apron</mat-icon>
       <span i18n="@@navSeaPersonnel">Sea Personnel</span>
     </button>
+
     <button matButton [routerLink]="['/learning-center']" routerLinkActive="active-link">
       <mat-icon>school</mat-icon>
       <span i18n="@@navLearningCenter">Learning Center</span>
+    </button>
+
+    <button matButton [routerLink]="['/marine-shop']" routerLinkActive="active-link">
+      <mat-icon>store</mat-icon>
+      <span i18n="@@navMarineShop">Marine Shop</span>
     </button>
   </div>
 
