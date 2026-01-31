@@ -2,7 +2,7 @@
 
   <!-- Intro / Hero -->
   <section class="intro">
-    <h1 i18n="@@marketplaceTitle">⚓ Boat Marketplace</h1>
+    <h1 i18n="@@marketplaceTitle">⚓ Vessel Marketplace</h1>
     <!-- <p class="subtitle" i18n="@@marketplaceDesc">
       Explore a global marketplace for buying and selling vessels of all kinds — from fishing boats to luxury
       yachts.
@@ -67,7 +67,7 @@
           <div class="details-column">
             <mat-card-header>
               <mat-card-title>
-                <span [routerLink]="['/marketplace/boats', listing.id]" class="title-link">{{ listing.title }}</span>
+                <span [routerLink]="['/marketplace/vessel', listing.id]" class="title-link">{{ listing.title }}</span>
               </mat-card-title>
               <mat-card-subtitle class="vessel-price">{{ listing.price | currency}} {{ listing.currency
                 }}</mat-card-subtitle>

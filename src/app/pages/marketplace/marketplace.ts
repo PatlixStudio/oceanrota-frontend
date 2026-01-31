@@ -6,7 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MarketplaceService } from '../../services/marketplace.service';
 import { RouterModule } from '@angular/router';
-import { BoatFilter } from "./boat-filter/boat-filter";
+import { BoatFilter } from "./vessel-filter/boat-filter";
 import { Listing } from '../../core/models/listing.model';
 import { MatOptionModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -16,7 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 
 @Component({
-  selector: 'app-market-place',
+  selector: 'app-marketplace',
   imports: [
     CommonModule,
     MatCardModule,
@@ -31,8 +31,8 @@ import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
     MatIconModule,
     MatPaginatorModule
   ],
-  templateUrl: './market-place.html',
-  styleUrl: './market-place.scss'
+  templateUrl: './marketplace.html',
+  styleUrl: './marketplace.scss'
 })
 export class MarketPlace {
 

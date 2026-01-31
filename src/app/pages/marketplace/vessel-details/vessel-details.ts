@@ -11,7 +11,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { GalleryModule, GalleryItem, ImageItem  } from 'ng-gallery';
 
 @Component({
-  selector: 'app-boat-details',
+  selector: 'app-vessel-details',
   imports: [
     CommonModule,
     MatCardModule,
@@ -21,10 +21,10 @@ import { GalleryModule, GalleryItem, ImageItem  } from 'ng-gallery';
     MatProgressSpinnerModule,
     MatExpansionModule
   ],
-  templateUrl: './boat-details.html',
-  styleUrl: './boat-details.scss'
+  templateUrl: './vessel-details.html',
+  styleUrl: './vessel-details.scss'
 })
-export class BoatDetails {
+export class VesselDetails {
   private route = inject(ActivatedRoute);
   private marketplaceService = inject(MarketplaceService);
 

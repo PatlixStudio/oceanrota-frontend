@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { Home } from './pages/home/home';
-import { MarketPlace } from './pages/market-place/market-place';
+import { MarketPlace } from './pages/marketplace/marketplace';
 import { SeaPersonnel } from './pages/sea-personnel/sea-personnel';
 import { MarineServices } from './pages/marine-services/marine-services';
 import { LearningCenter } from './pages/learning-center/learning-center';
@@ -8,8 +8,8 @@ import { Login } from './auth/login/login';
 import { Register } from './auth/register/register';
 import { ForgotPassword } from './auth/forgot-password/forgot-password';
 import { UserProfile } from './pages/user/profile/profile';
-import { BoatDetails } from './pages/market-place/boat-details/boat-details';
-import { AddListing } from './pages/market-place/add-listing/add-listing';
+import { VesselDetails } from './pages/marketplace/vessel-details/vessel-details';
+import { AddListing } from './pages/marketplace/add-listing/add-listing';
 import { CreateMarineService } from './pages/marine-services/create-marine-service/create-marine-service';
 import { RequestMarineService } from './pages/marine-services/request-marine-service/request-marine-service';
 import { MarineServiceDetails } from './pages/marine-services/marine-service-details/marine-service-details';
@@ -30,7 +30,7 @@ export const routes: Routes = [
         path: 'marketplace',
         children: [
             { path: '', component: MarketPlace },
-            { path: 'boats/:id', component: BoatDetails },
+            { path: 'vessel/:id', component: VesselDetails },
             { path: 'add-listing', component: AddListing }
         ]
     },

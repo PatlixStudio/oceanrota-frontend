@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MarketPlace } from './market-place';
+import { MarketPlace } from './marketplace';
 
 describe('MarketPlace', () => {
   let component: MarketPlace;
