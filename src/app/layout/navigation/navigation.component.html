@@ -19,17 +19,17 @@
 
       <a mat-list-item routerLink="/marine-shop" (click)="sidenav.close()">
         <mat-icon>shop</mat-icon>
-        <span>Marine Equipment</span>
+        <span>Marine Shop</span>
+      </a>
+
+      <a mat-list-item routerLink="/sea-personnel" (click)="sidenav.close()">
+        <mat-icon>engineering</mat-icon>
+        <span>Crew & Jobs</span>
       </a>
 
       <a mat-list-item routerLink="/marine-services" (click)="sidenav.close()">
         <mat-icon>construction</mat-icon>
         <span>Marine Services</span>
-      </a>
-
-      <a mat-list-item routerLink="/sea-personnel" (click)="sidenav.close()">
-        <mat-icon>person_apron</mat-icon>
-        <span>Crew & Jobs</span>
       </a>
 
       <a mat-list-item routerLink="/learning-center" (click)="sidenav.close()">
@@ -66,9 +66,7 @@
 
   <!-- Main Content -->
   <mat-sidenav-content>
-
     <mat-toolbar color="primary">
-
       <!-- Mobile Menu Button -->
       <button mat-icon-button class="mobile-only" (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
@@ -93,19 +91,19 @@
           <span i18n="@@navMarineShop">Marine Shop</span>
         </button>
 
-        <button matButton [routerLink]="['/sea-personnel']" routerLinkActive="active-link">
-          <mat-icon>person_apron</mat-icon>
+        <button matButton [routerLink]="['/seafarers']" routerLinkActive="active-link">
+          <mat-icon>engineering</mat-icon>
           <span i18n="@@navSeaPersonnel">Crew & Jobs</span>
         </button>
 
-        <button matButton [routerLink]="['/marine-services']" routerLinkActive="active-link">
+        <button matButton [routerLink]="['/maritime-services']" routerLinkActive="active-link">
           <mat-icon>construction</mat-icon>
-          <span i18n="@@navMarineServices">Marine Services</span>
+          <span i18n="@@navMarineServices">Maritime Services</span>
         </button>
 
-        <button matButton [routerLink]="['/learning-center']" routerLinkActive="active-link">
+        <button matButton [routerLink]="['/maritime-training']" routerLinkActive="active-link">
           <mat-icon>school</mat-icon>
-          <span i18n="@@navLearningCenter">Learning Center</span>
+          <span i18n="@@navLearningCenter">Maritime Training</span>
         </button>
       </div>
 

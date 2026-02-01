@@ -1,0 +1,69 @@
+<div class="marine-services-container">
+  <!-- Intro / Hero -->
+  <section class="intro">
+    <h1 i18n="@@marineIntroTitle">🧰 Maritime Services</h1>
+    <p i18n="@@marineIntroDesc">
+      Find trusted maritime services worldwide — maintenance, logistics, training, charter support, and more.
+      Service providers can list their offerings and connect with vessel owners, crew, and maritime businesses.
+    </p>
+    <button mat-flat-button color="primary" [routerLink]="['/marine-services/create-marine-service']" i18n="@@marineProviderBtn">
+      List Your Service
+    </button>
+  </section>
+
+  <!-- Search / Filter -->
+  <section class="search">
+    <mat-form-field appearance="outline">
+      <mat-label i18n="@@marineSearchLabelType">Service Category</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let c of serviceCategories" [value]="c.slug">
+          {{ c.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label i18n="@@marineSearchLabelType">Service Type</mat-label>
+      <input matInput placeholder="Maintenance, Training, Logistics" i18n-placeholder="@@marineSearchPlaceholderType"
+        [(ngModel)]="filters.type">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label i18n="@@marineSearchLabelLocation">Location</mat-label>
+      <input matInput placeholder="Port, City, Country" i18n-placeholder="@@marineSearchPlaceholderLocation"
+        [(ngModel)]="filters.location">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="searchServices()" i18n="@@marineSearchBtn">
+      Search
+    </button>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="services-grid">
+    <mat-card class="service-card" *ngFor="let service of services">
+      <mat-card-header>
+        <mat-card-title>{{ service.title }}</mat-card-title>
+        <mat-card-subtitle>{{ service.type }} • {{ service.location }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ service.description }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button color="accent" i18n="@@marineServiceDetailsBtn" [routerLink]="['/marine-services/marine-service-details', service.id]">View Details</button>
+        <button mat-flat-button color="primary" i18n="@@marineServiceRequestBtn" [routerLink]="['/marine-services/request-marine-service']">Request Service</button>
+      </mat-card-actions>
+    </mat-card>
+  </section>
+
+  <!-- CTA for Providers -->
+  <section class="cta-providers">
+    <h2 i18n="@@marineProviderTitle">Offer Your Marine Services</h2>
+    <p i18n="@@marineProviderDesc">
+      Join OceanRota as a service provider and reach vessel owners, captains, and maritime businesses worldwide.
+    </p>
+    <button mat-flat-button color="primary" [routerLink]="['/marine-services/create-marine-service']" i18n="@@marineProviderBtn">
+      List Your Service
+    </button>
+  </section>
+</div>
