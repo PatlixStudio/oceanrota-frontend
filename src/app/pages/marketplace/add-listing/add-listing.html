@@ -2,8 +2,8 @@
   <mat-card class="add-listing-card">
 
     <mat-card-header class="add-listing-card-header">
-      <mat-card-title i18n="@@addListing.title">Add New Boat Listing</mat-card-title>
-      <mat-card-subtitle>@Create a new listing !</mat-card-subtitle>
+      <mat-card-title i18n="@@addListing.title">Add New Vessel Listing</mat-card-title>
+      <mat-card-subtitle>Create a new listing !</mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content>
@@ -111,6 +111,86 @@
             <mat-label i18n="@@addListing.field.port.label">Port</mat-label>
             <input matInput formControlName="port" placeholder="Kalamis Marina">
           </mat-form-field>
+
+          <section class="visibility-section full-width">
+            <h3 class="section-title" i18n="@@addListing.section.visibility.title">
+              Listing Visibility
+            </h3>
+
+            <mat-radio-group formControlName="visibilityType" class="visibility-group">
+
+              <!-- STANDARD -->
+              <mat-radio-button value="STANDARD" class="visibility-option">
+                <div class="option-content standard">
+                  <strong i18n="@@addListing.visibility.standard.title">
+                    Standard Listing
+                  </strong>
+                  <p i18n="@@addListing.visibility.standard.desc">
+                    Visible in search results with standard placement.
+                  </p>
+                  <span class="price">Free</span>
+                </div>
+              </mat-radio-button>
+
+              <!-- FEATURED -->
+              <mat-radio-button value="FEATURED" class="visibility-option">
+                <div class="option-content featured">
+                  <strong i18n="@@addListing.visibility.featured.title">
+                    ★ Featured Listing
+                  </strong>
+                  <p i18n="@@addListing.visibility.featured.desc">
+                    Highlighted placement, homepage exposure, faster sales.
+                  </p>
+                </div>
+              </mat-radio-button>
+
+            </mat-radio-group>
+
+
+            <div class="featured-plans" *ngIf="addListingForm.get('visibilityType')?.value === 'FEATURED'">
+
+              <h4 i18n="@@addListing.featuredPlans.title">
+                Choose Featured Duration
+              </h4>
+
+              <mat-radio-group formControlName="featuredPlan" class="featured-plan-group">
+                <!-- 7 DAYS -->
+                <mat-card class="featured-plan-card">
+                  <mat-radio-button value="FEATURED_7" class="plan-radio">
+                    <div class="plan-content">
+                      <h3>7 Days</h3>
+                      <p>Boost visibility for a short period</p>
+                      <span class="price">€15</span>
+                    </div>
+                  </mat-radio-button>
+                </mat-card>
+
+                <!-- 14 DAYS -->
+                <mat-card class="featured-plan-card recommended" >
+                  <mat-radio-button value="FEATURED_14"  class="">
+                    <div class="plan-content plan-radio">
+                      <h3>14 Days</h3>
+                      <p>Best balance of exposure & value</p>
+                      <span class="price">€29</span>
+                      <span class="badge">Most Popular</span>
+                    </div>
+                  </mat-radio-button>
+                </mat-card>
+
+                <!-- 30 DAYS -->
+                <mat-card class="featured-plan-card premium">
+                  <mat-radio-button value="FEATURED_30"  class="plan-radio">
+                    <div class="plan-content">
+                      <h3>30 Days</h3>
+                      <p>Maximum exposure & priority placement</p>
+                      <span class="price">€49</span>
+                    </div>
+                  </mat-radio-button>
+                </mat-card>
+              </mat-radio-group>
+            </div>
+          </section>
+
 
           <!-- Vessel Info -->
           <h3 i18n="@@addListing.section.vessel.title">Vessel Information</h3>

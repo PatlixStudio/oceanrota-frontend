@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatRadioModule } from '@angular/material/radio';
 
 @Component({
   selector: 'app-add-listing',
@@ -23,6 +24,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatButtonModule,
     MatSelectModule,
     MatCheckboxModule,
+    MatRadioModule,
     MatButtonToggleModule
   ],
   templateUrl: './add-listing.html',
@@ -53,6 +55,8 @@ export class AddListing {
     port: ['', Validators.required],
 
     featured: [false],
+    visibilityType: ['STANDARD', Validators.required],
+    featuredPlan: [null], // only required if FEATURED
 
     vessel: this.fb.group({
       vesselName: ['', Validators.required],

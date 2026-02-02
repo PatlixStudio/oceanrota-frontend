@@ -33,7 +33,7 @@
 }
 
 .engine-section {
-  grid-column: span 3; 
+  grid-column: span 3;
 
   .engine-item {
     display: flex;
@@ -135,5 +135,211 @@
     padding: 2px 10px;
     font-size: 11px;
     border-radius: 20px;
+  }
+}
+
+.visibility-section {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+
+  .section-title {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    // color: #1f2937;
+    text-align: center;
+  }
+}
+
+/* ===============================
+   Visibility Options (Standard / Featured)
+   =============================== */
+.visibility-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  transition: all 0.25s ease;
+
+  .visibility-option {
+
+    .mat-radio-label {
+      width: 100%;
+    }
+
+    .option-content {
+      width: 200px;
+      height: 100px;
+      padding: 1rem 1.25rem;
+      border-radius: 10px;
+      border: 2px solid transparent;
+      background: #ffffff;
+
+      cursor: pointer;
+
+      strong {
+        font-size: 1rem;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 0.875rem;
+        color: #6b7280;
+        margin: 0.25rem 0 0.5rem;
+      }
+
+      .price {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: #059669;
+      }
+
+      &.featured {
+        .price {
+          color: #7c3aed;
+        }
+      }
+    }
+
+    &:hover .option-content {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    &.mat-mdc-radio-checked .option-content {
+      border-color: #2563eb;
+      background: #eff6ff;
+    }
+  }
+}
+
+/* ===============================
+   Featured Plans
+   =============================== */
+.featured-plans {
+  margin-top: 1.5rem;
+  animation: fadeSlide 0.3s ease-out;
+
+  h4 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #111827;
+  }
+}
+
+.featured-plan-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+/* ===============================
+   Featured Plan Cards
+   =============================== */
+.featured-plan-card {
+  position: relative;
+  border-radius: 14px;
+  border: 2px solid #e5e7eb;
+  transition: all 0.25s ease;
+  cursor: pointer;
+
+  .mat-radio-button {
+    width: 100%;
+
+    .mat-radio-label {
+      width: 100%;
+    }
+  }
+
+  .plan-content {
+    padding: 1.25rem;
+    text-align: center;
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: #111827;
+    }
+
+    p {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin-bottom: 0.75rem;
+    }
+
+    .price {
+      display: block;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #2563eb;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  &.recommended {
+    border-color: #2563eb;
+
+    .price {
+      color: #2563eb;
+    }
+
+    .badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #2563eb;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 999px;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+    }
+  }
+
+  &.premium {
+    // border-color: #7c3aed;
+
+    .price {
+      color: #7c3aed;
+    }
+  }
+
+  &.mat-radio-checked,
+  &:has(.mat-mdc-radio-checked) {
+    border-color: #16a34a;
+    background: #ecfdf5;
+
+    .price {
+      color: #16a34a;
+    }
+  }
+}
+
+::ng-deep .mat-mdc-radio-button .mat-internal-form-field {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
