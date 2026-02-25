@@ -19,7 +19,7 @@ export interface Vessel {
   year?: number;
   condition?: string;        // New / Excellent / Used
   hullMaterial?: string;
-  capacity?: string;
+  capacity?: number;
 
   /** Accommodations */
   guestCabins?: number;

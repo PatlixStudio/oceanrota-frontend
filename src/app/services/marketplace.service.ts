@@ -77,4 +77,11 @@ export class MarketplaceService {
   createListing(data: FormData): Observable<Listing> {
     return this.http.post<Listing>(`${this.apiUrl}/listings`, data);
   }
+
+  uploadListingImages(listingId: number, formData: FormData) {
+    return this.http.post(
+      `${this.apiUrl}/listings/${listingId}/images`,
+      formData
+    );
+  }
 }

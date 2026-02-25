@@ -37,6 +37,7 @@ export class AddListing {
 
   loading = false;
 
+  featuredImage: string | null = null;
   selectedFiles!: FileList;
   previewImages: string[] = [];
 
@@ -44,16 +45,11 @@ export class AddListing {
   addListingForm: FormGroup = this.fb.group({
     title: ['', [Validators.required, Validators.minLength(5)]],
     description: ['', [Validators.required, Validators.minLength(20)]],
-    listingType: ['', Validators.required],
+    listingPurpose: ['ALL', Validators.required],
     salePrice: ['', [Validators.required, Validators.min(1)]],
     rentPrice: [''],
     currency: ['USD', Validators.required],
-
     category: ['', Validators.required],
-    city: ['', Validators.required],
-    country: ['', Validators.required],
-    port: ['', Validators.required],
-
     featured: [false],
     visibilityType: ['STANDARD', Validators.required],
     featuredPlan: [null], // only required if FEATURED
@@ -75,18 +71,30 @@ export class AddListing {
       capacity: [0, [Validators.required, Validators.min(1)]],
 
       images: [[]], // filled via FormData only
+
       engines: this.fb.array([]),
+
+      address: this.fb.group({
+        address_1: ['', Validators.required],
+        address_2: [''],
+        country: ['', Validators.required],
+        state: ['', Validators.required],
+        port: ['', Validators.required],
+        city: ['', Validators.required],
+        postal_code: ['', Validators.required],
+      }),
+
     }),
   });
 
   /** Dropdown data */
   categories = ['Power', 'Sail', 'Other'];
   boatTypes = ['Sailboat', 'Motorboat', 'Yacht', 'Catamaran', 'Fishing Boat', 'Trawler', 'Speedboat'];
-  listingTypes = ['All', 'Sale', 'Rent'];
+  listingPurpose = ['ALL', 'SALE', 'RENT'];
   conditions = ['New', 'Used'];
   currencies = ['USD', 'EUR', 'GBP', 'AUD', 'SGD'];
 
-  featuredImage: string | null = null;
+
 
   /** Engines form array */
   get engines() {
@@ -95,6 +103,11 @@ export class AddListing {
 
   get vesselForm(): FormGroup {
     return this.addListingForm.get('vessel') as FormGroup;
+  }
+
+  // Get address FormGroup
+  get addressFormGroup(): FormGroup {
+    return this.addListingForm.get('vessel.address') as FormGroup;
   }
 
   setFeatured(img: string) {
@@ -143,59 +156,62 @@ export class AddListing {
     }
 
     this.loading = true;
-    const formValue = this.addListingForm.value;
+    const payload = this.addListingForm.value;
 
-    const formData = new FormData();
-
-    if (this.featuredImage) {
-      formData.append("featuredImage", this.featuredImage);
-    }
-
-    /** Append listing root fields */
-    formData.append('title', formValue.title);
-    formData.append('description', formValue.description);
-    formData.append('salePrice', formValue.salePrice);
-    formData.append('rentPrice', formValue.rentPrice);
-    formData.append('currency', formValue.currency);
-
-    formData.append('category', formValue.category);
-    formData.append('city', formValue.city);
-    formData.append('country', formValue.country);
-    formData.append('port', formValue.port);
-
-    /** Append vessel fields */
-    const vessel = formValue.vessel;
-
-    Object.keys(vessel).forEach(key => {
-      if (key !== 'engines' && key !== 'images') {
-        formData.append(`vessel.${key}`, vessel[key]);
-      }
-    });
-
-    /** Append engines */
-    vessel.engines.forEach((engine: any, index: number) => {
-      Object.keys(engine).forEach(key => {
-        formData.append(`vessel.engines[${index}].${key}`, engine[key]);
-      });
-    });
-
-    /** Append uploaded images */
-    if (this.selectedFiles) {
-      Array.from(this.selectedFiles).forEach(file => {
-        formData.append('vessel.images', file);
-      });
-    }
-
-    this.marketplaceService.createListing(formData).subscribe({
-      next: (res) => {
-        console.log('Listing created', res);
+    // Submit to backend
+    this.marketplaceService.createListing(payload).subscribe({
+      next: (listing: any) => {
+        console.log('Listing created', listing);
         this.loading = false;
-        this.router.navigate(['/marketplace']);
+        // If there are images → upload them
+        if (this.selectedFiles?.length) {
+          this.uploadImages(listing.id);
+        } else {
+          this.finishFlow();
+        }
       },
       error: (err) => {
-        console.error('Error creating listing', err);
+        console.error('Create listing failed', err);
         this.loading = false;
       },
     });
+  }
+
+  private uploadImages(listingId: number) {
+    const formData = new FormData();
+
+    Array.from(this.selectedFiles).forEach(file => {
+      formData.append('images', file);
+    });
+
+    this.marketplaceService.uploadListingImages(listingId, formData).subscribe({
+      next: (res) => {
+        console.log('Images uploaded', res);
+        this.finishFlow();
+      },
+      error: (err) => {
+        console.error('Image upload failed', err);
+        this.loading = false;
+      },
+    });
+  }
+
+  private finishFlow() {
+    this.loading = false;
+    this.router.navigate(['/marketplace']);
+  }
+
+  get listingPurposeControl() {
+    return this.addListingForm.get('listingPurpose');
+  }
+
+  isSale(): boolean {
+    const value = this.listingPurposeControl?.value;
+    return value === 'SALE' || value === 'ALL';
+  }
+
+  isRent(): boolean {
+    const value = this.listingPurposeControl?.value;
+    return value === 'RENT' || value === 'ALL';
   }
 }

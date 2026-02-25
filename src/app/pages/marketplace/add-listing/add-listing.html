@@ -7,7 +7,6 @@
     </mat-card-header>
 
     <mat-card-content>
-
       <form [formGroup]="addListingForm" (ngSubmit)="createListing()" novalidate>
         <div class="form-grid">
           <h3 i18n="@@addListing.section.listing.title">General Listing Information</h3>
@@ -26,15 +25,7 @@
 
           <!-- Images -->
           <div class="image-upload full-width">
-
-            <label for="images" i18n="@@addListing.field.images.label">Upload Images</label>
-
-            <button mat-raised-button color="primary" type="button" (click)="fileInput.click()">
-              Select Images
-            </button>
-
-            <input #fileInput type="file" hidden multiple accept="image/*" (change)="onImageSelected($event)" />
-
+            <label for="images" i18n="@@addListing.field.images.label"><strong>Upload Images</strong></label>
             <!-- Placeholder when no images selected -->
             <div class="placeholder" *ngIf="!previewImages.length">
               <img src="assets/images/marine_icons/anchor.png" alt="Placeholder" class="placeholder-img">
@@ -55,34 +46,39 @@
               </div>
             </div>
 
+            <button mat-raised-button color="primary" type="button" (click)="fileInput.click()">
+              Select Images
+            </button>
+
+            <input #fileInput type="file" hidden multiple accept="image/*" (change)="onImageSelected($event)" />
           </div>
 
-          <mat-label i18n="@@addListing.field.listingType.label">Listing Type</mat-label>
-          <mat-button-toggle-group formControlName="listingType" name="listing_type" aria-label="Listing Type"
+          <mat-label i18n="@@addListing.field.listingPurpose.label"><strong>Listing Purpose</strong></mat-label>
+          <mat-button-toggle-group formControlName="listingPurpose" name="listing_purpose" aria-label="Listing Purpose"
             class="listingTypeBtnGrp">
-            @for (item of listingTypes; track $index) {
+            @for (item of listingPurpose; track $index) {
             <mat-button-toggle [value]="item">{{item}}</mat-button-toggle>
             }
           </mat-button-toggle-group>
 
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="outline" *ngIf="isSale()">
             <mat-label i18n="@@addListing.field.price.label">Sale Price</mat-label>
             <input matInput type="number" formControlName="salePrice" placeholder="100000">
           </mat-form-field>
 
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="outline" *ngIf="isSale()">
             <mat-label i18n="@@addListing.field.currency.label">Currency</mat-label>
             <mat-select formControlName="currency">
               <mat-option *ngFor="let c of currencies" [value]="c">{{ c }}</mat-option>
             </mat-select>
           </mat-form-field>
 
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="outline" *ngIf="isRent()">
             <mat-label i18n="@@addListing.field.price.label">Rent Price</mat-label>
             <input matInput type="number" formControlName="rentPrice" placeholder="100000">
           </mat-form-field>
 
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="outline" *ngIf="isRent()">
             <mat-label i18n="@@addListing.field.currency.label">Currency</mat-label>
             <mat-select formControlName="currency">
               <mat-option *ngFor="let c of currencies" [value]="c">{{ c }}</mat-option>
@@ -94,22 +90,6 @@
             <mat-select formControlName="category">
               <mat-option *ngFor="let cat of categories" [value]="cat">{{ cat }}</mat-option>
             </mat-select>
-          </mat-form-field>
-
-          <!-- Location -->
-          <mat-form-field appearance="outline">
-            <mat-label i18n="@@addListing.field.country.label">Country</mat-label>
-            <input matInput formControlName="country" placeholder="Turkey">
-          </mat-form-field>
-
-          <mat-form-field appearance="outline">
-            <mat-label i18n="@@addListing.field.city.label">City</mat-label>
-            <input matInput formControlName="city" placeholder="Istanbul">
-          </mat-form-field>
-
-          <mat-form-field appearance="outline">
-            <mat-label i18n="@@addListing.field.port.label">Port</mat-label>
-            <input matInput formControlName="port" placeholder="Kalamis Marina">
           </mat-form-field>
 
           <section class="visibility-section full-width">
@@ -166,8 +146,8 @@
                 </mat-card>
 
                 <!-- 14 DAYS -->
-                <mat-card class="featured-plan-card recommended" >
-                  <mat-radio-button value="FEATURED_14"  class="">
+                <mat-card class="featured-plan-card recommended">
+                  <mat-radio-button value="FEATURED_14" class="">
                     <div class="plan-content plan-radio">
                       <h3>14 Days</h3>
                       <p>Best balance of exposure & value</p>
@@ -179,7 +159,7 @@
 
                 <!-- 30 DAYS -->
                 <mat-card class="featured-plan-card premium">
-                  <mat-radio-button value="FEATURED_30"  class="plan-radio">
+                  <mat-radio-button value="FEATURED_30" class="plan-radio">
                     <div class="plan-content">
                       <h3>30 Days</h3>
                       <p>Maximum exposure & priority placement</p>
@@ -298,16 +278,56 @@
               <button mat-stroked-button color="primary" type="button" (click)="addEngine()"
                 i18n="@@addListing.field.engine.add">Add Engine</button>
             </div>
+            <!-- Location -->
+            <div class="vessel-location" [formGroup]="addressFormGroup">
+              <h3 class="section-title" i18n="@@addListing.section.vessel.title">
+                Vessel Location
+              </h3>
+
+              <!-- Address line 1 -->
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Address</mat-label>
+                <textarea matInput rows="1" placeholder="Ex. 100 Main St" formControlName="address_1"></textarea>
+              </mat-form-field>
+
+              <!-- Address line 2 -->
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Address 2</mat-label>
+                <textarea matInput rows="1" formControlName="address_2"></textarea>
+              </mat-form-field>
+
+              <!-- Country -->
+              <mat-form-field appearance="outline">
+                <mat-label i18n="@@addListing.field.country.label">Country</mat-label>
+                <input matInput formControlName="country" placeholder="Turkey">
+              </mat-form-field>
+
+              <!-- City -->
+              <mat-form-field appearance="outline">
+                <mat-label i18n="@@addListing.field.city.label">City</mat-label>
+                <input matInput formControlName="city" placeholder="Istanbul">
+              </mat-form-field>
+
+              <!-- State -->
+              <mat-form-field appearance="outline">
+                <mat-label>State</mat-label>
+                <input matInput placeholder="Ex. California" formControlName="state">
+              </mat-form-field>
+
+              <!-- Port -->
+              <mat-form-field appearance="outline">
+                <mat-label i18n="@@addListing.field.port.label">Port</mat-label>
+                <input matInput formControlName="port" placeholder="Kalamis Marina">
+              </mat-form-field>
+
+              <!-- Postal code -->
+              <mat-form-field appearance="outline">
+                <mat-label>Postal Code</mat-label>
+                <input matInput maxlength="10" placeholder="Ex. 94105" formControlName="postal_code">
+              </mat-form-field>
+            </div>
+
           </div>
-
-          <mat-checkbox formControlName="featured" color="primary" i18n="@@addListing.field.featured.label">
-            Mark as Featured Listing
-          </mat-checkbox>
-          <p *ngIf="addListingForm.get('featured')?.value" class="featured-info"
-            i18n="@@addListing.field.featured.info">
-            Featured listings will be highlighted. A fee will be applied upon submission.
-          </p>
-
         </div>
 
         <!-- Actions -->

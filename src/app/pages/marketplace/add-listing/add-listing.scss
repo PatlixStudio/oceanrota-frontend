@@ -52,6 +52,18 @@
   width: 100%;
 }
 
+.vessel-location {
+  margin-top: 24px;
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+
+  .full-width {
+    grid-column: span 3;
+  }
+}
+
 .image-upload {
   display: flex;
   flex-direction: column;
@@ -84,7 +96,7 @@
 }
 
 .listingTypeBtnGrp {
-  width: 175px;
+  width: 200px;
   grid-column: span 2;
 }
 

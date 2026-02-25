@@ -9,7 +9,7 @@ export interface Listing {
   description: string;
   price?: number;
   currency?: string;
-  status?: 'draft' | 'published' | 'sold';
+  status?: 'DRAFT' | 'ACTIVE' | 'INACTIVE' | 'SOLD' | 'RENTED';
 
   /** Owner */
   ownerId?: number;
