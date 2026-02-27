@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, model } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MarketplaceService } from '../../../services/marketplace.service';
+import { MarketplaceService } from '@services/marketplace.service';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -11,6 +11,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatRadioModule } from '@angular/material/radio';
+import { FeaturedPlan } from '@core/enums/featured-plan.enum';
+import { FuelType } from '@core/enums/fuel-type.enum';
+import { DriveType } from '@core/enums/drive-type.enum';
 
 @Component({
   selector: 'app-add-listing',
@@ -49,23 +52,31 @@ export class AddListing {
     salePrice: ['', [Validators.required, Validators.min(1)]],
     rentPrice: [''],
     currency: ['USD', Validators.required],
-    category: ['', Validators.required],
     featured: [false],
     visibilityType: ['STANDARD', Validators.required],
     featuredPlan: [null], // only required if FEATURED
 
     vessel: this.fb.group({
       vesselName: ['', Validators.required],
+      category: ['', Validators.required],
       make: ['', Validators.required],
       model: [''],
       year: ['', [Validators.required, Validators.min(1900), Validators.max(new Date().getFullYear())]],
-      boatType: ['', Validators.required],
-      boatClass: ['', Validators.required],
+      vesselType: ['', Validators.required],
+      vesselClass: ['', Validators.required],
+      registryNumber: [''],
+      imoNumber: [''],
       hullMaterial: [''],
+      guestCabins: [''],
+      guestHeads: [''],
+      fuelTank_liter: [''],
+      waterTank_liter: [''],
+      holdingTank_liter: [''],
 
       length_m: ['', [Validators.required, Validators.min(1)]],
       beam_m: [''],
       draft_m: [''],
+      weight_kg: [''],
 
       condition: ['', Validators.required],
       capacity: [0, [Validators.required, Validators.min(1)]],
@@ -89,12 +100,14 @@ export class AddListing {
 
   /** Dropdown data */
   categories = ['Power', 'Sail', 'Other'];
-  boatTypes = ['Sailboat', 'Motorboat', 'Yacht', 'Catamaran', 'Fishing Boat', 'Trawler', 'Speedboat'];
+  vesselTypes = ['Sailboat', 'Motorboat', 'Yacht', 'Catamaran', 'Fishing Boat', 'Trawler', 'Speedboat'];
   listingPurpose = ['ALL', 'SALE', 'RENT'];
   conditions = ['New', 'Used'];
   currencies = ['USD', 'EUR', 'GBP', 'AUD', 'SGD'];
 
-
+  featuredPlans = FeaturedPlan;
+  fuelTypes = Object.values(FuelType);
+  driveTypes = Object.values(DriveType);
 
   /** Engines form array */
   get engines() {
@@ -117,10 +130,12 @@ export class AddListing {
   addEngine() {
     this.engines.push(
       this.fb.group({
-        make: ['', Validators.required],
-        power_hp: ['', Validators.required],
+        brand: ['', Validators.required],
+        model: ['', Validators.required],
+        horsepower: ['', Validators.required],
         hours: [''],
-        qty: ['', Validators.required]
+        driveType: [''],
+        fuelType: [''],
       })
     );
   }

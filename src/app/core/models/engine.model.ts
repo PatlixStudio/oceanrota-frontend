@@ -1,8 +1,9 @@
 export interface Engine {
     id?: number;
-    make?: string;
-    powerHp?: number;
-    capacity?: string;
+    brand?: string;
+    model?: string;
+    horsepower?: number;
+    hours?: string;
     fuelType?: string;
     driveType?: string;
 }

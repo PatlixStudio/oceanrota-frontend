@@ -6,8 +6,8 @@ export interface Vessel {
   /** Basic Info */
   vesselName: string;
   category: string;          // Power / Sail / Other
-  boatType?: string;         // e.g. Catamaran, Yacht
-  boatClass?: string;        // Cruiser, Motor Yacht
+  vesselType?: string;         // e.g. Catamaran, Yacht
+  vesselClass?: string;        // Cruiser, Motor Yacht
   make?: string;
   model?: string;
 
@@ -37,9 +37,14 @@ export interface Vessel {
   features?: Record<string, any>;
 
   /** Location */
-  country?: string;
-  city?: string;
-  port?: string;
+  address?: {
+    address_1: string;
+    address_2?: string;
+    city: string;
+    state: string;
+    country: string;
+    postal_code: string;
+  };
 
   /** Media */
   images?: string[];

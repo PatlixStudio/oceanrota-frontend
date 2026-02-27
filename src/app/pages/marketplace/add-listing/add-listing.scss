@@ -32,15 +32,8 @@
   grid-column: span 2;
 }
 
-.engine-section {
+.section-title {
   grid-column: span 3;
-
-  .engine-item {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-  }
 }
 
 .vessel-section {
@@ -51,6 +44,41 @@
   align-items: center;
   width: 100%;
 }
+
+.dimensions-section {
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.accomodation-section {
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.tanks-section {
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.engine-section {
+  grid-column: span 3;
+
+  .engine-item {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+}
+
 
 .vessel-location {
   margin-top: 24px;
@@ -79,8 +107,8 @@
     gap: 0.5rem;
 
     .preview-item img {
-      width: 100px;
-      height: 100px;
+      width: 220px;
+      height: 220px;
       object-fit: cover;
       border-radius: 8px;
       border: 1px solid #ddd;

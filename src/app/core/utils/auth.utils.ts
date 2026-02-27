@@ -1,0 +1,19 @@
+export function isTokenExpired(token: string | null): boolean {
+  if (!token) return true;
+
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+
+    if (!payload?.exp) {
+      return true;
+    }
+
+    // exp is in seconds, Date.now() is ms
+    const expiryTime = payload.exp * 1000;
+
+    return Date.now() >= expiryTime;
+  } catch {
+    // Invalid token format
+    return true;
+  }
+}

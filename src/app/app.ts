@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { NavigationComponent } from "./layout/navigation/navigation.component";
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,10 @@ import { NavigationComponent } from "./layout/navigation/navigation.component";
 })
 export class App {
   protected readonly title = signal($localize `OceanRota`);
+
+  private authService = inject(AuthService);
+
+  ngOnInit(): void {
+    this.authService.isAuthenticated();
+  }
 }

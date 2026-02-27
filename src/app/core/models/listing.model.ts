@@ -7,7 +7,9 @@ export interface Listing {
   /** Marketplace display info */
   title: string;
   description: string;
-  price?: number;
+  category: string;
+  salePrice?: number;
+  rentPrice?: number;
   currency?: string;
   status?: 'DRAFT' | 'ACTIVE' | 'INACTIVE' | 'SOLD' | 'RENTED';
 

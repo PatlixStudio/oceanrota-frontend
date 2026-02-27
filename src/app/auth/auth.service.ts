@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../core/models/user.model';
 import { isPlatformBrowser } from '@angular/common';
+import { isTokenExpired } from '@core/utils/auth.utils';
 
 interface LoginResponse {
   accessToken: string;
@@ -58,5 +59,16 @@ export class AuthService {
     if (isPlatformBrowser(this.platformId)) {
       localStorage.setItem('token', token);
     }
+  }
+
+  isAuthenticated(): boolean {
+    const token = this.getToken();
+
+    if (!token || isTokenExpired(token)) {
+      this.logout();
+      return false;
+    }
+
+    return true;
   }
 }

@@ -3,17 +3,17 @@
   <!-- Intro / Hero -->
   <section class="intro">
     <h1 i18n="@@marketplaceTitle">⚓ Vessel Marketplace</h1>
-    <!-- <p class="subtitle" i18n="@@marketplaceDesc">
-      Explore a global marketplace for buying and selling vessels of all kinds — from fishing boats to luxury
-      yachts.
-      Connect with trusted sellers and buyers worldwide, and make your next maritime deal with confidence.
-    </p> -->
-    <button mat-raised-button color="primary" [routerLink]="['/marketplace/add-listing']">
-      <span i18n="@@marketplaceListBtn">List Your Vesseel</span>
-    </button>
-    <button mat-raised-button color="primary" [routerLink]="['/tokenize']">
-      <span i18n="@@marketplaceTokenizeBtn">Tokenize Your Vessel</span>
-    </button>
+    <p class="subtitle" i18n="@@marketplaceDesc">
+      Explore a global marketplace for buying and selling vessels of all kinds.
+    </p>
+    <div class="hero-actions">
+      <button mat-raised-button color="primary" [routerLink]="['/marketplace/add-listing']">
+        <span i18n="@@marketplaceListBtn">List Your Vesseel</span>
+      </button>
+      <button mat-raised-button color="primary" [routerLink]="['/tokenize']">
+        <span i18n="@@marketplaceTokenizeBtn">Tokenize Your Vessel</span>
+      </button>
+    </div>
   </section>
 
   <!-- Marketplace Grid -->
@@ -69,9 +69,9 @@
               <mat-card-title>
                 <span [routerLink]="['/marketplace/vessel', listing.id]" class="title-link">{{ listing.title }}</span>
               </mat-card-title>
-              <mat-card-subtitle class="vessel-price">{{ listing.price | currency}} {{ listing.currency
+              <mat-card-subtitle class="vessel-price">{{ listing.salePrice | currency}} {{ listing.currency
                 }}</mat-card-subtitle>
-              <mat-card-subtitle>{{ listing.vessel?.boatClass }} • {{ listing.vessel?.port }}</mat-card-subtitle>
+              <mat-card-subtitle>{{ listing.vessel?.vesselClass }} • {{ listing.vessel?.address?.country }}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
               <p>{{ listing.description }}</p>

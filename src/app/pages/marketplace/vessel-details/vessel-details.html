@@ -10,7 +10,7 @@
         <div class="boat-header">
           <h1 class="boat-title">{{ listing.title }}</h1>
           <h3 class="boat-subtitle">
-            {{ listing.vessel?.make }} • {{ listing.vessel?.boatType }} • {{ listing.vessel?.year }}
+            {{ listing.vessel?.make }} • {{ listing.vessel?.vesselType }} • {{ listing.vessel?.year }}
           </h3>
           <p class="boat-description">{{ listing.description }}</p>
         </div>
@@ -19,13 +19,15 @@
       <mat-card-content>
         <mat-accordion multi="true" class="details-accordion">
           <mat-expansion-panel>
-            <mat-expansion-panel-header>
+            <mat-expansion-panel-header opened>
               <mat-panel-title>Vessel Information</mat-panel-title>
             </mat-expansion-panel-header>
             <div class="info-grid">
-              <p><strong>Category:</strong> {{ listing.vessel?.category }}</p>
-              <p><strong>Class:</strong> {{ listing.vessel?.boatClass }}</p>
+              <p><strong>Category:</strong> {{ listing.vessel?.category}}</p>
+              <p><strong>Class:</strong> {{ listing.vessel?.vesselClass }}</p>
+              <p><strong>Type:</strong> {{ listing.vessel?.vesselType }}</p>
               <p><strong>Length:</strong> {{ listing.vessel?.length_m }} m</p>
+              <p><strong>Beam:</strong> {{ listing.vessel?.beam_m }} m</p>
               <p><strong>Condition:</strong> {{ listing.vessel?.condition }}</p>
               <p><strong>Hull Material:</strong> {{ listing.vessel?.hullMaterial }}</p>
               <p><strong>Capacity:</strong> {{ listing.vessel?.capacity }}</p>
@@ -52,8 +54,9 @@
               <mat-panel-title>Engine Details</mat-panel-title>
             </mat-expansion-panel-header>
             <div *ngFor="let engine of listing.vessel?.engines" class="engine-item">
-              <p><strong>Make:</strong> {{ engine.make }}</p>
-              <p><strong>Power:</strong> {{ engine.powerHp }} HP</p>
+              <p><strong>Brand:</strong> {{ engine.brand }}</p>
+              <p><strong>Model:</strong> {{ engine.model }}</p>
+              <p><strong>Power:</strong> {{ engine.horsepower}} HP</p>
               <p><strong>Fuel:</strong> {{ engine.fuelType }}</p>
             </div>
           </mat-expansion-panel>
@@ -67,9 +70,9 @@
   <div class="boat-right">
     <mat-card class="summary-card">
       <mat-card-content>
-        <h2 class="price">{{ listing.price | number:'1.0-0' }} {{ listing.currency }}</h2>
-        <p><mat-icon>place</mat-icon> {{ listing.vessel?.city }}, {{ listing.vessel?.country }}</p>
-        <p><strong>Port:</strong> {{ listing.vessel?.port }}</p>
+        <h2 class="price">Sale: {{ listing?.salePrice | number:'1.0-0' }} {{ listing.currency }}</h2>
+        <p><mat-icon>place</mat-icon> {{ listing.vessel?.address?.city }}, {{ listing.vessel?.address?.country }}</p>
+        <p><strong>Port:</strong> {{ listing.vessel?.address?.country }}</p>
         <button mat-flat-button color="primary">Contact Owner</button>
         <button mat-stroked-button color="accent">Add to Favorites</button>
       </mat-card-content>

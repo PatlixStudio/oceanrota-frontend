@@ -40,7 +40,7 @@
                 <img [src]="img" alt="Preview">
 
                 <!-- Featured Button -->
-                <button mat-stroked-button color="accent" type="button" class="featured-btn" (click)="setFeatured(img)">
+                <button mat-raised-button color="primary" type="button" class="featured-btn" (click)="setFeatured(img)">
                   {{ featuredImage === img ? 'Featured' : 'Set as Featured' }}
                 </button>
               </div>
@@ -82,13 +82,6 @@
             <mat-label i18n="@@addListing.field.currency.label">Currency</mat-label>
             <mat-select formControlName="currency">
               <mat-option *ngFor="let c of currencies" [value]="c">{{ c }}</mat-option>
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field appearance="outline">
-            <mat-label i18n="@@addListing.field.category.label">Category</mat-label>
-            <mat-select formControlName="category">
-              <mat-option *ngFor="let cat of categories" [value]="cat">{{ cat }}</mat-option>
             </mat-select>
           </mat-form-field>
 
@@ -136,9 +129,9 @@
               <mat-radio-group formControlName="featuredPlan" class="featured-plan-group">
                 <!-- 7 DAYS -->
                 <mat-card class="featured-plan-card">
-                  <mat-radio-button value="FEATURED_7" class="plan-radio">
+                  <mat-radio-button [value]="featuredPlans.FEATURED_30" class="plan-radio">
                     <div class="plan-content">
-                      <h3>7 Days</h3>
+                      <h3>30 Days</h3>
                       <p>Boost visibility for a short period</p>
                       <span class="price">€15</span>
                     </div>
@@ -147,9 +140,9 @@
 
                 <!-- 14 DAYS -->
                 <mat-card class="featured-plan-card recommended">
-                  <mat-radio-button value="FEATURED_14" class="">
+                  <mat-radio-button [value]="featuredPlans.FEATURED_60" class="">
                     <div class="plan-content plan-radio">
-                      <h3>14 Days</h3>
+                      <h3>60 Days</h3>
                       <p>Best balance of exposure & value</p>
                       <span class="price">€29</span>
                       <span class="badge">Most Popular</span>
@@ -159,9 +152,9 @@
 
                 <!-- 30 DAYS -->
                 <mat-card class="featured-plan-card premium">
-                  <mat-radio-button value="FEATURED_30" class="plan-radio">
+                  <mat-radio-button [value]="featuredPlans.FEATURED_90" class="plan-radio">
                     <div class="plan-content">
-                      <h3>30 Days</h3>
+                      <h3>90 Days</h3>
                       <p>Maximum exposure & priority placement</p>
                       <span class="price">€49</span>
                     </div>
@@ -175,6 +168,15 @@
           <!-- Vessel Info -->
           <h3 i18n="@@addListing.section.vessel.title">Vessel Information</h3>
           <div [formGroup]="vesselForm" class="full-width vessel-section">
+
+            <mat-form-field appearance="outline">
+              <mat-label i18n="@@addListing.field.category.label">Category</mat-label>
+              <mat-select formControlName="category">
+                @for (category of categories; track category) {
+                <mat-option [value]="category">{{category}}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
 
             <mat-form-field appearance="outline">
               <mat-label i18n="@@addListing.field.vesselName.label">Vessel Name</mat-label>
@@ -197,54 +199,104 @@
             </mat-form-field>
 
             <mat-form-field appearance="outline">
-              <mat-label i18n="@@addListing.field.boatType.label">Boat Type</mat-label>
-              <mat-select formControlName="boatType">
-                <mat-option *ngFor="let type of boatTypes" [value]="type">{{ type }}</mat-option>
+              <mat-label i18n="@@addListing.field.vesselType.label">Vessel Type</mat-label>
+              <mat-select formControlName="vesselType">
+                <mat-option *ngFor="let type of vesselTypes" [value]="type">{{ type }}</mat-option>
               </mat-select>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
-              <mat-label i18n="@@addListing.field.boatClass.label">Boat Class</mat-label>
-              <input matInput formControlName="boatClass" placeholder="Cruiser, Motor Yacht, etc.">
+              <mat-label i18n="@@addListing.field.boatClass.label">Vessel Class</mat-label>
+              <input matInput formControlName="vesselClass" placeholder="Cruiser, Motor Yacht, etc.">
             </mat-form-field>
 
             <mat-form-field appearance="outline">
-              <mat-label i18n="@@addListing.field.hullMaterial.label">Hull Material</mat-label>
-              <mat-select formControlName="hullMaterial">
-                <mat-option value="Wood">Wood</mat-option>
-                <mat-option value="Fiberglass">Fiberglass</mat-option>
-                <mat-option value="Aluminum">Aluminum</mat-option>
-                <mat-option value="Steel">Steel</mat-option>
-                <mat-option value="Composite">Composite</mat-option>
-              </mat-select>
+              <mat-label i18n="@@addListing.field.boatClass.label">Registry Number</mat-label>
+              <input matInput formControlName="registryNumber" placeholder="CF 1234 AB">
             </mat-form-field>
 
             <mat-form-field appearance="outline">
-              <mat-label i18n="@@addListing.field.length.label">Length (m)</mat-label>
-              <input matInput type="number" formControlName="length_m" placeholder="14.5">
+              <mat-label i18n="@@addListing.field.boatClass.label">IMO Number</mat-label>
+              <input matInput formControlName="imoNumber" placeholder="IMO 1234567">
             </mat-form-field>
 
-            <mat-form-field appearance="outline">
-              <mat-label i18n="@@addListing.field.beam.label">Beam (m)</mat-label>
-              <input matInput type="number" formControlName="beam_m" placeholder="4.5">
-            </mat-form-field>
+            <div class="dimensions-section">
+              <h3 i18n="@@addListing.section.engine.title" class="section-title">Dimensions & Specs</h3>
+              <mat-form-field appearance="outline">
+                <mat-label i18n="@@addListing.field.hullMaterial.label">Hull Material</mat-label>
+                <mat-select formControlName="hullMaterial">
+                  <mat-option value="Wood">Wood</mat-option>
+                  <mat-option value="Fiberglass">Fiberglass</mat-option>
+                  <mat-option value="Aluminum">Aluminum</mat-option>
+                  <mat-option value="Steel">Steel</mat-option>
+                  <mat-option value="Composite">Composite</mat-option>
+                </mat-select>
+              </mat-form-field>
 
-            <mat-form-field appearance="outline">
-              <mat-label i18n="@@addListing.field.draft.label">Draft (m)</mat-label>
-              <input matInput type="number" formControlName="draft_m" placeholder="1.2">
-            </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label i18n="@@addListing.field.length.label">Length (m)</mat-label>
+                <input matInput type="number" formControlName="length_m" placeholder="14.5">
+              </mat-form-field>
 
-            <mat-form-field appearance="outline">
-              <mat-label i18n="@@addListing.field.condition.label">Condition</mat-label>
-              <mat-select formControlName="condition">
-                <mat-option *ngFor="let c of conditions" [value]="c">{{ c }}</mat-option>
-              </mat-select>
-            </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label i18n="@@addListing.field.length.label">Weight (kg)</mat-label>
+                <input matInput type="number" formControlName="weight_kg" placeholder="14.5">
+              </mat-form-field>
 
-            <mat-form-field appearance="outline">
-              <mat-label i18n="@@addListing.field.capacity.label">Capacity</mat-label>
-              <input matInput type="number" formControlName="capacity" placeholder="8">
-            </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label i18n="@@addListing.field.beam.label">Beam (m)</mat-label>
+                <input matInput type="number" formControlName="beam_m" placeholder="4.5">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label i18n="@@addListing.field.draft.label">Draft (m)</mat-label>
+                <input matInput type="number" formControlName="draft_m" placeholder="1.2">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label i18n="@@addListing.field.condition.label">Condition</mat-label>
+                <mat-select formControlName="condition">
+                  <mat-option *ngFor="let c of conditions" [value]="c">{{ c }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label i18n="@@addListing.field.capacity.label">Capacity</mat-label>
+                <input matInput type="number" formControlName="capacity" placeholder="8">
+              </mat-form-field>
+            </div>
+
+            <div class="accomodation-section">
+              <h3 i18n="@@addListing.section.engine.title" class="section-title">Accomodation</h3>
+
+              <mat-form-field appearance="outline">
+                <mat-label i18n="@@addListing.field.capacity.label">Guest Cabins</mat-label>
+                <input matInput type="number" formControlName="guestCabins" placeholder="2">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label i18n="@@addListing.field.capacity.label">Guest Heads</mat-label>
+                <input matInput type="number" formControlName="guestHeads" placeholder="1">
+              </mat-form-field>
+            </div>
+
+            <div class="tanks-section">
+              <h3 i18n="@@addListing.section.engine.title" class="section-title">Tanks</h3>
+              <mat-form-field appearance="outline">
+                <mat-label i18n="@@addListing.field.capacity.label">Fuel Tank (lt)</mat-label>
+                <input matInput type="number" formControlName="fuelTank_liter" placeholder="8">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label i18n="@@addListing.field.capacity.label">Water Tank (lt)</mat-label>
+                <input matInput type="number" formControlName="waterTank_liter" placeholder="8">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label i18n="@@addListing.field.capacity.label">Holding Tank (lt)</mat-label>
+                <input matInput type="number" formControlName="holdingTank_liter" placeholder="8">
+              </mat-form-field>
+            </div>
 
             <!-- Engines -->
             <div formArrayName="engines" class="full-width engine-section">
@@ -252,13 +304,27 @@
 
               <div *ngFor="let engine of engines.controls; let i = index" [formGroupName]="i" class="engine-item">
                 <mat-form-field appearance="outline">
-                  <mat-label i18n="@@addListing.field.engine.make.label">Engine Make</mat-label>
-                  <input matInput formControlName="make" placeholder="Volvo Penta">
+                  <mat-label i18n="@@addListing.field.engine.make.label">Brand</mat-label>
+                  <input matInput formControlName="brand" placeholder="Volvo Penta">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                  <mat-label i18n="@@addListing.field.engine.make.label">Model</mat-label>
+                  <input matInput formControlName="model" placeholder="Volvo Penta">
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
                   <mat-label i18n="@@addListing.field.engine.power.label">Power (hp)</mat-label>
-                  <input matInput type="number" formControlName="power_hp" placeholder="300">
+                  <input matInput type="number" formControlName="horsepower" placeholder="300">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                  <mat-label>Drive Type</mat-label>
+                  <mat-select formControlName="driveType">
+                    @for (drive of driveTypes; track drive) {
+                    <mat-option [value]="drive">{{ drive }}</mat-option>
+                    }
+                  </mat-select>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
@@ -267,8 +333,12 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
-                  <mat-label i18n="@@addListing.field.engine.qty.label">Qantity</mat-label>
-                  <input matInput type="number" formControlName="qty" placeholder="1">
+                  <mat-label>Fuel Type</mat-label>
+                  <mat-select formControlName="fuelType">
+                    @for (fuel of fuelTypes; track fuel) {
+                    <mat-option [value]="fuel">{{fuel}}</mat-option>
+                    }
+                  </mat-select>
                 </mat-form-field>
 
                 <button mat-button color="warn" type="button" (click)="removeEngine(i)"
@@ -278,6 +348,7 @@
               <button mat-stroked-button color="primary" type="button" (click)="addEngine()"
                 i18n="@@addListing.field.engine.add">Add Engine</button>
             </div>
+
             <!-- Location -->
             <div class="vessel-location" [formGroup]="addressFormGroup">
               <h3 class="section-title" i18n="@@addListing.section.vessel.title">
