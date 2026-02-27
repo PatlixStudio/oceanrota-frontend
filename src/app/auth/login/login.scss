@@ -6,6 +6,13 @@
   padding: 2rem;
   background: var(--mat-sys-surface, #f9fafc);
 
+  .logo {
+    display: block;
+    margin: 0 auto 0.5rem;
+    width: 120px;
+    height: auto;
+  }
+
   .login-card {
     width: 100%;
     max-width: 400px;
@@ -28,11 +35,11 @@
 
       mat-card-subtitle {
         font-size: 0.95rem;
-        margin-top: 0.2rem;
+        margin: 1rem;
         color: var(--mat-sys-on-surface-variant, rgba(0, 0, 0, 0.6));
       }
     }
-    
+
     .full-width {
       width: 100%;
     }

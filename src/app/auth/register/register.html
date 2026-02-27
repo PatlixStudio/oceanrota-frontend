@@ -1,13 +1,15 @@
 <div class="register-container">
   <mat-card class="register-card">
+
+    <img src="/assets/images/logo/OceanRota_logo_xs_transparent.png" alt="OceanRota Logo" class="logo" />
+
     <mat-card-header>
       <mat-card-title i18n="@@registerTitle">Register</mat-card-title>
       <mat-card-subtitle i18n="@@registerSubtitle">Create your OceanRota account</mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content>
-      <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
-
+      <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="registerForm"> 
         <!-- Username -->
         <mat-form-field appearance="outline" class="full-width">
           <mat-label i18n="@@registerUsernameLabel">Username</mat-label>

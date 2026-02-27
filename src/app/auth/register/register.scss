@@ -11,6 +11,13 @@
     max-width: 420px;
     padding: 1rem;
 
+    .logo {
+      display: block;
+      margin: 0 auto 0.5rem;
+      width: 120px;
+      height: auto;
+    }
+
     mat-card-header {
       text-align: center;
       display: block;
@@ -22,14 +29,20 @@
 
       mat-card-subtitle {
         font-size: 0.95rem;
-        margin-top: 0.2rem;
+        margin: 1rem;
         color: var(--mat-sys-on-surface-variant, rgba(0, 0, 0, 0.6));
       }
     }
 
+    .registerForm {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
     .name-fields {
       display: flex;
-      gap: 16px;
+      gap: 13px;
 
       .half-width {
         flex: 1;
