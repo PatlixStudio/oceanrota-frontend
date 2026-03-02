@@ -1,11 +1,11 @@
-export const HullTypes = [
-    { slug: "hull-wood", name: "Wood" },
-    { slug: "hull-steel", name: "Steel" },
-    { slug: "hull-aluminum", name: "Aluminum" },
-    { slug: "hull-fiberglass-composite", name: "Composite" },
-    { slug: "hull-ferro-cement", name: "Ferro-Cement" },
-    { slug: "hull-fiberglass-reinforced", name: "Fiberglass" },
-    { slug: "hull-hypalon", name: "Hypalon" },
-    { slug: "hull-other", name: "Other" },
-    { slug: "hull-plastic", name: "PVC" }
+export const HullMaterialTypes = [
+    { key: "wood", label: "Wood" },
+    { key: "steel", label: "Steel" },
+    { key: "aluminum", label: "Aluminum" },
+    { key: "fiberglass-composite", label: "Composite" },
+    { key: "ferro-cement", label: "Ferro-Cement" },
+    { key: "fiberglass-reinforced", label: "Fiberglass" },
+    { key: "hypalon", label: "Hypalon" },
+    { key: "other", label: "Other" },
+    { key: "plastic", label: "PVC" }
 ];

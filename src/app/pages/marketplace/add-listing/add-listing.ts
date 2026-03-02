@@ -14,6 +14,16 @@ import { MatRadioModule } from '@angular/material/radio';
 import { FeaturedPlan } from '@core/enums/featured-plan.enum';
 import { FuelType } from '@core/enums/fuel-type.enum';
 import { DriveType } from '@core/enums/drive-type.enum';
+import { SailVesselTypes } from '@core/constants/sail-vessel.types';
+import { PowerVesselTypes } from '@core/constants/power-vessel.types';
+import { VesselCategories } from '@core/enums/vessel-categories.enum';
+import { HullMaterialTypes } from '@core/constants/hull-material.types';
+import { CommercialVesselTypes } from '@core/constants/commercial-vessel.types';
+import { map, startWith } from 'rxjs';
+import { VesselClasses } from '@core/constants/vessel-class.const';
+import { VesselPurposes } from '@core/constants/vessel-purpose.const';
+import { ListingPurpose } from '@core/enums/listing-purpose.enum';
+
 
 @Component({
   selector: 'app-add-listing',
@@ -44,6 +54,20 @@ export class AddListing {
   selectedFiles!: FileList;
   previewImages: string[] = [];
 
+  /** Dropdown data */
+  conditions = ['New', 'Used'];
+  currencies = ['USD', 'EUR', 'GBP', 'AUD', 'SGD'];
+
+  listingPurpose = Object.values(ListingPurpose);
+  categories = Object.values(VesselCategories);
+  fuelTypes = Object.values(FuelType);
+  driveTypes = Object.values(DriveType);
+
+  vesselClasses = VesselClasses;
+  vesselPurposes = VesselPurposes;
+  hullMaterialTypes = HullMaterialTypes;
+  featuredPlans = FeaturedPlan;
+
   /** NEW MODEL-CORRECT FORM */
   addListingForm: FormGroup = this.fb.group({
     title: ['', [Validators.required, Validators.minLength(5)]],
@@ -60,10 +84,11 @@ export class AddListing {
       vesselName: ['', Validators.required],
       category: ['', Validators.required],
       make: ['', Validators.required],
-      model: [''],
+      model: ['', Validators.required],
       year: ['', [Validators.required, Validators.min(1900), Validators.max(new Date().getFullYear())]],
       vesselType: ['', Validators.required],
       vesselClass: ['', Validators.required],
+      vesselPurpose: ['', Validators.required],
       registryNumber: [''],
       imoNumber: [''],
       hullMaterial: [''],
@@ -98,16 +123,16 @@ export class AddListing {
     }),
   });
 
-  /** Dropdown data */
-  categories = ['Power', 'Sail', 'Other'];
-  vesselTypes = ['Sailboat', 'Motorboat', 'Yacht', 'Catamaran', 'Fishing Boat', 'Trawler', 'Speedboat'];
-  listingPurpose = ['ALL', 'SALE', 'RENT'];
-  conditions = ['New', 'Used'];
-  currencies = ['USD', 'EUR', 'GBP', 'AUD', 'SGD'];
-
-  featuredPlans = FeaturedPlan;
-  fuelTypes = Object.values(FuelType);
-  driveTypes = Object.values(DriveType);
+  vesselTypes$ = this.addListingForm.get('vessel.category')!.valueChanges.pipe(
+    startWith(this.addListingForm.get('vessel.category')!.value),
+    map(category => {
+      if (category === VesselCategories.POWER) return PowerVesselTypes;
+      if (category === VesselCategories.SAIL) return SailVesselTypes;
+      if (category === VesselCategories.COMMERCIAL) return CommercialVesselTypes;
+      if (category === VesselCategories.OTHER) return CommercialVesselTypes;
+      return [];
+    })
+  );
 
   /** Engines form array */
   get engines() {

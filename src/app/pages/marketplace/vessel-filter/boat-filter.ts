@@ -11,9 +11,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
-import { SailBoatTypes } from '../../../core/constants/sail-boat.types';
-import { PowerBoatTypes } from '../../../core/constants/power-boat.types';
-import { HullTypes } from '../../../core/constants/hull-material.types';
+import { HullMaterialTypes } from '../../../core/constants/hull-material.types';
+import { SailVesselTypes } from '@core/constants/sail-vessel.types';
+import { PowerVesselTypes } from '@core/constants/power-vessel.types';
 
 @Component({
   selector: 'app-boat-filter',
@@ -59,9 +59,9 @@ export class BoatFilter {
   listing_type = ['Sale', 'Rent'];
 
 
-  sailBoatTypes = SailBoatTypes;
-  powerBoatTypes = PowerBoatTypes;
-  hullTypes = HullTypes;
+  sailBoatTypes = SailVesselTypes;
+  powerBoatTypes = PowerVesselTypes;
+  hullTypes = HullMaterialTypes;
 
   applyFilter() {
     const filters = this.filterForm.value;

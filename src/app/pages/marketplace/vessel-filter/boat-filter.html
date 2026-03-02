@@ -25,9 +25,9 @@
                         <mat-panel-title>Power</mat-panel-title>
                     </mat-expansion-panel-header>
                     <mat-selection-list #powerBoat>
-                        @for (powerBoat of powerBoatTypes; track powerBoat.name)
+                        @for (powerBoat of powerBoatTypes; track powerBoat)
                         {
-                        <mat-list-option>{{ powerBoat.name }}</mat-list-option>
+                        <mat-list-option [value]="powerBoat.key">{{ powerBoat.label }}</mat-list-option>
                         }
                     </mat-selection-list>
                 </mat-expansion-panel>
@@ -37,9 +37,9 @@
                         <mat-panel-title>Sail</mat-panel-title>
                     </mat-expansion-panel-header>
                     <mat-selection-list #sailBoat>
-                        @for (sailBoat of sailBoatTypes; track sailBoat.name)
+                        @for (sailBoat of sailBoatTypes; track sailBoat)
                         {
-                        <mat-list-option>{{sailBoat.name}}</mat-list-option>
+                        <mat-list-option [value]="sailBoat.key">{{sailBoat.label}}</mat-list-option>
                         }
                     </mat-selection-list>
                 </mat-expansion-panel>
@@ -150,9 +150,9 @@
                 </mat-expansion-panel-header>
 
                 <mat-selection-list #hullType>
-                    @for (hullType of hullTypes; track hullType.slug)
+                    @for (hullType of hullTypes; track hullType)
                     {
-                    <mat-list-option>{{ hullType.name }}</mat-list-option>
+                    <mat-list-option [value]="hullType.key">{{ hullType.label }}</mat-list-option>
                     }
                 </mat-selection-list>
             </mat-expansion-panel>

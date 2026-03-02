@@ -66,19 +66,12 @@
             <input matInput type="number" formControlName="salePrice" placeholder="100000">
           </mat-form-field>
 
-          <mat-form-field appearance="outline" *ngIf="isSale()">
-            <mat-label i18n="@@addListing.field.currency.label">Currency</mat-label>
-            <mat-select formControlName="currency">
-              <mat-option *ngFor="let c of currencies" [value]="c">{{ c }}</mat-option>
-            </mat-select>
-          </mat-form-field>
-
           <mat-form-field appearance="outline" *ngIf="isRent()">
             <mat-label i18n="@@addListing.field.price.label">Rent Price</mat-label>
             <input matInput type="number" formControlName="rentPrice" placeholder="100000">
           </mat-form-field>
 
-          <mat-form-field appearance="outline" *ngIf="isRent()">
+          <mat-form-field appearance="outline">
             <mat-label i18n="@@addListing.field.currency.label">Currency</mat-label>
             <mat-select formControlName="currency">
               <mat-option *ngFor="let c of currencies" [value]="c">{{ c }}</mat-option>
@@ -170,15 +163,6 @@
           <div [formGroup]="vesselForm" class="full-width vessel-section">
 
             <mat-form-field appearance="outline">
-              <mat-label i18n="@@addListing.field.category.label">Category</mat-label>
-              <mat-select formControlName="category">
-                @for (category of categories; track category) {
-                <mat-option [value]="category">{{category}}</mat-option>
-                }
-              </mat-select>
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
               <mat-label i18n="@@addListing.field.vesselName.label">Vessel Name</mat-label>
               <input matInput formControlName="vesselName" placeholder="Sea Ray 40">
             </mat-form-field>
@@ -199,15 +183,46 @@
             </mat-form-field>
 
             <mat-form-field appearance="outline">
+              <mat-label i18n="@@addListing.field.condition.label">Condition</mat-label>
+              <mat-select formControlName="condition">
+                <mat-option *ngFor="let c of conditions" [value]="c">{{ c }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label i18n="@@addListing.field.category.label">Category</mat-label>
+              <mat-select formControlName="category">
+                @for (category of categories; track category) {
+                <mat-option [value]="category">{{category}}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
               <mat-label i18n="@@addListing.field.vesselType.label">Vessel Type</mat-label>
               <mat-select formControlName="vesselType">
-                <mat-option *ngFor="let type of vesselTypes" [value]="type">{{ type }}</mat-option>
+                @for (vesselType of vesselTypes$ | async; track vesselType) {
+                <mat-option [value]="vesselType.key">{{ vesselType.label }}</mat-option>
+                }
               </mat-select>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
               <mat-label i18n="@@addListing.field.boatClass.label">Vessel Class</mat-label>
-              <input matInput formControlName="vesselClass" placeholder="Cruiser, Motor Yacht, etc.">
+              <mat-select formControlName="vesselClass">
+                @for (vesselClass of vesselClasses ; track vesselClass) {
+                <mat-option [value]="vesselClass.key">{{ vesselClass.label }}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label i18n="@@addListing.field.boatClass.label">Vessel Purpose</mat-label>
+              <mat-select formControlName="vesselPurpose">
+                @for (vesselPurpose of vesselPurposes ; track vesselPurpose) {
+                <mat-option [value]="vesselPurpose.key">{{ vesselPurpose.label }}</mat-option>
+                }
+              </mat-select>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
@@ -225,11 +240,9 @@
               <mat-form-field appearance="outline">
                 <mat-label i18n="@@addListing.field.hullMaterial.label">Hull Material</mat-label>
                 <mat-select formControlName="hullMaterial">
-                  <mat-option value="Wood">Wood</mat-option>
-                  <mat-option value="Fiberglass">Fiberglass</mat-option>
-                  <mat-option value="Aluminum">Aluminum</mat-option>
-                  <mat-option value="Steel">Steel</mat-option>
-                  <mat-option value="Composite">Composite</mat-option>
+                  @for (hull of hullMaterialTypes; track hull) {
+                  <mat-option [value]="hull.key">{{ hull.label }}</mat-option>
+                  }
                 </mat-select>
               </mat-form-field>
 
@@ -251,13 +264,6 @@
               <mat-form-field appearance="outline">
                 <mat-label i18n="@@addListing.field.draft.label">Draft (m)</mat-label>
                 <input matInput type="number" formControlName="draft_m" placeholder="1.2">
-              </mat-form-field>
-
-              <mat-form-field appearance="outline">
-                <mat-label i18n="@@addListing.field.condition.label">Condition</mat-label>
-                <mat-select formControlName="condition">
-                  <mat-option *ngFor="let c of conditions" [value]="c">{{ c }}</mat-option>
-                </mat-select>
               </mat-form-field>
 
               <mat-form-field appearance="outline">

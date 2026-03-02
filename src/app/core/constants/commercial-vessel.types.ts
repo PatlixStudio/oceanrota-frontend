@@ -1,0 +1,18 @@
+export const CommercialVesselTypes = [
+  { key: 'commercial-cargo', label: 'Cargo Vessel' },
+  { key: 'commercial-container', label: 'Container Ship' },
+  { key: 'commercial-bulk-carrier', label: 'Bulk Carrier' },
+  { key: 'commercial-tanker', label: 'Tanker' },
+  { key: 'commercial-passenger', label: 'Passenger Vessel' },
+  { key: 'commercial-ferry', label: 'Ferry' },
+  { key: 'commercial-ro-ro', label: 'Ro-Ro Vessel' },
+  { key: 'commercial-fishing', label: 'Fishing Vessel' },
+  { key: 'commercial-trawler', label: 'Fishing Trawler' },
+  { key: 'commercial-tug', label: 'Tugboat' },
+  { key: 'commercial-workboat', label: 'Workboat' },
+  { key: 'commercial-offshore', label: 'Offshore Support Vessel' },
+  { key: 'commercial-research', label: 'Research Vessel' },
+  { key: 'commercial-patrol', label: 'Patrol Vessel' },
+  { key: 'commercial-dredger', label: 'Dredger' },
+  { key: 'commercial-other', label: 'Other Commercial Vessel' },
+];
