@@ -23,6 +23,7 @@ import { map, startWith } from 'rxjs';
 import { VesselClasses } from '@core/constants/vessel-class.const';
 import { VesselPurposes } from '@core/constants/vessel-purpose.const';
 import { ListingPurpose } from '@core/enums/listing-purpose.enum';
+import { OtherVesselTypes } from '@core/constants/other-vessel.types';
 
 
 @Component({
@@ -129,7 +130,7 @@ export class AddListing {
       if (category === VesselCategories.POWER) return PowerVesselTypes;
       if (category === VesselCategories.SAIL) return SailVesselTypes;
       if (category === VesselCategories.COMMERCIAL) return CommercialVesselTypes;
-      if (category === VesselCategories.OTHER) return CommercialVesselTypes;
+      if (category === VesselCategories.OTHER) return OtherVesselTypes;
       return [];
     })
   );
