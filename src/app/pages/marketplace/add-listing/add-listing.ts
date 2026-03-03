@@ -80,6 +80,7 @@ export class AddListing {
     featured: [false],
     visibilityType: ['STANDARD', Validators.required],
     featuredPlan: [null], // only required if FEATURED
+    isActive: [false],
 
     vessel: this.fb.group({
       vesselName: ['', Validators.required],

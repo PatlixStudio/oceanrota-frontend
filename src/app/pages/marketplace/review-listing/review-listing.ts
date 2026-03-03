@@ -51,6 +51,7 @@ export class ReviewListing {
 
     const data: Partial<Listing> = {
       status: ListingStatus.ACTIVE,
+      isActive: true
     };
 
     if (!currentVessel.isFeatured && currentVessel.status === ListingStatus.DRAFT) {
