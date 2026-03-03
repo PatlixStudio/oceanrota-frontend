@@ -69,13 +69,17 @@ export class MarketplaceService {
   }
 
   // Optionally fetch a single listing by id
-  getBoatById(id: number) {
+  getVesselById(id: number) {
     return this.http.get<Listing>(`${this.apiUrl}/listings/${id}`);
   }
 
   // create a new listing
   createListing(data: FormData): Observable<Listing> {
     return this.http.post<Listing>(`${this.apiUrl}/listings`, data);
+  }
+
+  updateListingById(id: number, data: Partial<Listing>) {
+    return this.http.put<Listing>(`${this.apiUrl}/listings/${id}`, data);
   }
 
   uploadListingImages(listingId: number, formData: FormData) {

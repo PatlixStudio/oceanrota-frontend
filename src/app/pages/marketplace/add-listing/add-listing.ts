@@ -75,7 +75,7 @@ export class AddListing {
     description: ['', [Validators.required, Validators.minLength(20)]],
     listingPurpose: ['ALL', Validators.required],
     salePrice: ['', [Validators.required, Validators.min(1)]],
-    rentPrice: [''],
+    rentPrice: [null],
     currency: ['USD', Validators.required],
     featured: [false],
     visibilityType: ['STANDARD', Validators.required],
@@ -91,23 +91,23 @@ export class AddListing {
       vesselClass: ['', Validators.required],
       vesselPurpose: ['', Validators.required],
       registryNumber: [''],
-      imoNumber: [''],
+      imoNumber: [null],
       hullMaterial: [''],
-      guestCabins: [''],
-      guestHeads: [''],
-      fuelTank_liter: [''],
-      waterTank_liter: [''],
-      holdingTank_liter: [''],
+      guestCabins: [null],
+      guestHeads: [null],
+      fuelTank_liter: [null],
+      waterTank_liter: [null],
+      holdingTank_liter: [null],
 
       length_m: ['', [Validators.required, Validators.min(1)]],
-      beam_m: [''],
-      draft_m: [''],
-      weight_kg: [''],
+      beam_m: [null],
+      draft_m: [null],
+      weight_kg: [null],
 
-      condition: ['', Validators.required],
+      condition: ['New', Validators.required],
       capacity: [0, [Validators.required, Validators.min(1)]],
 
-      images: [[]], // filled via FormData only
+      images: [[]], 
 
       engines: this.fb.array([]),
 
@@ -208,7 +208,7 @@ export class AddListing {
         if (this.selectedFiles?.length) {
           this.uploadImages(listing.id);
         } else {
-          this.finishFlow();
+          this.finishFlow(listing.id);
         }
       },
       error: (err) => {
@@ -226,9 +226,9 @@ export class AddListing {
     });
 
     this.marketplaceService.uploadListingImages(listingId, formData).subscribe({
-      next: (res) => {
+      next: (res: any) => {
         console.log('Images uploaded', res);
-        this.finishFlow();
+        this.finishFlow(res.id);
       },
       error: (err) => {
         console.error('Image upload failed', err);
@@ -237,9 +237,9 @@ export class AddListing {
     });
   }
 
-  private finishFlow() {
+  private finishFlow(listingId: number) {
     this.loading = false;
-    this.router.navigate(['/marketplace']);
+    this.router.navigate(['/marketplace/review-listing', listingId]);
   }
 
   get listingPurposeControl() {
@@ -248,11 +248,11 @@ export class AddListing {
 
   isSale(): boolean {
     const value = this.listingPurposeControl?.value;
-    return value === 'SALE' || value === 'ALL';
+    return value === ListingPurpose.SALE || value === ListingPurpose.ALL;
   }
 
   isRent(): boolean {
     const value = this.listingPurposeControl?.value;
-    return value === 'RENT' || value === 'ALL';
+    return value === ListingPurpose.RENT || value === ListingPurpose.ALL;
   }
 }

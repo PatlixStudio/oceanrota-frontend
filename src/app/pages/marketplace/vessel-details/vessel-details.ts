@@ -8,7 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { GalleryModule, GalleryItem, ImageItem  } from 'ng-gallery';
+import { GalleryModule, GalleryItem, ImageItem } from 'ng-gallery';
 
 @Component({
   selector: 'app-vessel-details',
@@ -28,13 +28,13 @@ export class VesselDetails {
   private route = inject(ActivatedRoute);
   private marketplaceService = inject(MarketplaceService);
 
-  boat = signal<Listing | null>(null);
+  vessel = signal<Listing | null>(null);
   galleryItems: GalleryItem[] = [];
 
   constructor() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.marketplaceService.getBoatById(id).subscribe((res) => {
-      this.boat.set(res);
+    this.marketplaceService.getVesselById(id).subscribe((res) => {
+      this.vessel.set(res);
       this.prepareGallery(res);
     });
   }

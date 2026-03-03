@@ -1,4 +1,4 @@
-.boat-details-grid {
+.vessel-details-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 2rem;
@@ -9,7 +9,7 @@
   }
 }
 
-.boat-left {
+.vessel-left {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -24,7 +24,7 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-.boat-gallery {
+.vessel-gallery {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -43,19 +43,19 @@
   }
 }
 
-.boat-header {
-  .boat-title {
+.vessel-header {
+  .vessel-title {
     font-size: 1.8rem;
     font-weight: 600;
     margin: 0.5rem 0;
   }
 
-  .boat-subtitle {
+  .vessel-subtitle {
     color: #666;
     margin-bottom: 1rem;
   }
 
-  .boat-description {
+  .vessel-description {
     font-size: 1rem;
     color: #444;
     line-height: 1.6;
@@ -77,7 +77,7 @@
   }
 }
 
-.boat-right {
+.vessel-right {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;

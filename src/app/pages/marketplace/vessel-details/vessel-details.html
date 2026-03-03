@@ -1,25 +1,25 @@
-@if ( boat(); as listing) {
-<div class="boat-details-grid">
+@if ( vessel(); as listing) {
+<div class="vessel-details-grid">
 
   <!-- LEFT SIDE -->
-  <div class="boat-left">
+  <div class="vessel-left">
     <mat-card>
       <gallery [items]="galleryItems" thumbs thumbPosition="bottom" imageSize="cover" loadingStrategy="lazy" lightbox></gallery>
 
       <mat-card-header>
-        <div class="boat-header">
-          <h1 class="boat-title">{{ listing.title }}</h1>
-          <h3 class="boat-subtitle">
+        <div class="vessel-header">
+          <h1 class="vessel-title">{{ listing.title }}</h1>
+          <h3 class="vessel-subtitle">
             {{ listing.vessel?.make }} • {{ listing.vessel?.vesselType }} • {{ listing.vessel?.year }}
           </h3>
-          <p class="boat-description">{{ listing.description }}</p>
+          <p class="vessel-description">{{ listing.description }}</p>
         </div>
       </mat-card-header>
 
       <mat-card-content>
         <mat-accordion multi="true" class="details-accordion">
           <mat-expansion-panel>
-            <mat-expansion-panel-header opened>
+            <mat-expansion-panel-header expanded="true">
               <mat-panel-title>Vessel Information</mat-panel-title>
             </mat-expansion-panel-header>
             <div class="info-grid">
@@ -36,7 +36,7 @@
           </mat-expansion-panel>
 
           @if (listing.vessel?.features) {
-          <mat-expansion-panel>
+          <mat-expansion-panel expanded>
             <mat-expansion-panel-header>
               <mat-panel-title>Features</mat-panel-title>
             </mat-expansion-panel-header>
@@ -67,7 +67,7 @@
   </div>
 
   <!-- RIGHT SIDE -->
-  <div class="boat-right">
+  <div class="vessel-right">
     <mat-card class="summary-card">
       <mat-card-content>
         <h2 class="price">Sale: {{ listing?.salePrice | number:'1.0-0' }} {{ listing.currency }}</h2>

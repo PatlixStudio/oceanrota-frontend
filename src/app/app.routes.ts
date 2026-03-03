@@ -18,6 +18,7 @@ import { CreateJob } from './pages/seafarers/create-job/create-job';
 import { CourseDetails } from './pages/mairtime-training/course-details/course-details';
 import { TokenizeVessel } from './pages/tokenize-vessel/tokenize-vessel';
 import { MarineShop } from './pages/marine-shop/marine-shop';
+import { ReviewListing } from './pages/marketplace/review-listing/review-listing';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -31,7 +32,8 @@ export const routes: Routes = [
         children: [
             { path: '', component: MarketPlace },
             { path: 'vessel/:id', component: VesselDetails },
-            { path: 'add-listing', component: AddListing }
+            { path: 'add-listing', component: AddListing },
+            { path: 'review-listing/:id', component: ReviewListing }
         ]
     },
     {

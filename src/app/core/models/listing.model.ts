@@ -1,8 +1,9 @@
 import { Vessel } from "./vessel.model";
 import { User } from "./user.model";
+import { ListingStatus } from "@core/enums/listing-status.enum";
 
 export interface Listing {
-  id?: number;
+  id: number;
 
   /** Marketplace display info */
   title: string;
@@ -11,7 +12,9 @@ export interface Listing {
   salePrice?: number;
   rentPrice?: number;
   currency?: string;
-  status?: 'DRAFT' | 'ACTIVE' | 'INACTIVE' | 'SOLD' | 'RENTED';
+  status?: ListingStatus;
+  visibilityType?: string; // e.g. 'STANDARD', 'PREMIUM', 'EXCLUSIVE'
+  listingType?: string; // e.g. 'SALE', 'RENT', 'ALL'
 
   /** Owner */
   ownerId?: number;
