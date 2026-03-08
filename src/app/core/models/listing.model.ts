@@ -1,6 +1,7 @@
 import { Vessel } from "./vessel.model";
 import { User } from "./user.model";
 import { ListingStatus } from "@core/enums/listing-status.enum";
+import { FeaturedPlan } from "@core/enums/featured-plan.enum";
 
 export interface Listing {
   id: number;
@@ -26,7 +27,7 @@ export interface Listing {
 
   /** Featured / Promotion Flags */
   isFeatured?: boolean;
-  featuredFeeUsd?: number;
+  featuredPlan?: FeaturedPlan;
   featuredUntil?: string | null;
 
   isNewArrival?: boolean;

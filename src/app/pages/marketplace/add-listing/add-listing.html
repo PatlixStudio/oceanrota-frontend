@@ -83,10 +83,10 @@
               Listing Visibility
             </h3>
 
-            <mat-radio-group formControlName="visibilityType" class="visibility-group">
+            <mat-radio-group formControlName="visibilityType" class="visibility-group" (change)="onVisibilityChange()">
 
               <!-- STANDARD -->
-              <mat-radio-button value="STANDARD" class="visibility-option">
+              <mat-radio-button [value]="listingVisibilityTypes.STANDARD" class="visibility-option">
                 <div class="option-content standard">
                   <strong i18n="@@addListing.visibility.standard.title">
                     Standard Listing
@@ -99,7 +99,7 @@
               </mat-radio-button>
 
               <!-- FEATURED -->
-              <mat-radio-button value="FEATURED" class="visibility-option">
+              <mat-radio-button [value]="listingVisibilityTypes.FEATURED" class="visibility-option">
                 <div class="option-content featured">
                   <strong i18n="@@addListing.visibility.featured.title">
                     ★ Featured Listing
@@ -119,7 +119,7 @@
                 Choose Featured Duration
               </h4>
 
-              <mat-radio-group formControlName="featuredPlan" class="featured-plan-group">
+              <mat-radio-group formControlName="featuredPlan" class="featured-plan-group" (change)="onFeaturedPlanSelected()">
                 <!-- 7 DAYS -->
                 <mat-card class="featured-plan-card">
                   <mat-radio-button [value]="featuredPlans.FEATURED_30" class="plan-radio">

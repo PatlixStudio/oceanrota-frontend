@@ -24,6 +24,7 @@ import { VesselClasses } from '@core/constants/vessel-class.const';
 import { VesselPurposes } from '@core/constants/vessel-purpose.const';
 import { ListingPurpose } from '@core/enums/listing-purpose.enum';
 import { OtherVesselTypes } from '@core/constants/other-vessel.types';
+import { ListingVisibilityType } from '@core/enums/listing-visibiliy.enum';
 
 
 @Component({
@@ -68,6 +69,7 @@ export class AddListing {
   vesselPurposes = VesselPurposes;
   hullMaterialTypes = HullMaterialTypes;
   featuredPlans = FeaturedPlan;
+  listingVisibilityTypes = ListingVisibilityType;
 
   /** NEW MODEL-CORRECT FORM */
   addListingForm: FormGroup = this.fb.group({
@@ -77,9 +79,9 @@ export class AddListing {
     salePrice: ['', [Validators.required, Validators.min(1)]],
     rentPrice: [null],
     currency: ['USD', Validators.required],
-    featured: [false],
-    visibilityType: ['STANDARD', Validators.required],
-    featuredPlan: [null], // only required if FEATURED
+    isFeatured: [false],
+    visibilityType: [this.listingVisibilityTypes.STANDARD, Validators.required],
+    featuredPlan: [this.featuredPlans.FEATURED_90], // only required if FEATURED
     isActive: [false],
 
     vessel: this.fb.group({
@@ -108,7 +110,7 @@ export class AddListing {
       condition: ['New', Validators.required],
       capacity: [0, [Validators.required, Validators.min(1)]],
 
-      images: [[]], 
+      images: [[]],
 
       engines: this.fb.array([]),
 
@@ -150,6 +152,10 @@ export class AddListing {
     return this.addListingForm.get('vessel.address') as FormGroup;
   }
 
+  get listingPurposeControl() {
+    return this.addListingForm.get('listingPurpose');
+  }
+
   setFeatured(img: string) {
     this.featuredImage = img;
   }
@@ -189,6 +195,21 @@ export class AddListing {
       reader.readAsDataURL(file);
     });
   }
+
+  onVisibilityChange() {
+    console.log('Visibility changed', this.addListingForm.get('visibilityType')?.value);
+    if (this.addListingForm.get('visibilityType')?.value === ListingVisibilityType.STANDARD) {
+      this.addListingForm.get('isFeatured')?.setValue(false);
+    } else {
+      this.addListingForm.get('isFeatured')?.setValue(true);
+    }
+  }
+
+  onFeaturedPlanSelected() {
+    const selectedPlan = this.addListingForm.get('featuredPlan')?.value;
+    console.log('Selected featured plan', selectedPlan);
+  }
+
 
   /** Submit form */
   createListing() {
@@ -241,10 +262,6 @@ export class AddListing {
   private finishFlow(listingId: number) {
     this.loading = false;
     this.router.navigate(['/marketplace/review-listing', listingId]);
-  }
-
-  get listingPurposeControl() {
-    return this.addListingForm.get('listingPurpose');
   }
 
   isSale(): boolean {
