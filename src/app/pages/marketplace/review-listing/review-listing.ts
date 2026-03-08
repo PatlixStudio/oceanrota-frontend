@@ -5,9 +5,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FeaturedPlan } from '@core/enums/featured-plan.enum';
 import { ListingStatus } from '@core/enums/listing-status.enum';
+import { ListingVisibilityType } from '@core/enums/listing-visibiliy.enum';
 import { Listing } from '@core/models/listing.model';
 import { MarketplaceService } from '@services/marketplace.service';
+import { PaymentService } from '@services/payment.service';
+import { StripeService } from '@services/stripe.service';
 import { GalleryItem, GalleryModule, ImageItem } from 'ng-gallery';
 
 @Component({
@@ -25,12 +29,16 @@ import { GalleryItem, GalleryModule, ImageItem } from 'ng-gallery';
   styleUrl: './review-listing.scss'
 })
 export class ReviewListing {
-  vessel = signal<Listing | null>(null);
-  galleryItems: GalleryItem[] = [];
-
   private router = inject(Router);
   private route = inject(ActivatedRoute);
   private marketplaceService = inject(MarketplaceService);
+  private paymentService = inject(PaymentService);
+  private stripeService = inject(StripeService);
+
+  vessel = signal<Listing | null>(null);
+  galleryItems: GalleryItem[] = [];
+  clientSecret = signal<string | null>(null);
+  loadingPayment = signal(false);
 
   constructor() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
@@ -54,7 +62,7 @@ export class ReviewListing {
       isActive: true
     };
 
-    if (!currentVessel.isFeatured && currentVessel.status === ListingStatus.DRAFT) {
+    if (currentVessel.status === ListingStatus.DRAFT && currentVessel.visibilityType === ListingVisibilityType.STANDARD && !currentVessel.isFeatured) {
       this.marketplaceService.updateListingById(currentVessel.id, data).subscribe({
         next: (res) => {
           // Handle success, e.g. show a success message or navigate away
@@ -68,8 +76,60 @@ export class ReviewListing {
       });
     }
 
-    if (currentVessel.isFeatured && currentVessel.visibilityType === 'FEATURED') {
+    if (currentVessel.isFeatured && currentVessel.visibilityType === ListingVisibilityType.FEATURED) {
+      this.startFeaturedPayment(currentVessel.id, currentVessel.featuredPlan!);
+    }
+  }
+
+  private startFeaturedPayment(listingId: number, featuredPlan: FeaturedPlan) {
+
+    this.loadingPayment.set(true);
+
+    this.paymentService.createFeaturedPayment(listingId, featuredPlan).subscribe({
+      next: async (res) => {
+
+        this.clientSecret.set(res.clientSecret);
+        console.log('Received client secret for payment:', res.clientSecret);
+
+        await this.payWithStripe();
+
+      },
+      error: (err) => {
+        console.error('Payment creation failed', err);
+        this.loadingPayment.set(false);
+      }
+    });
+
+  }
+
+  private async payWithStripe() {
+
+    const secret = this.clientSecret();
+    if (!secret) return;
+
+    const stripe = await this.stripeService.getStripe();
+
+    const { error, paymentIntent } = await stripe!.confirmCardPayment(secret, {
+      payment_method: {
+        card: {
+          token: 'tok_visa'
+        }
+      }
+    });
+
+    if (error) {
+      console.error('Stripe payment failed:', error);
+      this.loadingPayment.set(false);
+    } else {
+
+      console.log('Payment successful:', paymentIntent);
+
+      const vessel = this.vessel();
+      if (vessel) {
+        this.router.navigate(['/marketplace/vessel', vessel.id]);
+      }
 
     }
   }
+
 }

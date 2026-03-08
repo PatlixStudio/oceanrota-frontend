@@ -55,7 +55,7 @@
 
           <mat-label i18n="@@addListing.field.listingPurpose.label"><strong>Listing Purpose</strong></mat-label>
           <mat-button-toggle-group formControlName="listingPurpose" name="listing_purpose" aria-label="Listing Purpose"
-            class="listingTypeBtnGrp">
+            class="listingTypeBtnGrp" (change)="onListingPurposeChange()">
             @for (item of listingPurpose; track $index) {
             <mat-button-toggle [value]="item">{{item}}</mat-button-toggle>
             }

@@ -196,6 +196,28 @@ export class AddListing {
     });
   }
 
+  onListingPurposeChange() {
+    const purpose = this.listingPurposeControl?.value;
+    this.addListingForm.get('listingPurpose')?.setValue(purpose);
+    console.log('Listing purpose changed', purpose);
+    
+    if (purpose === ListingPurpose.SALE) {
+      this.addListingForm.get('rentPrice')?.setValue(null);
+      this.addListingForm.get('rentPrice')?.clearValidators();
+      this.addListingForm.get('rentPrice')?.updateValueAndValidity();
+    } else if (purpose === ListingPurpose.RENT) {
+      this.addListingForm.get('salePrice')?.setValue(null);
+      this.addListingForm.get('salePrice')?.clearValidators();
+      this.addListingForm.get('salePrice')?.updateValueAndValidity();
+    } else {
+      // ALL
+      this.addListingForm.get('salePrice')?.setValidators([Validators.required, Validators.min(1)]);
+      this.addListingForm.get('rentPrice')?.setValidators([Validators.required, Validators.min(1)]);
+      this.addListingForm.get('salePrice')?.updateValueAndValidity();
+      this.addListingForm.get('rentPrice')?.updateValueAndValidity();
+    }
+  }
+
   onVisibilityChange() {
     console.log('Visibility changed', this.addListingForm.get('visibilityType')?.value);
     if (this.addListingForm.get('visibilityType')?.value === ListingVisibilityType.STANDARD) {

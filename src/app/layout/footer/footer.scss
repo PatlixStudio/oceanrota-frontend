@@ -23,7 +23,8 @@
       }
     }
 
-    .footer-links, .footer-contact {
+    .footer-links,
+    .footer-contact {
       flex: 1 1 200px;
 
       h3 {
@@ -58,7 +59,8 @@
 
         a mat-icon {
           font-size: 24px;
-          color: var(--mat-sys-on-surface, #1a1a1a);
+          color: var(--mat-sys-on-surface, gold);
+          padding: 5px;
 
           &:hover {
             color: var(--mat-sys-primary-light, #ffffff);
